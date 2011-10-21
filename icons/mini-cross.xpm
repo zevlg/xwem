@@ -1,0 +1,26 @@
+/* XPM */
+static char *mini_cross_xpm[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 4 1",
+" 	c None",
+"#	c black",
+"r	c red",
+"X	c gray50",
+/* pixels */
+"                ",
+"           r    ",
+"   rrX    rrr   ",
+"    rrX  rrrrr  ",
+"     rrrrrrr##  ",
+"      rrrrr#    ",
+"      rrrr#     ",
+"     rrrrrr     ",
+"     rr# rrr    ",
+"    rr#   rrr   ",
+"    r#     rrX  ",
+"   r#       r#  ",
+"   #         #  ",
+"                ",
+"                ",
+"                "
+};

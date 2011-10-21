@@ -1,0 +1,31 @@
+/* XPM */
+static char *mini_djvu_xpm[] = {
+/* columns rows colors chars-per-pixel */
+"14 14 11 1",
+" 	c None",
+"#	c black",
+".	c #891A0A",
+"X	c #896C0A",
+"o	c #A65B46",
+"O	c #878606",
+"+	c #92916D",
+"@	c #FEFE00",
+"*	c #D4D42A",
+"$	c gray100",
+"%	c #5555AA",
+/* pixels */
+"              ",
+"   ########   ",
+"   #O+o.XO#O  ",
+"   #Xo..XO### ",
+" @@@@@@@*@OO# ",
+" %+++*+@++OO# ",
+" +@+%+*+++X.# ",
+" %+*%+@%@+.O# ",
+" @@@@@@@@@XO# ",
+"   #OXXXXXXX# ",
+"   #OXX.OX..# ",
+"   #.XXXO..O# ",
+"   ########## ",
+"              "
+};

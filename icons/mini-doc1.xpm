@@ -1,0 +1,26 @@
+/* XPM */
+static char *mini_doc_xpm[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 4 1",
+" 	c None",
+"#	c black",
+".	c white",
+"o	c #808080",
+/* pixels */
+"                ",
+"   #######      ",
+"   #.....##     ",
+"   #.ooo.#.#    ",
+"   #.....####   ",
+"   #.oooo.oo#o  ",
+"   #........#o  ",
+"   #.oooooo.#o  ",
+"   #........#o  ",
+"   #.oooooo.#o  ",
+"   #........#o  ",
+"   #.oooooo.#o  ",
+"   #........#o  ",
+"   ##########o  ",
+"    oooooooooo  ",
+"                "
+};

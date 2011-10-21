@@ -1,0 +1,9 @@
+@node Manage Database, System Tray, Text Specifications, Subsystems
+@section Manage Database
+@cindex manage
+
+@dfn{Manage Database} is list of some information about certain X11
+applications.  It contain info about how to deal with that X11
+application, how it should managed, demanaged, iconified, refited, etc.
+
+TODO: write me

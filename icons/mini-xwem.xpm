@@ -1,0 +1,26 @@
+/* XPM */
+static char *mini_xwem_xpm[] = {
+/* width height num_colors chars_per_pixel */
+"34 13 7 1",
+/* colors */
+" 	c None",
+".	c black",
+"W	c red",
+"E	c green",
+"M	c blue",
+"o	c yellow",
+"c	c cyan",
+/* pixels */
+".....       W .   WEWEWcMM     M M",
+" .....     W .   WEWEWccMMM   M M ",
+"  .....   W .   WEWoWccEcMMM M M  ",
+"   ..... W .   WEWoWMMEEEcMMM M   ",
+"    ..... .   WEWEWMM  EEEcM M    ",
+"     ... .   WEWEWcc    EEEEM     ",
+"     W. ... WEWoWccEE    EEM      ",
+"    W. .....EWoWMMEEEE    M       ",
+"   W. W .....EWMM  EEEE  M        ",
+"  W. WWW .....EM    EEEEM         ",
+" W. WWWWWE.....E     EEM          ",
+"W. W  WWWWE.....E     M           ",
+".WW    WWWWE.....E   M            "};

@@ -1,0 +1,137 @@
+@page
+@node Subsystems, Hooking, Primitives, Top
+@chapter XWEM Subsystems
+@cindex subsystem
+
+There many subsystems in XWEM. Such as keyboard operations, pointer
+operations, text and graphical contexts operations, manage database
+operations and so on.
+
+TODO: write me
+
+@menu
+* Keyboard::		Keyboard support.
+* Mouse::		Mouse support.
+* Text Specifications::	Various texts support.
+* Manage Database::	How various X11 clients are managed.
+* System Tray::		Make your xwem minibuffer to be a dockapp holder.
+* Help::		XWEM is self documented.
+@end menu
+
+@node Keyboard, Mouse, Subsystems, Subsystems
+@section Keyboard
+@cindex keyboard
+
+Keyboard support in XWEM is much like how XEmacs deals with keyboard
+i.e. keymap notation used to interpret key sequences to commands
+relation.
+
+@menu
+* Keymaps::		Keymaps used by XWEM.
+* Keymap Operations::	What you can do with XWEM keymaps.
+* Smart Modifiers::	Special modifiers mode support.
+@end menu
+
+@node Keymaps, Keymap Operations, Keyboard, Keyboard
+@comment  node-name,  next,  previous,  up
+@subsection Keymaps
+@cindex keymap
+
+Keymaps used in XWEM is:
+
+@defvar xwem-global-map
+This is global XWEM keymap.
+@end defvar
+
+@defvar xwem-help-map
+Keymap for help commands.
+@end defvar
+
+@defvar xwem-hyp-x-map
+This keymap is for Hyper-X commands.
+@end defvar
+
+@defvar xwem-hyp-x-4-map
+Keymap for Hyper-X-4 commands.
+@end defvar
+
+@defvar xwem-hyp-x-5-map
+Keymap for Hyper-X-5 commands.
+@end defvar
+
+@defvar xwem-hyp-x-7-map
+Keymap for Hyper-X-7 commands.
+@end defvar
+
+@defvar xwem-launcher-map
+Keymap for XWEM launcher.
+@end defvar
+
+@defvar xwem-launcher-other-win-map
+Keymap for launcher commands in other Window.
+@end defvar
+
+@defvar xwem-launcher-other-frame-map
+Keymap for launcher commands in other Frame.
+@end defvar
+
+@defvar xwem-user-macros-map
+Keymap for user's keyboard macros.
+@end defvar
+
+@defvar xwem-hyp-resize-map
+Keymap for Window resize commands.
+@end defvar
+
+
+@node Keymap Operations, Smart Modifiers, Keymaps, Keyboard
+@comment  node-name,  next,  previous,  up
+@subsection Keymap Operations
+@cindex keymap
+
+TODO: write me
+
+@node Smart Modifiers, , Keymap Operations, Keyboard
+@subsection Smart Modifiers
+@cindex modifiers
+
+@dfn{Smart modifier} is key which can act as modifier when it is used in
+combination with some other key and as normal key when it is just
+clicked i.e. pressed and released.
+
+To use smart modifiers you must set @code{(setq xwem-use-smart-modifiers
+t)}, default is @code{nil}. And add items to
+@code{xwem-key-smart-modifiers}. Item is vector in form
+@code{[Modifier-keysym Key-Keysym nil nil]}. Second and third elements
+is used internally and it is no need to fill them.
+
+Example:
+@example
+(add-to-list 'xwem-key-smart-modifiers (vector XK-Control-R XK-Space nil
+nil))
+        @result{} add right control to active grabs and send space key
+        when it is clicked.
+@end example
+
+@node Mouse, Text Specifications, Keyboard, Subsystems
+@section Mouse
+@cindex mouse
+@cindex strokes
+
+When I was planning to write XWEM I thought that mouse support will be
+minimal, but when I played a little with X11 stuff I realized where
+mouse may be used to get really useful functionality. Main mouse feature
+over keyboard is that you can generate multiple movement or button
+press/release events in a moment. It can be used to interact with
+Strokes.
+
+@dfn{Stroke} is some mouse motion which yields some command.
+
+TODO: xwem strokes description.
+
+TODO: popup menus description.
+
+@include textspec.texi
+@include manda.texi
+@include tray.texi
+@include help.texi

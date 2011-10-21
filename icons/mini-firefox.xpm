@@ -1,0 +1,34 @@
+/* XPM */
+static char *mini_firefox_xpm[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 12 1",
+" 	c None",
+"X	c #0e265d",
+"o	c #725034",
+"O	c #3d3d4e",
+"@	c #187ab7",
+"#	c #4198cb",
+"$	c #e5701b",
+"%	c #ab3e1c",
+"&	c #f09c2f",
+"*	c #eaa45a",
+"=	c #fed056",
+":	c #b1b4b2",
+/* pixels */
+" OO   XX@XOo:   ",
+" O*OOO::##O*=o  ",
+"O****o::::#:&=o ",
+"o*==**o##::#&&o ",
+"o**&&*:O#####&=o",
+"o**&&*&@#@##@&=o",
+"o$$&$O@@@@@@X&=o",
+"o$$$$oX%o@@@O&=o",
+"o$$$*$$$&O@@O==o",
+"O%$$$$%XX@@O&==O",
+" %%$&$$o@Oo&==O ",
+" O%%$&$$$$$&=$X ",
+"  o%%%$$$$$&%X  ",
+"   XO%%%%%%OX   ",
+"     OOXXOO     ",
+"                "
+};

@@ -1,0 +1,13 @@
+@node Logging, Licenses, Addons, Top
+@chapter Logging
+@cindex logging
+
+XWEM support some logging facilities.  Add next to your @code{~/.xwem/xwemrc.el}:
+
+@lisp
+(setq xwem-debug t)
+@end lisp
+
+If you want more debugging stuff, you can use @code{xmond} utility.
+
+TODO: write me

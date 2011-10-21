@@ -1,0 +1,31 @@
+(defun xwem-batch-custom-make-deps ()
+  (load "cus-dep")
+  (let ((dstdir (car command-line-args-left))
+        (subdirs (cdr command-line-args-left))
+        (ddir default-directory))
+    (setq command-line-args-left nil)
+    (let* ((ofile-name (expand-file-name cusload-base-file dstdir))
+           (ofile (find-file ofile-name)))
+      (unless (file-exists-p ofile-name)
+        (princ (concat (format ";;; %s --- automatically extracted custom dependencies\n"
+                               ofile-name)
+                       "\n;;; Code:\n"
+                       "\n(autoload 'custom-add-loads \"cus-load\")\n\n")
+               ofile)
+
+        (setq cusload-base-file
+              (expand-file-name "tmp-custom-load.el" "./"))
+        (mapc (lambda (dir)
+                (setq default-directory ddir)
+                (Custom-make-dependencies dir)
+                (with-current-buffer (find-file cusload-base-file)
+                  (while (re-search-forward "^(custom-add-loads.*$" nil t)
+                    (princ (buffer-substring (match-beginning 0) (match-end 0))
+                           ofile)
+                    (princ "\n" ofile))
+                  (kill-buffer (current-buffer)))
+                (delete-file cusload-base-file))
+              subdirs)
+
+        (princ (format "\n;;; %s ends here\n" (file-name-nondirectory ofile-name)) ofile)
+        (save-buffer ofile)))))

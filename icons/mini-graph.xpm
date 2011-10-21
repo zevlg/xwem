@@ -1,0 +1,29 @@
+/* XPM */
+static char *mini_graph_xpm[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 7 1",
+" 	c None",
+"#	c black",
+"m	c magenta",
+"b	c blue",
+"g	c green",
+"r	c red",
+"@	c #808080",
+/* pixels */
+"                ",
+"         ###    ",
+"         mm#    ",
+"         mm#    ",
+"     ### mm#    ",
+"     bb# mm#    ",
+"     bb# mm#    ",
+"     bb# mm#    ",
+" ### bb# mm#    ",
+" gg# bb# mm#    ",
+" gg# bb# mm# ###",
+" gg# bb# mm# rr#",
+" gg# bb# mm# rr#",
+" gg# bb# mm# rr#",
+"################",
+" @@@@@@@@@@@@@@@"
+};

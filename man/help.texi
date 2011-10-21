@@ -1,0 +1,8 @@
+@node Help, , System Tray, Subsystems
+@comment  node-name,  next,  previous,  up
+@section Help
+@cindex help
+
+Help subsysem in XWEM is much like XEmacs help subsystem.
+
+TODO: write me

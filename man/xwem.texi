@@ -1,0 +1,129 @@
+\input texinfo @c xwem.texi   -*-TeXinfo-*-
+@c $Id: xwem.texi,v 1.1 2004/03/16 20:33:29 lg Exp $
+@c Copyright (C) 2003 Free Software Foundation
+@c %**start of header
+@setfilename xwem.info
+@settitle XEmacs Window Manager
+@finalout
+@c @setchapternewpage odd
+@c %**end of header
+@set EDITION 1.0
+@set UPDATED May 25, 2003
+
+@dircategory Lisp
+@direntry
+* XWEM: (xwem).		XEMacs Window Manager.
+@end direntry
+
+@ifinfo
+@include xwem-version.texi
+This manual for XWEM project version @value{VERSION}.
+
+The manual was last updated @value{UPDATED}.
+@end ifinfo
+
+@titlepage
+@title XWEM
+@subtitle X Emacs Window Manager
+@subtitle Edition @value{EDITION}, for XWEM version @value{VERSION}
+@author Zajcev Evgeny
+@author Alex Ott
+@end titlepage
+Copyright @copyright{} 2003 Free Software Foundation
+
+This file is part of XWEM.
+
+XWEM is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free
+Software Foundation; either version 2 of the License, or (at your
+option) any later version.
+
+XWEM is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the Free Software Foundation, Inc.,
+59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+
+@contents
+
+@node Top, Overview, , (dir)
+
+This manual is part of XWEM project.  This documentatin is very poor, so
+you better look at .el files for technical stuff.
+
+TODO: write me
+
+@menu
+* Overview::		An introduction.
+* Getting Started::	Launching XWEM for the first time.
+* Primitives::		XWEM primitives.
+* Subsystems::		What is needed by Window Manager.
+* Hooking::		Hooks in XWEM.
+* Addons::		XWEM have some usefull packages(addons).
+* Logging::		Logs facilities in XWEM.
+* Licenses::		What you can't do with XWEM sources.
+* Index::		This file index.
+
+@detailmenu
+ --- The Detailed Node Listing ---
+
+Getting Started
+
+* Configuring X::	How to configure X server.
+* Configuring Emacs::	What you need in ~/.emacs to run XWEM.
+* Configuring XWEM::	How to configure XWEM.
+
+Primitives
+
+* Frame::		Much like Emacs frame.
+* Window::		Much like Emacs window.
+* Client::		Something that in XWEM window.
+* XWEM Minibuffer::	Global minibuffer for Emacs frames.
+
+XWEM Subsystems
+
+* Keyboard::		Keyboard support.
+* Mouse::		Mouse support.
+* Text Specifications::	Various texts support.
+* Manage Database::	How various X11 clients are managed.
+* System Tray::		Support for dock applications.
+* Help::		XWEM is self documented.
+
+Keyboard
+
+* Keymaps::		Keymaps used by XWEM.
+* Keymap Operations::	What you can do with XWEM keymaps.
+* Smart Modifiers::	Special modifiers mode support.
+
+@end detailmenu
+@end menu
+
+@c Overview of XWEM
+@include overview.texi
+@c Getting Started chapter
+@include start.texi
+@c XWEM's Primitives chapter
+@include primitives.texi
+@c XWEM's Subsystems overview chapter
+@include subsystems.texi
+@c Hooks used in XWEM chapter
+@include hooking.texi
+@c XWEM have various usefull packages
+@include addons.texi
+@c How to obtain logs about what XWEM and Xlib do
+@include logging.texi
+
+@node Licenses, Index, Logging, Top
+@chapter Licenses
+@cindex license
+
+I think there is must be GPL text.
+
+@node Index, , Licenses, Top
+@unnumbered Index
+
+@printindex cp
+@bye

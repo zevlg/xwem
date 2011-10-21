@@ -1,0 +1,116 @@
+@node Major Modes, Minor Modes, Modes, Modes
+@section Major Modes
+@cindex Major Modes
+
+XWEM has many different ''major modes''(sometimes refered as
+''managing model''), each of which customizes XWEM for managing client
+of a particular sort.  The major modes are mutually exclusive; at any
+time, each client managed using only one major mode.  The xwem
+modeline normally contains the name of the current major mode in
+parentheses.  Note @pxref{Mode Line}.
+
+   The least specialized major mode is called ''generic
+mode''(@pxref{Generic Mode}.  This mode has no mode-specific
+redefinitions or variable settings.  Each xwem command behaves in its
+most general manner, and each option is in its default state.  For
+managing specific clients, such as Mplayer in or clients with
+WM_TRANSIENT_FOR X property, you should switch to appropriate major
+mode, such as fullscreen or transient.
+
+   Selecting a major mode changes the meanings of a few keys to become
+more specifically adapted to the client being managed.
+
+@menu
+* Mode Methods::       Methods used to manage clients.
+* Modes Overview::     Brief overview of all major modes.
+* Default Mode::       Stub for clients How clients are managed
+* Generic Mode::       How clients are managed by default.
+* Choosing Modes::     How major modes are specified or chosen.
+* Mode Hooks::         Customizing a major mode
+@end menu
+
+@node Mode Methods, Modes Overview, Major Modes, Modes
+@comment  node-name,  next,  previous,  up
+@subsection Mode Methods
+@cindex Mode Methods
+
+Each major mode has few methods to operate on client:
+
+@itemize
+@item @code{manage} Method called when client maps its window for the
+first time or when client changes its major mode.
+@item @code{activate} Method called when client is either selecting,
+or forced to became logically(in its client-local context) visible.
+@item @code{deactivate} Method called when client is either
+deselecting, or forced to became logically (in its client-local
+context) hiden.
+@item @code{refit} Method called when client forced to update its size
+according to either user request, or client application request.
+@item @code{iconify} Method called when client should became iconified
+either by user request or client application request.
+@item @code{withdraw} Method called when major mode is about to be
+disassociated from client.
+@end itemize
+
+   Each major mode has properties list associated with it.  Each major
+mode property denotes non major mode local methods behaviour,
+i.e. general to all major modes.  Or denotes xwem behaviour in cirtain
+oprations on clients of given major mode.  Each major mode may or may
+not have @pxref{Match Specificator} that is used to match clients in
+order to select appropriate major mode.
+
+@node Modes Overview, Default Mode, Mode Methods, Modes
+@comment  node-name,  next,  previous,  up
+@subsection Modes Overview
+@cindex Modes Overview
+
+TODO: write me
+
+@node Default Mode, Generic Mode, Modes Overview, Modes
+@comment  node-name,  next,  previous,  up
+@subsection Default Mode
+@cindex Default Mode
+
+TODO: write me
+
+@node Generic Mode, Choosing Modes, Default Mode, Modes
+@comment  node-name,  next,  previous,  up
+@subsection Generic Mode
+@cindex Generic Mode
+
+TODO: write me
+
+@node Choosing Modes, Mode Hooks, Major Modes, Major Modes
+@subsection Choosing Modes
+@cindex Choosing Modes
+
+TODO: write me
+
+@node Mode Hooks, Minor Modes, Major Modes, Major Modes
+@subsection Mode Hooks
+@cindex Mode Hooks
+
+TODO: write me
+
+@comment ------------
+@node Minor Modes, , Major Modes, Modes
+@section Minor Modes
+@cindex Minor Modes
+
+Minor modes are options which you can use or not.  For example, KeyTT
+mode is a minor mode in which client specific keys redefined to be
+more emacs-like.  All the minor modes are independent of each other
+and of the selected major mode.  Most minor modes inform you in the
+mode line when they are on; for example, `KeyTT' in the mode line means
+that KeyTT mode is on.
+
+   Append `-minor-mode' to the name of a minor mode to get the name of
+a command function that turns the mode on or off.  Thus, the command
+to enable or disable KeyTT mode is called `H-M-x
+xwem-keytt-minor-mode-mode'.  These commands are usually invoked with
+`H-M-x', but you can bind keys to them if you wish.  With no argument,
+the function turns the mode on if it was off and off if it was on.
+This is known as "toggling".  A positive argument always turns the
+mode on, and an explicit zero argument or a negative argument always
+turns it off.
+

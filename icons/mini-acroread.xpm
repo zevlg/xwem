@@ -1,0 +1,32 @@
+/* XPM */
+static char *mini_acroread_xpm[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 7 1",
+" 	c None",
+"#	c black",
+".	c #6b100f",
+"X	c #b21b1c",
+"o	c #e40512",
+"O	c #e8738f",
+"+	c #e08b98",
+/* pixels */
+"     X.         ",
+"    +o X        ",
+"    Oo o##      ",
+"    O. .##      ",
+" ##  . o    ##  ",
+" ##  Ooo    ##  ",
+"      oX+       ",
+"      . XO  +O+ ",
+" ##  oO. oooXXoX",
+" ##  XOooXo    o",
+"  +XoX.O  OooXXo",
+" O. oO     ##   ",
+"+. OX      ##   ",
+".  X##  ##      ",
+"X .O##  ##      ",
+"o.O             "
+};	   
+	   
+	   
+	   

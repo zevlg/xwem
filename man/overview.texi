@@ -1,0 +1,14 @@
+@node Overview, Getting Started, Top, Top
+@comment  node-name,  next,  previous,  up
+@chapter Overview
+@cindex overview
+
+XWEM is full-featured, self-documented, extensible window manager, that
+works under XEmacs control.  XWEM does job other window managers do and
+provides many features that other window managers not.  XWEM mostly
+keyboard driven, but can handle mouse as well.
+
+If you are looking for very powerful tool to control X applications or
+want to modify wm behaviour as you want, XWEM is for you.
+
+TODO: write me

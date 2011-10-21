@@ -1,0 +1,8 @@
+@node Hooking, Addons, Subsystems, Top
+@chapter Hooking
+@cindex hooking
+
+XWEM supports multiple hooks across its routines.  Here is some basic
+hooks that you can use to alter XWEM behaviour.
+
+TODO: write me

@@ -1,0 +1,275 @@
+@node Window, Client, Frame, Primitives
+@section Window
+@cindex window
+
+In this chapter we will discuss thing related to XWEM's Windows.
+
+@menu
+* Basic Windows::               Basic information on Windows.
+* Splitting Windows::           Splitting Window into two.
+* Deleting Windows::            How you should delete Windows.
+* Selecting Windows::           Selected Window.
+* Cycling Windows::             Moving around Windows.
+* Resizing Windows::            Changing size of Windows.
+* Window Configurations::       Saving and restoring layout of Windows.
+* Drawing Windows::             How Windows stuff are drawed.
+* Window Expectances::          Window can wait for a particular client.
+@end menu
+
+@node Basic Windows, Splitting Windows, Window, Window
+@comment  node-name,  next,  previous,  up
+@subsection Basic Windows
+@cindex basics
+
+@dfn{Window} is subpart of Frame(@pxref{Frame}) that holds Clients
+(@pxref{Client}).  Each Frame always contain at least one Window, but
+you con divide it vertically or horizontally to obtain new Windows.
+Windows never overlaps.  There is always selected Window in each Frame,
+but it is not guaranties that Client in selected Window will have input
+focus.
+
+@defun xwem-init-win
+Initilizes all stuff we will need.
+@end defun
+
+@defvar xwem-win-default-properties
+Plist of default properties for newly created Windows.  Keys in list is
+one of symbol:
+@itemize
+@item @code{dead} Window referenced but not workable.
+@item @code{deleted} Deleted Windows have this non-@code{nil}.
+@item @code{frame} Reference to XWEM Frame.
+@item @code{next} Next window in windows double linked list.
+@item @code{prev} Previous window in windows double linked list.
+@item @code{hchild} Horizontal child.
+@item @code{vchild} Vertical child.
+@item @code{client} Link to XWEM Client that is in XWEM Window or @code{nil}.
+@item @code{expectances} Expectances plist for XWEM Window.
+@end itemize
+@end defvar
+
+@defun xwem-win-p win
+Return non-@code{nil} if @var{win} is Window.
+@end defun
+
+@node Splitting Windows, Deleting Windows, Basic Windows, Window
+@comment  node-name,  next,  previous,  up
+@subsection Splitting Windows
+@cindex splitting
+
+Functions described here is used in way to split XWEM's window or get
+information about split.
+
+@defvar xwem-win-min-width
+Minimal width in pixels that XWEM Window may have after spliting.
+
+@example
+xwem-win-min-width
+@result{} 40
+@end example
+@end defvar
+
+@defvar xwem-win-min-height
+Minimal height in pixels that XWEM Window may have after spliting.
+
+@example
+xwem-win-min-height
+@result{} 40
+@end example
+@end defvar
+
+@defun xwem-win-split &optional window how new-size
+Splits XWEM @var{window}, @var{how} is one of @code{vertical} or
+@code{horizontal}(default is @code{horizontal}).  @var{new-size} is size
+in pixels which should have @var{window} after split.
+@end defun
+
+@defun xwem-win-only-one-p &optional window
+Returns non-@code{nil} if @var{window} is only one in XWEM Windows chain.
+@end defun
+
+@node Deleting Windows, Selecting Windows, Splitting Windows, Window
+@comment  node-name,  next,  previous,  up
+@subsection Deleting Windows
+@cindex deleting
+
+@defun xwem-window-delete &optional window
+Deletes XWEM @var{window}. If ommited than @code{xwem-win-selected} will
+be used.
+@end defun
+
+@defun xwem-window-delete-others &optional window
+Deletes all XWEM Windows other then @var{window}.
+@end defun
+
+@defun xwem-win-delete-subwindows window
+Mark all child of XWEM @var{window} as deleted.
+@end defun
+
+@defun xwem-win-mark-deleted window
+@end defun
+
+@node Selecting Windows, Cycling Windows, Deleting Windows, Window
+@comment  node-name,  next,  previous,  up
+@subsection Selecting Windows
+@cindex selecting
+
+Select a window means that client currently in than window receives
+input focus.
+
+@defvar xwem-win-switch-hook
+Hooks that will be runned when selected window changes.  Functions in
+should accept two arguments - @code{old-win} and @code{new-win}.
+
+@example
+xwem-win-switch-hook
+@result{} (xwem-win-focus xwem-win-title)
+@end example
+@end defvar
+
+@defun xwem-win-selected
+Returns selected XWEM Window.
+@end defun
+
+@defun xwem-win-selected-p window
+Return non-@code{nil} if @var{window} is selected.
+@end defun
+
+@defun xwem-window-select window
+Select @var{window} as current XWEM Window. Runs @code{xwem-win-switch-hooks}.
+@end defun
+
+@node Cycling Windows, Resizing Windows, Selecting Windows, Window
+@comment  node-name,  next,  previous,  up
+@subsection Cycling Windows
+@cindex cycling
+
+@defun xwem-win-make-list-by-next window
+Creates list of XWEM Windows using @code{next} property.
+@end defun
+
+@defun xwem-win-new props
+Creates new XWEM Window using properties obtained after merging
+@code{xwem-window-defprops} and @var{props} together.
+@end defun
+
+@defun xwem-win-replace oldw neww
+Replace @var{oldw} XWEM Window with contents of @var{neww} XWEM Window.
+@end defun
+
+@defun xwem-win-make-parent window
+Creates dummy parent XWEM Window for @var{window}.
+@end defun
+
+@defun xwem-window-next &optional window
+Returns next XWEM Window after @var{window} in canonical ordering.
+@end defun
+
+@defun xwem-window-next-vertical &optional window
+Returns XWEM Window which is vertically after @var{window}.
+@end defun
+
+@defun xwem-window-prev &optional window
+Returns previous XWEM Window before @var{window} in canonical ordering
+of XWEM Windows.
+@end defun
+
+@defun xwem-win-map fn &optional window
+Apply @var{fn} function to @var{window} and each child of it. @var{fn}
+will be called with an XWEM Window as argument.
+@end defun
+
+@defun xwem-win-count &optional window
+Count childs in @var{window}.
+@end defun
+
+@defun xwem-window-list &optional frame
+nil
+@end defun
+
+Here is somelike windmove package.
+
+@defun xwem-winmove-left &optional arg
+Move to the left.
+TODO: describe @var{arg}.
+@end defun
+
+@defun xwem-winmove-right &optional arg
+Move to the right.
+TODO: describe @var{arg}.
+@end defun
+
+@defun xwem-winmove-up &optional arg
+Move to the up.
+TODO: describe @var{arg}.
+@end defun
+
+@defun xwem-winmove-down &optional arg
+Move to the down.
+TODO: describe @var{arg}.
+@end defun
+
+TODO: write me
+
+@node Resizing Windows, Window Configurations, Cycling Windows, Window
+@comment  node-name,  next,  previous,  up
+@subsection Resizing Windows
+@cindex resizing
+
+Here functions that operations on window's sizes.
+
+@defun xwem-window-set-pixsize window nsize nodelete is-height
+Sets size of @var{window} to @var{nsize} in pixels.
+If @var{is-height} is non-@code{nil} then nsize is new @var{window}
+height.
+@end defun
+
+@defun xwem-window-change-size window delta height-p
+Changes XWEM @var{window} size to old-size plus
+@var{delta}. @var{height-p} is non-@code{nil} if height changes.
+@end defun
+
+TODO: add shrink and enlarge
+
+@node Window Configurations, Drawing Windows, Resizing Windows, Window
+@comment  node-name,  next,  previous,  up
+@subsection Window Configurations
+@cindex window configurations
+
+@defun xwem-window-configuration &optional frame
+Return current Windows configuration for @var{frame}.  You can restore
+it than using @code{xwem-set-window-configuration}.
+@end defun
+
+@defun xwem-set-window-configuration win-config
+Restore window configuration @var{win-config}, returned by
+@code{xwem-window-configuration}.
+@end defun
+
+@node Drawing Windows, Window Expectances, Window Configurations, Window
+@comment  node-name,  next,  previous,  up
+@subsection Drawing Windows
+@cindex drawing
+
+@defvar xwem-win-delim-width
+XWEM Window delimeter width in pixels, including shadow.
+@end defvar
+
+@defvar xwem-win-delim-shadow-thicksness
+When drawing 3D shadows for XWEM Window delimeters, this variable used.
+@end defvar
+
+@defun xwem-win-draw-delims window
+Draws delimeters in XWEM @var{window}.
+@end defun
+
+@node Window Expectances, , Drawing Windows, Window
+@comment  node-name,  next,  previous,  up
+@subsection Window Expectances
+@cindex expectances
+
+@dfn{Expectances} is thing describes which clients cirtain XWEM Window
+wait to manage.
+
+TODO: write me
+

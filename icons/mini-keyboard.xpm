@@ -1,0 +1,27 @@
+/* XPM */
+static char *mini_keyboard_xpm[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 5 1",
+" 	c None",
+"#	c black",
+".	c white",
+"r	c #808080",
+"O	c #C0C0C0",
+/* pixels */
+" rrrrrrrrrrrrrr ",
+"r.............r#",
+"r.rrrrrrrrrrrrr#",
+"r.r.O#.O#.O#.Or#",
+"r.rOr#Or#Or#Orr#",
+"r.O###########r#",
+"r.O#.O#.O#...Or#",
+"r.O#Or#OO#OOOrr#",
+"r.O###########r#",
+"r.r.O#....O#.Or#",
+"r.rOr#OOOOr#Orr#",
+"r.r###########r#",
+"rrrrrrrrrrrrrrr#",
+" ############## ",
+"                ",
+"                "
+};

@@ -1,0 +1,56 @@
+Tue Nov  7 00:35:26 MSK 2006:
+
+     - Opera Hide/Show i.e. Normal --> Withdrawn --> Normal states
+       transition.
+
+Mon Nov 30 01:07:00 MSK 2004:
+
+     - H-<button1> on tab to drag tab to some other place.
+
+Thu Feb 19 09:16:05 MSK 2004:
+
+     - Focusing manage (according to ICCCM)! very needed. DONE!
+
+     - More ICCCM stuff to support, like WM_PROTOCOL, DELETE_WINDOW,
+       etc. DONE!
+     
+     - Write some documentation. 
+
+     - Configuration file handling. DONE!
+
+     - More hookenization.
+
+     - Session management. save-window-configuration,
+       set-window-configuration, save-frame-configuration,
+       set-frame-configuration, etc. DONE!
+
+     - kbd macros. i.e. save keypress sequence and then play it with
+       XSendEvent. DONE!
+
+     - Strokes:
+         * Support for dymanic strokes types. i.e. you can register
+           new types of strokes.
+
+         * Kanji strokes database
+
+     - CL switcher, something like `iswitchb' or `buqis'. DONE!
+
+     - Programs launcher. DONE!
+
+     - Summarize mode. i.e. make buffer with xwem information like
+       frames setup, clients online, etc.(Done `xwem-help')
+
+     - Multiple visible frames(partly done), frame should reguard his
+       properties changes on fly, i.e. resize x window, when frame-width
+       and such changes. DONE!
+
+     - Extensions support:
+          * Xinerama
+	  * Record (may be clones could be done with it?)
+	  * MiscKbd
+	  * XTrap (may be play with it to implement X window clones).
+
+     - Ubering. i.e. you can run other window manager in xwem frame.
+       Maybe implement using Xnest's -parent feature?
+
+# $Id: TODO,v 1.2 2004/11/29 22:24:23 lg Exp $

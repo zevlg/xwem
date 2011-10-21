@@ -1,0 +1,29 @@
+/* XPM */
+static char *mini_vnc_xpm[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 7 1",
+"  c black",
+". c #008000",
+"X c #800000",
+"o c red",
+"O c #808080",
+"+ c #c0c0c0",
+"@ c white",
+/* pixels */
+"                ",
+" @@@@@@@@@@@@@@ ",
+" O      @@    + ",
+" @     @@@+  +@ ",
+" @+   O@@@@ O@@ ",
+" @@    @XX+ XX@ ",
+" @@+   +@@  @@X ",
+" X@@    Xo +XX@ ",
+" @XXO   @O X@@X ",
+" X@@o     O@XX@ ",
+" @XX@     +@@@X ",
+" X@@X@    +@@@@ ",
+" @XX@@   O@.... ",
+" @@@@@+  O@.... ",
+" @@@@@@OO@@@@@@ ",
+"                "
+};

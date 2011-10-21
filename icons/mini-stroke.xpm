@@ -1,0 +1,26 @@
+/* XPM */
+static char *mini_stroke_xpm[] = {
+/* width height num_colors chars_per_pixel */
+"16 16 3 1",
+/* colors */
+" 	c None",
+".	c #000000",
+"a	c #ff0000",
+/* pixels */
+"            aa  ",
+"aaaaaaaaaaaaaaa ",
+" ......a........",
+"       a.       ",
+" a  aaaaaaa  a  ",
+" a. a..a..a. a. ",
+" a. a. a. a. a. ",
+" a. aaaaaaa. a. ",
+" a. a..a..a. a. ",
+" a. a. a. a. a. ",
+" a. aaaaaaa. a. ",
+" a. a.....a. a. ",
+" a.          a. ",
+" aaaaaaaaaaaaa. ",
+" a...........a. ",
+" a.          a. "
+};

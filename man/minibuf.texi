@@ -1,0 +1,9 @@
+@node XWEM Minibuffer, , Client, Primitives
+@section XWEM Minibuffer
+@cindex minibuffer
+
+@dfn{XWEM minibuffer} is global minibuffer(usually value of
+@var{default-minibuffer-frame}) used as minibuffer by all XEmacs frames.
+
+TODO: write me
+

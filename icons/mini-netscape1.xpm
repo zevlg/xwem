@@ -1,0 +1,38 @@
+/* XPM */
+static char *mini_netscape1_xpm[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 16 1",
+" 	c None",
+"M	c #171616",
+".	c #173834",
+"X	c #4a4e41",
+"o	c #646b65",
+"O	c #047d84",
+"+	c #198188",
+"@	c #4c9699",
+"#	c #6daeb1",
+"%	c #8e816f",
+"&	c #85b4b2",
+"*	c #aeafae",
+"=	c #add0d3",
+"-	c #cbcece",
+";	c #d7e8e7",
+":	c #f9fafa",
+/* pixels */
+"     .....M     ",
+"   Mo=;;;=&oM   ",
+"  .*=#@OOO#=XM  ",
+" M=@@@OOOOOO#*M ",
+" o=#::+OO&:;@*o ",
+"M##O#:;+OO=@.#*M",
+".;@O@;:=OO=@Xo-M",
+".;OO@=#:-O&@XX;M",
+".;OO@=O&:&&@XX;M",
+".-OO@=OO&::oXX;M",
+"M*--;:::-::-%**M",
+" *:-::*MMMMMX-% ",
+" MX%XMMMMMM.-XM ",
+"  .**%XMMX%*XM  ",
+"   M%-;-;-*oM   ",
+"     MM.MMM     "
+};

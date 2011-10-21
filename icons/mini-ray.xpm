@@ -1,0 +1,26 @@
+/* XPM */
+static char *mini_ray_xpm[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 4 1",
+" 	c None",
+".	c black",
+"X	c yellow",
+"o	c gray50",
+/* pixels */
+"                ",
+"     .........  ",
+"     .XXXXXX.o  ",
+"    .XXXXXX.o   ",
+"    .XXXXX.o    ",
+"   .XXXXX.o     ",
+"   .XXXX.....   ",
+"  .XXXXXXXX.o   ",
+"  .....XXX.o    ",
+"   oo.XXX.o     ",
+"     .XX.o      ",
+"    .XX.o       ",
+"    .X.o        ",
+"   .X.o         ",
+"   ..o          ",
+"                "
+};

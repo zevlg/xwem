@@ -1,0 +1,34 @@
+/* XPM */
+static char *mini_opera_xpm[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 12 1",
+".	c #632729",
+"X	c #7B7B7B",
+"o	c #9B1B1D",
+"O	c #B11719",
+"+	c #A52829",
+"@	c #D33A3B",
+"#	c #F0716F",
+"$	c #D15954",
+"%	c #8B403C",
+"&	c #EF9B98",
+"*	c #F8C1BE",
+"  c None",
+/* pixels */
+"                ",
+"       .+OOO@   ",
+"      .+@  .+@  ",
+"     .o@    .O@ ",
+"     o$$    .O@ ",
+"    .&&#    .OO@",
+"    .#*&    .OO@",
+"    .$##    .OO@",
+" XXX.+@@X   .O+#",
+"XX  .OO@XXX .$$#",
+"XXX .OO@ XXX.$&#",
+"XXXX oO@  XX%*& ",
+" XXXX.o@   X%$# ",
+"  XXXX.o@  .$@  ",
+"    XXX.oOOO@   ",
+"                "
+};

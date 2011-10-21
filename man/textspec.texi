@@ -1,0 +1,7 @@
+@node Text Specifications, Manage Database, Mouse, Subsystems
+@section Text
+@cindex text font
+
+@dfn{Text Specification} is list of conses in form @code{(lala-text . GC)}.
+
+TODO: write me

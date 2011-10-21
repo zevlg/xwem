@@ -1,0 +1,19 @@
+@page
+@node Primitives, Subsystems, Getting Started, Top
+@chapter Primitives
+@cindex primitives
+
+Here is introduction to XWEM primitives, such as Frame, Window, Client,
+minibuffer, specials, etc.
+
+@menu
+* Frame::		Much like Emacs frame.
+* Window::		Much like Emacs window.
+* Client::		Something that in XWEM window.
+* XWEM Minibuffer::	Global minibuffer for Emacs frames.
+@end menu
+
+@include frame.texi
+@include win.texi
+@include client.texi
+@include minibuf.texi

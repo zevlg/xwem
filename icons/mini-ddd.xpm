@@ -1,0 +1,26 @@
+/* XPM */
+static char *mini_ddd_xpm[] = {
+/* columns rows colors chars-per-pixel */
+"14 14 6 1",
+" 	s Background c None",
+".	s Legs c black",
+"_	s Stripe c grey50",
+"X	s Soil c grey90",
+"o	s Handle1 c blue",
+"*	s Light2 c white",
+/* pixels */
+"    oooooo    ",
+"  oo**XX..oo  ",
+" o**XX..XXX.o ",
+" o**X....X.Xo ",
+"o**.______.XXo",
+"o*XXX....XXXXo",
+"o*X.______.XXo",
+"o..X......X..o",
+"oXXX.____.XXXo",
+"oXX........XXo",
+" o.XX.__.XX.oo",
+" o.XXX..XXX.oo",
+"  oo XXXXooooo",
+"    oooooooooo"
+};

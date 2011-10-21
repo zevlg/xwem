@@ -1,0 +1,34 @@
+(xwem
+  (standards-version 1.1
+   version VERSION
+   author-version AUTHOR_VERSION
+   date DATE
+   build-date BUILD_DATE
+   maintainer MAINTAINER
+   distribution xemacs
+   priority low
+   category CATEGORY
+   dump nil
+   description "X Emacs Window Manager."
+   filename FILENAME
+   md5sum MD5SUM
+   size SIZE
+   provides (xwem-clgen xwem-clients xwem-clswi xwem-compat
+             xwem-desktop xwem-edmacro xwem-events xwem-faces
+	     xwem-focus xwem-frame xwem-help xwem-icons
+	     xwem-interactive xwem-keyboard xwem-keydefs
+	     xwem-keymacro xwem-launcher
+	     xwem-main xwem-manage xwem-minibuffer xwem-misc
+	     xwem-modes xwem-mouse xwem-netwm
+             xwem-ratanot xwem-register xwem-root xwem-rooter
+             xwem-rooticon xwem-selections xwem-sound xwem-special
+	     xwem-strokes xwem-tabbing xwem-theme xwem-transient
+             xwem-tray xwem-win
+
+             xwem-battery xwem-framei xwem-pager xwem-time xwem-weather
+             ixwem xwem-edprops xwem-recover xwem-smartmods xwem-vert
+             xwem-appcollect xwem-diagram xwem-holer xwem-osd xwem-worklog
+	     xwem-version)
+   requires (REQUIRES)
+   type regular
+))

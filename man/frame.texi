@@ -1,0 +1,313 @@
+@node Frame, Window, Primitives, Primitives
+@section Frame
+@cindex Frame
+
+@dfn{Frame} is general thing that used to hold XWEM
+windows(@pxref{Window}).  Usually Frame have something like titlebar
+which is used to display information related to manager state, such as
+names for XWEM Clients(@pxref{Client}) or user defined information.
+
+TODO: add some info about Frames properties, such as GCs list, root
+window, selected window, etc.
+
+@defun xwem-frame-p frame
+Returns non-@code{nil} if @var{frame} is XWEM Frame.
+@end defun
+
+@menu
+* Basic Frames::                Basic description for Frames.
+* Creating Frames::             Creating Frames.
+* Frame Properties::            Controlling frame's size, position, etc.
+* Frame Title::                 Using frame title to display information.
+* Deleting Frames::             How to delete frames.
+* Frames Operations::           What you can do with Frames.
+* Embedded Frames::             Frame may be normal XWEM client.
+* Frames variables and functions::  
+@end menu
+
+@node Basic Frames, Creating Frames, Frame, Frame
+@comment  node-name,  next,  previous,  up
+@subsection Basic Frames
+@cindex Basic Frames
+
+TODO: write me
+
+@node Creating Frames, Frame Properties, Basic Frames, Frame
+@comment  node-name,  next,  previous,  up
+@subsection Creating Frames
+@cindex Creating Frames
+
+Here is describe functions which is used to create frames.  Also describe
+default bindings to create frames.  Describe side by side splits.
+
+TODO: write me
+
+@node Frame Properties, Frame Title, Creating Frames, Frame
+@comment  node-name,  next,  previous,  up
+@subsection Frame Properties
+@cindex Frame Properties
+
+Each XWEM Frame have properties list, which is altered when creating
+Frame.
+
+Here should be description of Frame's properties, default values, etc.
+
+TODO: write me
+
+@node Frame Title, Deleting Frames, Frame Properties, Frame
+@comment  node-name,  next,  previous,  up
+@subsection Frame Title
+@cindex Frame Title
+
+Description of Frame tabber.
+
+TODO: write me
+
+@node Deleting Frames, Frames Operations, Frame Title, Frame
+@comment  node-name,  next,  previous,  up
+@subsection Deleting Frames
+@cindex Deleting Frames
+
+You may easily delete any of XWEM Frame.  All clients that have Frame as
+parent window will be reparented to root window.
+
+Here is should be description for default keybindings for frame deletion
+and functions description.
+
+TODO: write me
+
+@node Frames Operations, Embedded Frames, Deleting Frames, Frame
+@comment  node-name,  next,  previous,  up
+@subsection Frames Operations
+@cindex Frames Operations
+
+Here is description about what you can do with Frame.  Switching,
+linkage switching, etc.
+
+TODO: write me
+
+@node Embedded Frames, Frames variables and functions, Frames Operations, Frame
+@comment  node-name,  next,  previous,  up
+@subsection Embedded Frames
+@cindex Embedded Frames
+
+@dfn{Embedded Frame} is Frame and CL at the same time.
+
+Here is description on how to create embedded frames, how to unembed
+them and so on.
+
+TODO: write me
+
+@node Frames variables and functions, , Embedded Frames, Frame
+@comment  node-name,  next,  previous,  up
+@subsection Frames variables and functions
+
+@defvar xwem-frame-background
+This is symbol specifies background color used in XWEM Frame. This color
+should be in @code{xwem-gc-syscolors} or in @code{xwem-gc-bonus-colors}.
+@example
+xwem-frame-backgroud
+@result{} "gray60"
+@end example
+@end defvar
+
+@defvar xwem-frame-cursor-shape
+This specifies shape of cursor when pointer is over XWEM Frame. It is
+value of one of @code{X-XC-}@dots{} variable.
+
+@example
+(eq xwem-frame-cursor-shape 'X-XC-left_ptr)
+@result{} t
+@end example
+@end defvar
+
+@defvar xwem-frame-cursor-foreground-color
+Specifies cursor's foreground color when pointer is over XWEM Frame.
+
+@example
+xwem-frame-cursor-foreground-color
+@result{} "#002800"
+@end example
+@end defvar
+
+@defvar xwem-frame-cursor-background-color
+Cursor's background color when pointer over XWEM Frame.
+@end defvar
+
+@defvar xwem-frame-defprops
+Plist which is used to define default properties for newly created XWEM
+Frames.  Keys in this plist is symbols, you can use one of:
+
+@code{title-height} - Height in pixels to be used for title bar.
+
+@code{inner-border-width} - Width in pixels of XWEM Frame's inner border.
+
+@code{otter-border-width} - Width in pixels of XWEM Frame's otter border.
+
+@code{title-thickness} - Used for 3D view of title bar.
+
+@example
+xwem-frame-defprops
+@result{}
+(inner-border-width 0
+ otter-border-width 0
+ title-height 17
+ title-thickness 2)
+@end example
+@end defvar
+
+@defvar xwem-face-frame-selected-win-selected
+Face used to outline selected Window in selected Frame.
+@end defvar
+
+@defvar xwem-face-frame-selected-win-nonselected
+Face used to outline non-selected Window in selected Frame.
+@end defvar
+
+@defvar xwem-face-frame-nonselected-win-selected
+Face to outline selected Window in non-selected Frame.
+@end defvar
+
+@defvar xwem-face-frame-nonselected-win-nonselected
+Face to outline non-selected Window in non-selected Frame.
+@end defvar
+
+@defvar xwem-face-win-delimeter
+Face to draw Window delimeter.
+@end defvar
+
+@defvar xwem-face-win-delimeter-shadow
+Face to draw shadow of Window delimeter.
+@end defvar
+
+@defvar xwem-frame-rolling-switch
+Non-nil mean that @code{xwem-frame-next} and @code{xwem-frame-previous}
+commands will always switch, even if there no next or previous Frame.
+@end defvar
+
+@defvar xwem-frame-switch-hook
+Hooks to be called when Frame switching occurs
+(i.e. @code{xwem-current-frame} changes).  Function will receive two
+arguments @var{old-frame} and @var{new-frame}.
+@end defvar
+
+@defvar xwem-frame-keymap
+Keymap used in Frames.
+@end defvar
+
+@defvar xwem-frames-list
+List of all Frames.
+@end defvar
+
+@defvar xwem-current-frame
+Refers to currently selected Frame.
+@end defvar
+
+@c Functions begins here
+@defun xwem-frame-p frame
+Return non-@code{nil} if @var{frame} is valid XWEM Frame.
+
+@example
+(xwem-frame-p t)
+@result{} nil
+@end example
+@end defun
+
+@defun xwem-frame-alive-p frame
+Return non-@code{nil} if @var{frame} is alive frame, i.e. in
+@code{xwem-frames-list}.
+@end defun
+
+@defun xwem-frame-mapped-p frame
+Return non-@code{nil} if @var{frame} is mapped, i.e. its contents shown.
+@end defun
+
+@defun xwem-frame-map frame
+Map @var{frame}, i.e show it contents.
+@end defun
+
+@defun xwem-frame-selected
+Return currently selected Frame.
+@end defun
+
+@defun xwem-frame-selected-p frame
+Return non-@code{nil} if @var{frame} is selected Frame.
+@end defun
+
+@defun xwem-frame-select frame &optional dnr-hooks
+Make @var{frame} to be selected.  Runs @code{xwem-frame-switch-hooks} if
+@var{frame} is not already selected and @var{dnr-hooks} non-@code{nil}.
+@end defun
+
+@defun xwem-frame-select-defhook old-frame new-frame
+Default hook that present in @code{xwem-frame-switch-hooks}.
+@end defun
+
+TODO: describe other functions ..
+
+@defun xwem-init-frames
+Initialise all stuff needed to manipulate with XWEM Frames.
+@end defun
+
+@defun xwem-make-frame props
+Creates new Frame with merged @code{xwem-frame-defprops} and @var{props}
+together properties.
+@end defun
+
+@defun xwem-find-frame xwin
+Find Frame by X Window @var{xwin}
+@end defun
+
+@defun xwem-frame-find how arg
+Find Frame according to @var{how} and @var{arg}.  @var{how} can be one
+of @code{xwin}, @code{win} or @code{cl}.  @var{arg} is X Window, XWEM
+Window or XWEM Client respectively.
+@end defun
+
+@defun xwem-frame-num frame
+Return index position of @var{frame} in @code{xwem-frame-list}.
+@end defun
+
+@defun xwem-frame-draw frame fully
+Draw @var{frame}.  If @var{fully} is non-@code{nil} then
+@code{XClearArea} Frame's X window before drawing.
+@end defun
+
+@defun xwem-frame-redraw frame
+Outlines Windows inside @var{frame}.
+@end defun
+
+@c Commands
+@defun xwem-frame-switch-nth n
+Switch to @var{n} XWEM Frame in @code{xwem-frame-list}.
+@end defun
+
+@defun xwem-frame-del-win &optional frame window
+Removes XWEM @var{window} from XWEM @var{frame}.
+@end defun
+
+@defun xwem-frame-del-others &optional frame window
+Removes all XWEM Windows from XWEM @var{frame} other then @var{window}.
+@end defun
+
+@defun xwem-frame-split-horiz &optional frame
+Splits XWEM @var{frame} horizontally.
+@end defun
+
+@defun xwem-frame-split-vert &optional frame
+Splits XWEM @var{frame} vertically.
+@end defun
+
+@defun xwem-frame-win-enlarge-hor n
+Enlarges @code{xwem-win-selected} in @code{xwem-frame-selected} by n
+pixels horizontally.
+@end defun
+
+@defun xwem-frame-win-enlarge-ver n
+Enlarges @code{xwem-win-selected} in @code{xwem-frame-selected} by n
+pixels vertically.
+@end defun
+
+@defun xwem-frame-goto direction &optional frame
+Go to next XWEM Window in @var{frame} in @var{direction}.
+@end defun

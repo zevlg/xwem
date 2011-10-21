@@ -1,0 +1,29 @@
+/* XPM */
+static char *mini_colors_xpm[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 7 1",
+" 	c None",
+"#	c black",
+"*	c gray50",
+"X	c red",
+"o	c yellow",
+"O	c blue",
+".	c white",
+/* pixels */
+"                ",
+"                ",
+" ************** ",
+" *XXXXooooOOOO*#",
+" *XXXXooooOOOO*#",
+" *XXXXooooOOOO*#",
+" *XXXXooooOOOO*#",
+" *....****####*#",
+" *....****####*#",
+" *....****####*#",
+" *....****####*#",
+" **************#",
+"  ##############",
+"                ",
+"                ",
+"                "
+};

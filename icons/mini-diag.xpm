@@ -1,0 +1,24 @@
+/* XPM */
+static char *mini_diag_xpm[] = {
+"15 14 6 1",
+" 	c None",
+".	c gray50",
+"o	c Black",
+"R	c #dd1111",
+"G	c #11dd11",
+"B	c #1111dd",
+"               ",
+"    oooooo     ",
+"  ooBBBBBBoo   ",
+" ooBBBBBBBoGo  ",
+"oRRoBBBBBoGGGo ",
+"oRRRoBBooGGGGo.",
+"oRRRRooGGGGGGo.",
+"oRRRRRoGGGGGGo.",
+"oRRRRRoGGGGGGo.",
+"oRRRRRoGGGGG.o.",
+".oRRRRRoGGG.o. ",
+" .ooRRRoGGoo.. ",
+"  ..oooooo..   ",
+"    ......     "
+};

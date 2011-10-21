@@ -1,0 +1,103 @@
+@node Client, XWEM Minibuffer, Window, Primitives
+@section Client
+@cindex client
+
+@dfn{Client} is normal X11 application already managed by XWEM. All XWEM
+Clients manages according to XWEM Manage Database(@pxref{Manage
+Database}). Default behaviour is to enlarge each XWEM Client which have
+no override redirect flag ot XWEM Window used to hold that Client.
+
+
+@menu
+* Client Basics::               What is Client.
+* Client Properties::           Describes what properties have each Client.
+* Current Client::              There is always some Client is active.
+* Clients Lists::               How does Clients organizes lists.
+* Client Hooks::                How you can control Clients.
+* Operating on Clients::        What you can do with Clients.
+@end menu
+
+@node Client Basics, Client Properties, Client, Client
+@comment  node-name,  next,  previous,  up
+@subsection Client Basics
+@cindex basics
+
+TODO: describe what is XWEM Client.
+
+@defun xwem-cl-p client
+Returns non-@code{nil} if @var{client} is Client.
+@end defun
+
+@node Client Properties, Current Client, Client Basics, Client
+@comment  node-name,  next,  previous,  up
+@subsection Client Properties
+@cindex properties
+
+Each Client in XWEM have some properties associated with it.
+
+@defun xwem-client-name cl &optional clist
+Return unique name for Client @var{cl} using @var{clist} as list of
+Clients.
+@end defun
+
+@node Current Client, Clients Lists, Client Properties, Client
+@comment  node-name,  next,  previous,  up
+@subsection Current Client
+
+@dfn{Current Client} is client in selected Window.
+
+TODO: describe things related to special XEmacs frames.
+
+@defun xwem-cl-selected
+Return selected Client.
+@end defun
+
+@node Clients Lists, Client Hooks, Current Client, Client
+@comment  node-name,  next,  previous,  up
+@subsection Clients Lists
+@cindex lists
+
+TODO: describe client lists.
+
+@defvar xwem-clients
+List of all Clients.
+@end defvar
+
+@node Client Hooks, Operating on Clients, Clients Lists, Client
+@comment  node-name,  next,  previous,  up
+@subsection Client Hooks
+@cindex hooks
+
+TODO: genaral overview of hooks used in Client processing.
+
+@defvar xwem-cl-setup-hooks
+List of hooks which is called after XWEM Client is managed. Functions in
+that list should accept one argument - XWEM Client.
+@end defvar
+
+@defvar xwem-cl-manage-hook
+Functions to call when Client managed.  They are passed with one
+argument - @code{cl}.
+@end defvar
+
+@defvar xwem-cl-demanage-hook
+Functions to call when Cliend demanages.  Called with with one argument
+- @code{cl}.
+@end defvar
+
+@node Operating on Clients, , Client Hooks, Client
+@comment  node-name,  next,  previous,  up
+@subsection Operating on Clients
+@cindex operating
+
+Here is some usefull functions you can use to operate on Clients.
+
+@defun xwem-find-client xwin-or-id
+Find Client by X window @var{xwin-or-id}.
+@end defun
+
+@defun xwem-remove-client cl
+Remove @var{cl} from Clients list @code{xwem-clients}.
+@end defun
+
+TODO: write me

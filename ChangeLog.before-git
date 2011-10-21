@@ -1,0 +1,3636 @@
+2008-12-02 10:26:19 GMT	Zajcev Evgeny <zevlg@yandex.ru>	patch-3
+
+    Summary:
+      fixes, enhances
+    Revision:
+      xwem--main--2.2--patch-3
+
+    * lisp/xwem-misc.el (xwem-cursor-recolorize): [fix] Get rid of
+      xlib-non-ffi specific things.
+    
+    * lisp/xwem-tabbing.el (xwem-tabber-draw-format): [fix] Use font's coding
+      system only if one exists.
+    
+    * utils/xwem-worklog.el (xwem-worklog-history-init): [fix] Inhibit any
+      actions on `find-file-noselect'
+    
+    * lisp/xwem-launcher.el (xwem-open-recent-file): [new] Command to open
+      recent file with external command.
+    
+    * lisp/xwem-keydefs.el (xwem-global-map): [new] `H-x f' to open recent file.
+    
+
+    modified files:
+     lisp/xwem-clients.el lisp/xwem-frame.el
+     lisp/xwem-interactive.el lisp/xwem-keydefs.el
+     lisp/xwem-launcher.el lisp/xwem-main.el lisp/xwem-misc.el
+     lisp/xwem-tabbing.el lisp/xwem-theme.el utils/xwem-worklog.el
+
+
+2008-11-24 16:58:34 GMT	Zajcev Evgeny <zevlg@yandex.ru>	patch-2
+
+    Summary:
+      Another bunch of fixes.
+    Revision:
+      xwem--main--2.2--patch-2
+
+    * lisp/xwem-main.el (xwem-after-window-setup): [fix] Set XWEM_RUNNING to
+      yes before initial management.
+    
+    * lisp/xwem-main.el (xwem-initial-manage): [fix] Do not manage
+      override-redirect clients.
+    
+    * lisp/xwem-keyboard.el (xwem-kbd-xksym->xkcode): [fix] if kslist is not
+      long enough, then do comparison with dummy value (-1)
+    
+    * lisp/xwem-manage.el (xwem-applications-alist): [fix] To determine
+      emacsen just match class-name
+
+    modified files:
+     dockapp/xwem-pager.el extra/xwem-keytt.el
+     extra/xwem-ratanot.el extra/xwem-rooticon.el
+     lisp/xwem-clgen.el lisp/xwem-clients.el lisp/xwem-events.el
+     lisp/xwem-help.el lisp/xwem-icons.el lisp/xwem-keyboard.el
+     lisp/xwem-main.el lisp/xwem-manage.el lisp/xwem-misc.el
+     lisp/xwem-netwm.el lisp/xwem-rooter.el lisp/xwem-special.el
+     lisp/xwem-struct.el lisp/xwem-tabbing.el
+     lisp/xwem-transient.el lisp/xwem-tray.el utils/xwem-osd.el
+     utils/xwem-worklog.el xwem-agent/Makefile
+
+
+2008-07-15 22:14:22 GMT	Zajcev Evgeny <zevlg@yandex.ru>	patch-1
+
+    Summary:
+      Multiple fixes
+    Revision:
+      xwem--main--2.2--patch-1
+
+    * Patch from Didier Verna <didier@xemacs.org> applied to fix misuses of
+      the list widget type.
+    
+    * lisp/xwem-strokes.el (xwem-strokes-lookup-stroke): [fix] Fixes strokes
+      lookup for clients with local strokes maps.
+    
+    * lisp/xwem-strokes.el (xwem-strokes-list-insert-stroke): [fix] Mark
+      invalid strokes by red face.
+    
+    * lisp/xwem-strokes.el: [addon] New stroke type added - `form'.
+    
+    * xwem-launcher.el (xwem-launcher-parse-arguments): [fix] Buggy parsing
+      when quotes are used.
+    
+    * lisp/xwem-launcher.el (xwem-execute-program-expecting-1): [fix] Use
+      window id instead of window itself for `expect-win' property.
+    
+    * lisp/xwem-clients.el (xwem-select-application): [new] Command to switch
+      to application.  Binded to `H-x s' by default.
+    
+    * lisp/xwem-interactive.el (xwem-completing-read): [addon] use
+      `xwem-completing-read-type'.
+    
+    * utils/xwem-osd.el (xwem-osd-instance-draw): [fix] Use `xdpy' instead of
+      `(xwem-dpy)'.
+    
+    * utils/xwem-osd.el: New feature - OSD notifier.  Another easy way to use
+      OSD to display simple instant messages.
+    
+    * lisp/xwem-frame.el (xwem-frame-fast-switch-to-linkage): [new] Variable
+      to customize fast frame switcher.
+    
+    * lisp/xwem-frame.el (xwem-frame-fast-switch): [fix] Regard
+      `xwem-frame-fast-switch-to-linkage' custom variable.
+    
+    * lisp/xwem-manage.el (xwem-applications-alist): [add] few applications
+      added.
+    
+    * lisp/xwem-strokes.el (xwem-strokes-last-stroke): [new] Last executed
+      stroke.  To run last stroke use default binding `H-x H-s'
+    
+    * lisp/xwem-clients.el (xwem-cl-can-be-selected-p): [FIX] examine
+      `X-WMHints-input' correctly.  Remove stupid WM_TAKE_FOCUS condition.
+    
+    * lisp/xwem-clients.el (xwem-client-focusing): [FIX] `standard' is the
+      default value for this variable.
+    
+    * lisp/xwem-mouse.el (xwem-popup-menu): [fix] Event removed.  Popup
+      always at pointer position.
+    
+    * lisp/xwem-keyboard.el (xwem-global-set-key): [add] `pgrab-mode' and
+      `kgrab-mode' arguments added.
+    
+    * dockapp/xwem-mpd.el (xwem-mpd-osd-setup): [fix] Support for internet
+      radio added.
+    
+    * dockapp/xwem-mpd.el (mpd-songpos): [fix] Case of internet radio.
+    
+    * dockapp/xwem-mpd.el (mpd-process-sentinel): [fix] `get-itimer' is
+      unnecessary.
+    
+    * xwem-mpd.el (mpd-send): [fix] For case when `mpd-process' is nil.
+    
+    * xwem-mpd.el (xwem-mpd-osd-setup): [add] I-love button added.
+    
+    * xwem-mpd.el (xwem-mpd-osd-update): [add] Support for I-love button.
+    
+    * xwem-mpd.el (mpd-i-love-this-track): [new] Add current track in list of
+      favorite tracks.
+    
+    * xwem-transient.el (xwem-transient-keymap): [add] <ESC> added to kill
+      transient clients.
+    
+    * xwem-manage.el (xwem-qualifier-not): [new] Qualifier to negate qualifiers.
+    
+    * xwem-clgen.el (xwem-clgen-activate-other): [FIX] Ignore ALL dummy
+      clients, not only (dummy-client).
+    
+    * dockapp/xwem-mpd.el (xwem-mpd-keymap): [new] Keymap for mpd dockapp.
+    
+    * dockapp/xwem-mpd.el (xwem-mpd-popup-menu): [new] Popup menu for mpd
+      dockapp.
+    
+    * xwem-manage.el (xwem-applications-alist): [add] thunar application
+      added.
+    
+
+    new files:
+     icons/.arch-ids/mini-heart.xpm.id icons/mini-heart.xpm
+
+    modified files:
+     dockapp/xwem-battery.el dockapp/xwem-mpd.el
+     dockapp/xwem-time.el extra/xwem-keytt.el
+     extra/xwem-rooticon.el extra/xwem-vline.el lisp/xwem-clgen.el
+     lisp/xwem-clients.el lisp/xwem-clswi.el lisp/xwem-compat.el
+     lisp/xwem-events.el lisp/xwem-focus.el lisp/xwem-frame.el
+     lisp/xwem-help.el lisp/xwem-icons.el lisp/xwem-interactive.el
+     lisp/xwem-keyboard.el lisp/xwem-keydefs.el
+     lisp/xwem-launcher.el lisp/xwem-main.el lisp/xwem-manage.el
+     lisp/xwem-misc.el lisp/xwem-mouse.el lisp/xwem-register.el
+     lisp/xwem-root.el lisp/xwem-rooter.el lisp/xwem-selections.el
+     lisp/xwem-strokes.el lisp/xwem-struct.el lisp/xwem-tabbing.el
+     lisp/xwem-transient.el lisp/xwem-tray.el utils/xwem-osd.el
+
+
+2007-04-29 20:07:21 GMT	Zajcev Evgeny <zevlg@yandex.ru>	base-0
+
+    Summary:
+      tag of lg@xwem.org--2006/xwem--main--2.2--patch-5
+    Revision:
+      xwem--main--2.2--base-0
+
+    (automatically generated log message)
+
+    new patches:
+     dev@xwem.org--2004-w/xwem--dev--2.0--patch-1
+     dev@xwem.org--2004-w/xwem--dev--2.0--patch-2
+     dev@xwem.org--2004-w/xwem--dev--2.0--patch-3
+     dev@xwem.org--2004-w/xwem--dev--2.1--base-0
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-1
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-2
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-3
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-4
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-5
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-6
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-7
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-8
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-9
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-12
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-14
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-15
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-17
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-19
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-20
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-21
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-22
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-23
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-24
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-25
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-26
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-30
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-31
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-32
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-33
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-34
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-36
+     dev@xwem.org--2004-w/xwem--dev--2.2--patch-1
+     dev@xwem.org--2004-w/xwem--dev--2.2--patch-3
+     dev@xwem.org--2004-w/xwem--dev--2.2--patch-7
+     dev@xwem.org--2004-w/xwem--dev--2.2--patch-9
+     dev@xwem.org--2004-w/xwem--dev--2.2--patch-10
+     dev@xwem.org--2004-w/xwem--dev--2.2--patch-11
+     dev@xwem.org--2004-w/xwem--dev--2.2--patch-13
+     dev@xwem.org--2004-w/xwem--dev--2.2--patch-14
+     dev@xwem.org--2004-w/xwem--dev--2.2--patch-16
+     dev@xwem.org--2004-w/xwem--dev--2.2--patch-17
+     dev@xwem.org--2004-w/xwem--dev--2.2--patch-19
+     dev@xwem.org--2004-w/xwem--dev--2.2--patch-21
+     dev@xwem.org--2004-w/xwem--dev--2.2--patch-22
+     dev@xwem.org--2004-w/xwem--dev--2.2--patch-24
+     dev@xwem.org--2004-w/xwem--dev--2.2--patch-25
+     dev@xwem.org--2004-w/xwem--dev--2.2--patch-27
+     dev@xwem.org--2004-w/xwem--dev--2.2--patch-31
+     dev@xwem.org--2004-w/xwem--dev--2.2--patch-32
+     dev@xwem.org--2004-w/xwem--dev--2.2--patch-33
+     lg@xwem.org--2004/xwem--main--2.0--base-0
+     lg@xwem.org--2004/xwem--main--2.0--patch-1
+     lg@xwem.org--2004/xwem--main--2.0--patch-2
+     lg@xwem.org--2004/xwem--main--2.0--patch-3
+     lg@xwem.org--2004/xwem--main--2.0--patch-4
+     lg@xwem.org--2004/xwem--main--2.0--patch-5
+     lg@xwem.org--2004/xwem--main--2.0--patch-6
+     lg@xwem.org--2004/xwem--main--2.0--patch-7
+     lg@xwem.org--2004/xwem--main--2.0--patch-8
+     lg@xwem.org--2004/xwem--main--2.0--patch-9
+     lg@xwem.org--2004/xwem--main--2.0--patch-10
+     lg@xwem.org--2004/xwem--main--2.0--patch-11
+     lg@xwem.org--2004/xwem--main--2.0--patch-12
+     lg@xwem.org--2004/xwem--main--2.0--patch-13
+     lg@xwem.org--2004/xwem--main--2.0--patch-14
+     lg@xwem.org--2004/xwem--main--2.0--patch-15
+     lg@xwem.org--2004/xwem--main--2.0--patch-16
+     lg@xwem.org--2004/xwem--main--2.0--patch-17
+     lg@xwem.org--2004/xwem--main--2.0--patch-18
+     lg@xwem.org--2004/xwem--main--2.0--patch-19
+     lg@xwem.org--2004/xwem--main--2.0--version-0
+     lg@xwem.org--2005/xwem--main--2.1--base-0
+     lg@xwem.org--2005/xwem--main--2.1--patch-1
+     lg@xwem.org--2005/xwem--main--2.1--patch-2
+     lg@xwem.org--2005/xwem--main--2.1--patch-3
+     lg@xwem.org--2005/xwem--main--2.1--patch-4
+     lg@xwem.org--2005/xwem--main--2.1--patch-5
+     lg@xwem.org--2005/xwem--main--2.1--patch-6
+     lg@xwem.org--2005/xwem--main--2.1--patch-7
+     lg@xwem.org--2005/xwem--main--2.1--patch-8
+     lg@xwem.org--2005/xwem--main--2.1--patch-9
+     lg@xwem.org--2005/xwem--main--2.1--patch-10
+     lg@xwem.org--2005/xwem--main--2.1--patch-11
+     lg@xwem.org--2005/xwem--main--2.1--patch-12
+     lg@xwem.org--2005/xwem--main--2.1--patch-13
+     lg@xwem.org--2005/xwem--main--2.1--patch-14
+     lg@xwem.org--2005/xwem--main--2.1--patch-15
+     lg@xwem.org--2005/xwem--main--2.1--patch-16
+     lg@xwem.org--2005/xwem--main--2.1--patch-17
+     lg@xwem.org--2005/xwem--main--2.1--patch-18
+     lg@xwem.org--2005/xwem--main--2.1--patch-19
+     lg@xwem.org--2005/xwem--main--2.1--patch-20
+     lg@xwem.org--2005/xwem--main--2.1--patch-21
+     lg@xwem.org--2005/xwem--main--2.1--patch-22
+     lg@xwem.org--2005/xwem--main--2.1--patch-23
+     lg@xwem.org--2005/xwem--main--2.1--patch-24
+     lg@xwem.org--2005/xwem--main--2.1--patch-25
+     lg@xwem.org--2005/xwem--main--2.1--patch-26
+     lg@xwem.org--2005/xwem--main--2.1--patch-27
+     lg@xwem.org--2005/xwem--main--2.1--patch-28
+     lg@xwem.org--2005/xwem--main--2.1--patch-29
+     lg@xwem.org--2005/xwem--main--2.1--patch-30
+     lg@xwem.org--2005/xwem--main--2.1--patch-31
+     lg@xwem.org--2005/xwem--main--2.1--patch-32
+     lg@xwem.org--2005/xwem--main--2.1--patch-33
+     lg@xwem.org--2005/xwem--main--2.1--patch-34
+     lg@xwem.org--2005/xwem--main--2.1--patch-35
+     lg@xwem.org--2005/xwem--main--2.1--patch-36
+     lg@xwem.org--2005/xwem--main--2.1--patch-37
+     lg@xwem.org--2005/xwem--main--2.1--patch-38
+     lg@xwem.org--2005/xwem--main--2.1--patch-39
+     lg@xwem.org--2005/xwem--main--2.1--patch-40
+     lg@xwem.org--2005/xwem--main--2.1--patch-41
+     lg@xwem.org--2005/xwem--main--2.1--patch-42
+     lg@xwem.org--2005/xwem--main--2.1--patch-43
+     lg@xwem.org--2005/xwem--main--2.1--version-0
+     lg@xwem.org--2005/xwem--main--2.2--base-0
+     lg@xwem.org--2005/xwem--main--2.2--patch-1
+     lg@xwem.org--2005/xwem--main--2.2--patch-2
+     lg@xwem.org--2005/xwem--main--2.2--patch-3
+     lg@xwem.org--2005/xwem--main--2.2--patch-4
+     lg@xwem.org--2005/xwem--main--2.2--patch-5
+     lg@xwem.org--2005/xwem--main--2.2--patch-6
+     lg@xwem.org--2005/xwem--main--2.2--patch-7
+     lg@xwem.org--2005/xwem--main--2.2--patch-8
+     lg@xwem.org--2005/xwem--main--2.2--patch-9
+     lg@xwem.org--2005/xwem--main--2.2--patch-10
+     lg@xwem.org--2005/xwem--main--2.2--patch-11
+     lg@xwem.org--2005/xwem--main--2.2--patch-12
+     lg@xwem.org--2005/xwem--main--2.2--patch-13
+     lg@xwem.org--2005/xwem--main--2.2--patch-14
+     lg@xwem.org--2005/xwem--main--2.2--patch-15
+     lg@xwem.org--2005/xwem--main--2.2--patch-16
+     lg@xwem.org--2005/xwem--main--2.2--patch-17
+     lg@xwem.org--2005/xwem--main--2.2--patch-18
+     lg@xwem.org--2005/xwem--main--2.2--patch-19
+     lg@xwem.org--2005/xwem--main--2.2--patch-20
+     lg@xwem.org--2005/xwem--main--2.2--patch-21
+     lg@xwem.org--2005/xwem--main--2.2--patch-22
+     lg@xwem.org--2005/xwem--main--2.2--patch-23
+     lg@xwem.org--2005/xwem--main--2.2--patch-24
+     lg@xwem.org--2005/xwem--main--2.2--patch-25
+     lg@xwem.org--2005/xwem--main--2.2--patch-26
+     lg@xwem.org--2005/xwem--main--2.2--patch-27
+     lg@xwem.org--2005/xwem--main--2.2--patch-28
+     lg@xwem.org--2005/xwem--main--2.2--patch-29
+     lg@xwem.org--2005/xwem--main--2.2--patch-30
+     lg@xwem.org--2005/xwem--main--2.2--patch-31
+     lg@xwem.org--2005/xwem--main--2.2--patch-32
+     lg@xwem.org--2005/xwem--main--2.2--patch-33
+     lg@xwem.org--2005/xwem--main--2.2--patch-34
+     lg@xwem.org--2005/xwem--main--2.2--patch-35
+     lg@xwem.org--2005/xwem--main--2.2--patch-36
+     lg@xwem.org--2005/xwem--main--2.2--patch-37
+     lg@xwem.org--2005/xwem--main--2.2--patch-38
+     lg@xwem.org--2005/xwem--main--2.2--patch-39
+     lg@xwem.org--2005/xwem--main--2.2--patch-40
+     lg@xwem.org--2005/xwem--main--2.2--patch-41
+     lg@xwem.org--2005/xwem--main--2.2--patch-42
+     lg@xwem.org--2005/xwem--main--2.2--patch-43
+     lg@xwem.org--2005/xwem--main--2.2--patch-44
+     lg@xwem.org--2005/xwem--main--2.2--patch-45
+     lg@xwem.org--2005/xwem--main--2.2--patch-46
+     lg@xwem.org--2005/xwem--main--2.2--patch-47
+     lg@xwem.org--2006/xwem--main--2.2--base-0
+     lg@xwem.org--2006/xwem--main--2.2--patch-1
+     lg@xwem.org--2006/xwem--main--2.2--patch-2
+     lg@xwem.org--2006/xwem--main--2.2--patch-3
+     lg@xwem.org--2006/xwem--main--2.2--patch-4
+     lg@xwem.org--2006/xwem--main--2.2--patch-5
+     steve@eicq.org--2004/xwem--steve--2.0--base-0
+     steve@eicq.org--2004/xwem--steve--2.0--patch-1
+     steve@eicq.org--2004/xwem--steve--2.0--patch-2
+     steve@eicq.org--2004/xwem--steve--2.0--patch-3
+     steve@eicq.org--2004/xwem--steve--2.0--patch-4
+     steve@eicq.org--2004/xwem--steve--2.0--patch-5
+     steve@eicq.org--2005/xwem--steve--2.1--patch-2
+     steve@eicq.org--2005/xwem--steve--2.1--patch-3
+     steve@eicq.org--2005/xwem--steve--2.1--patch-5
+     steve@eicq.org--2005/xwem--steve--2.1--patch-7
+     steve@eicq.org--2005/xwem--steve--2.1--patch-9
+     steve@eicq.org--2005/xwem--steve--2.2--patch-1
+     steve@eicq.org--2005/xwem--steve--2.2--patch-3
+     steve@eicq.org--2005/xwem--steve--2.2--patch-5
+     steve@eicq.org--2005/xwem--steve--2.2--patch-7
+     steve@eicq.org--2005/xwem--steve--2.2--patch-8
+     steve@eicq.org--2005/xwem--steve--2.2--patch-10
+     steve@eicq.org--2005/xwem--steve--2.2--patch-12
+     steve@eicq.org--2005/xwem--steve--2.2--patch-13
+     steve@eicq.org--2005/xwem--steve--2.2--patch-15
+     steve@eicq.org--2005/xwem--steve--2.2--patch-19
+     steve@eicq.org--2007/xwem--steve--2.2--patch-1
+     steve@eicq.org--2007/xwem--steve--2.2--patch-2
+
+2005-04-04 18:23:36 GMT	Zajcev Evgeny <lg@xwem.org>	version-0
+
+    Summary:
+      XWEM 2.1 is released
+    Revision:
+      xwem--main--2.1--version-0
+
+
+
+2005-04-04 18:22:56 GMT	Zajcev Evgeny <lg@xwem.org>	patch-43
+
+    Summary:
+      Bad bug fix.
+    Revision:
+      xwem--main--2.1--patch-43
+
+    * lisp/xwem-events.el (xwem-event-client): [bug fix] Consider selected
+      client in case of if event is generated for dummy client.  Selected
+      client can be the dummy client however.  This fixes bug, which was
+      causing invalid command looking up when prefix argument is used.
+
+    modified files:
+     lisp/xwem-events.el lisp/xwem-keyboard.el
+
+    new patches:
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-36
+
+
+2005-04-01 23:19:52 GMT	Zajcev Evgeny <lg@xwem.org>	patch-42
+
+    Summary:
+      Another bunch of fixes before release
+    Revision:
+      xwem--main--2.1--patch-42
+
+    * dockapp/xwem-weather.el (xwem-weather-menu): Menu title removed.
+    
+    * dockapp/xwem-weather.el (xwem-weather-popup-menu): Make menu title
+      dinamically, to show station id.
+    
+    * extra/xwem-frametrans.el (xwem-frame-transparency): [new] Command to
+      toggle frame transparency for selected frame.
+    
+    * extra/xwem-frametrans.el (advice): [addon] advice also
+      `xwem-win-set-cl' to update frame transparency mask.
+    
+    * extra/xwem-rooticon.el (xwem-rooticon-always-on-top-spec): [fix] Rank
+      is 15 by default, to not obscure xwem minibuffer, which has rank 20.
+    
+    * extra/xwem-rooticon.el (xwem-rooticon-genmenu): [addon] Dynamic menu
+      title, to show icon name.
+    
+    * lisp/xwem-clients.el (xwem-select-client): [fix] If client can't be
+      selected - just activate it.
+    
+    * lisp/xwem-clients.el (xwem-client-iconify): [addon] Now accepts prefix
+      argument - to iconify all clients of same major mode as selected
+      client.
+    
+    * lisp/xwem-clients.el (xwem-client-iconify-every): [new] Command to
+      iconify all clients.
+    
+    * lisp/xwem-clients.el (xwem-client-exchange-selected-and-mark): [new]
+      Command to exchange marked client and selected client.  Binded by
+      default to `H-x H-x'
+    
+    * lisp/xwem-frame.el (xwem-frame-destroy): [addon] Now accepts prefix
+      argument - to close all clients managed in this frame.
+    
+    * lisp/xwem-keydefs.el (xwem-global-map): [addon] `H-x 7 Z' binded to
+      `xwem-client-iconify-every'.
+    
+    * lisp/xwem-keydefs.el (xwem-global-map): [addon] `H-x H-x' binded to
+      `xwem-client-exchange-selected-and-mark'.
+    
+    * lisp/xwem-main.el (xwem-after-window-setup): [fix] Initialise xwem-misc
+      before doing any things.  Just in case someone want to use misc masks
+      or cursors.
+    
+    * lisp/xwem-minibuffer.el (xwem-modeline-format): [change] Format changed
+      to make it more human friendly.  Info about mark and register added.
+    
+    * lisp/xwem-misc.el (advice): Advice `XCreateWindow' to mark windows
+      created by xwem on xwem display.
+    
+    * lisp/xwem-misc.el (ranking): [fixes] Various fixes to rearrange
+      `xwem-misc-always-on-top-stack' properly.
+    
+    * lisp/xwem-misc.el: On load hooks removed, since xwem-main initialises
+      xwem-misc directly.
+    
+    * lisp/xwem-netwm.el (xwem-manage-fullscreen): [addon] Support for
+      xinerama.
+    
+    * lisp/xwem-rooter.el (activate method): [fix] Do XMapWindow explicitely.
+    
+    * lisp/xwem-transient.el (ranking): [addon] Support for inheriting
+      always-on-top rank from client it transient for.
+    
+    * utils/xwem-osd.el (xwem-osd-create-mask): [bug fix] Do not recreate
+      masking gc if it is already created.
+    
+    * xwem-agent/xwem-agent.c (start_emacs): [fix] Make sure there is no
+      other (S)XEmacs instance started by xwem-agent, before starting new
+      (S)XEmacs.
+    
+
+    modified files:
+     dockapp/xwem-weather.el extra/xwem-frametrans.el
+     extra/xwem-rooticon.el lisp/xwem-clients.el lisp/xwem-frame.el
+     lisp/xwem-keydefs.el lisp/xwem-main.el lisp/xwem-minibuffer.el
+     lisp/xwem-misc.el lisp/xwem-netwm.el lisp/xwem-rooter.el
+     lisp/xwem-transient.el utils/xwem-appcollect.el
+     utils/xwem-osd.el xwem-agent/xwem-agent.c
+
+    new patches:
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-33
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-34
+
+
+2005-03-30 23:10:15 GMT	Zajcev Evgeny <lg@xwem.org>	patch-41
+
+    Summary:
+      Many fixes, minor and major
+    Revision:
+      xwem--main--2.1--patch-41
+
+    * dockapp/xwem-framei.el (xwem-framei-init): xwem-osd-always-ontop removed.
+    
+    * extra/xwem-keytt.el (xwem-keytt-acroread-keymap): C-v and M-v changed
+      to <next> and <prior> respectively.
+    
+    * extra/xwem-rooticon.el (xwem-rooticon-always-on-top-spec): [sem change]
+      Now list of cons cells in form (MATCH-SPEC . RANK), so root icons for
+      different clients may have different ranks.
+    
+    * lisp/xwem-clgen.el (bottom): [bug fix] Set `win-support' property for
+      generic major mode.
+    
+    * lisp/xwem-clients.el (xwem-attach-client): [bug fix] clients filtering
+      fixate.
+    
+    * lisp/xwem-clients.el (bottom): [bug fix] Set `win-support' property for
+      dedicated major mode.
+    
+    * lisp/xwem-edmacro.el (xwem-edmacro-edit-kbd-macro): [fix] Skip default
+      binding as real key binding.
+    
+    * lisp/xwem-keyboard.el (xwem-kbd-get-binding): [sem change] Optional
+      argument REJECT-DEFAULT added.  If non-nil do not accept default
+      binding when looking up key binding.
+    
+    * lisp/xwem-keyboard.el (xwem-universal-command): [fix] Hack to avoid
+      double key echoing, when reprocessing command key.
+    
+    * lisp/xwem-launcher.el (xwem-launcher-parse-arguments): [bug fix]
+    
+    * lisp/xwem-launcher.el (xwem-launch-generic-program): [bug fix] typo.
+    
+    * lisp/xwem-misc.el (xwem-xwin-rank): [new] Return x window always on top
+      rank.
+    
+    * lisp/xwem-misc.el (xwem-misc-set-xwin-always-on-top): [bug fix] Do
+      sorting properly.
+    
+    * lisp/xwem-misc.el (xwem-misc-lower-xwin): [fix] Resort, if necessary
+      `xwem-misc-always-on-top-stack' when lowering xwin below some sibling.
+    
+    * lisp/xwem-netwm.el (xwem-fullscreen-iconify-when-inactive): [new]
+      Non-nil to iconify fullscreen clients that inactivates.  NOTE: Non-nil
+      by default!.
+    
+    * lisp/xwem-netwm.el (xwem-fullscreen-ai-rank): [new] Ranks pair for
+      active and inactive states of fullscreen clients.
+    
+    * lisp/xwem-rooter.el (xwem-rooter-always-on-top-spec): [change] Similiar
+      to `xwem-rooticon-always-on-top-spec', but for rooter clients.
+    
+    * utils/xwem-osd.el: Fixes to use OSD's color if color for OSD instance
+      is ommited.
+    
+
+    modified files:
+     dockapp/xwem-framei.el extra/xwem-keytt.el
+     extra/xwem-rooticon.el lisp/xwem-clgen.el lisp/xwem-clients.el
+     lisp/xwem-edmacro.el lisp/xwem-keyboard.el
+     lisp/xwem-launcher.el lisp/xwem-misc.el lisp/xwem-netwm.el
+     lisp/xwem-rooter.el lisp/xwem-special.el utils/xwem-osd.el
+
+    new patches:
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-30
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-31
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-32
+
+
+2005-03-26 22:23:00 GMT	Zajcev Evgeny <lg@xwem.org>	patch-40
+
+    Summary:
+      universal argument commands fixes to work with macroses
+    Revision:
+      xwem--main--2.1--patch-40
+
+    * lisp/xwem-keyboard.el (xwem-universal-digit): [fix] xwem-last-event
+      not guarantee to be event.  This fixes bug when H-<digit> command is
+      used in macroses.
+    
+    * lisp/xwem-keyboard.el (xwem-universal-command): [fix] use
+      `xwem-dispatch-command-event' directly.
+
+    modified files:
+     lisp/xwem-keyboard.el
+
+
+2005-03-24 21:03:43 GMT	Zajcev Evgeny <lg@xwem.org>	patch-39
+
+    Summary:
+      xwem-agent possible bug fix
+    Revision:
+      xwem--main--2.1--patch-39
+
+    * xwem-agent/xwem-agent.c (emacs_rip): [fix] wait -> waitpid.  Possible
+      bug fix.
+
+    modified files:
+     xwem-agent/xwem-agent.c
+
+
+2005-03-22 23:13:31 GMT	Zajcev Evgeny <lg@xwem.org>	patch-38
+
+    Summary:
+      rooticon popup menu addons
+    Revision:
+      xwem--main--2.1--patch-38
+
+    * extra/xwem-rooticon.el (xwem-rooticon-genmenu): [addon] Few menu items
+      added.
+
+    modified files:
+     extra/xwem-rooticon.el
+
+
+2005-03-22 22:25:00 GMT	Zajcev Evgeny <lg@xwem.org>	patch-37
+
+    Summary:
+      frametrans fixes, quoted arguments in launcher
+    Revision:
+      xwem--main--2.1--patch-37
+
+    * lisp/xwem-launcher.el (xwem-launcher-split-cmd): [removed]
+    
+    * lisp/xwem-launcher.el (xwem-launcher-join-cmd): [removed]
+    
+    * lisp/xwem-launcher.el (xwem-launcher-parse-arguments): [new] Split
+      command string to arguments list.
+    
+    * lisp/xwem-launcher.el (xwem-launcher-normalize-cmd): [fix] Use
+      `xwem-launcher-parse-arguments' now.
+    
+    * lisp/xwem-launcher.el (xwem-launcher-query): [fix] Use
+      `xwem-launcher-parse-arguments' now.
+    
+    * lisp/xwem-launcher.el (xwem-open-file): [fix] Support for spaces in
+      filenames.
+    
+    * extra/xwem-frametrans.el: General fixes to make it more useble.  To try
+      out frametrans do:
+    
+        (require 'xwem-frametrans)
+        (xwem-frame-set-property nil 'transparency t)
+
+    modified files:
+     extra/xwem-frametrans.el lisp/xwem-frame.el
+     lisp/xwem-launcher.el lisp/xwem-selections.el lisp/xwem-win.el
+
+
+2005-03-20 21:47:29 GMT	Zajcev Evgeny <lg@xwem.org>	patch-36
+
+    Summary:
+      Keys echoing (minor)
+    Revision:
+      xwem--main--2.1--patch-36
+
+    * lisp/xwem-keyboard.el (xwem-kbd-dispatch-binding): [addon] Echo last
+      key before executing macro.
+
+    modified files:
+     lisp/xwem-keyboard.el
+
+
+2005-03-19 21:46:44 GMT	Zajcev Evgeny <lg@xwem.org>	patch-35
+
+    Summary:
+      fixes, addons
+    Revision:
+      xwem--main--2.1--patch-35
+
+    * lisp/xwem-manage.el (xwem-applications-alist): Little
+      restructurisation.
+    
+    * lisp/xwem-manage.el (xwem-cl-match-p): [addon] new type for matching -
+      `property'.  So for example to match client which has 2 pixels width
+      border use something like:
+    
+         (xwem-cl-match-cl cl '((property (x-border-width . 2))))
+    
+    * lisp/xwem-focus.el (bottom): Trailing space removed in minor mode name.
+    
+    * lisp/xwem-frame.el (xwem-make-frame-1): [addon] Support for
+      ParentRelative background.  To try out what parent relative background
+      is - remove 'background property from `xwem-frame-default-properties'
+      and create new frame:
+    
+         (plist-remprop xwem-frame-default-properties 'background)
+         (xwem-make-frame 'desktop)
+    
+    * lisp/xwem-icons.el (xwem-icons-list): [addon] rxvt added.
+    
+    * extra/xwem-mogu.el (xwem-mogu-minor-mode): Initial changes to make mogu
+      be minor mode (not checked, might not work yet).
+
+    modified files:
+     extra/xwem-mogu.el lisp/xwem-focus.el lisp/xwem-frame.el
+     lisp/xwem-icons.el lisp/xwem-manage.el
+
+
+2005-03-09 20:09:25 GMT	Zajcev Evgeny <lg@xwem.org>	patch-34
+
+    Summary:
+      Merge from steve
+    Revision:
+      xwem--main--2.1--patch-34
+
+    Patches applied:
+    
+     * steve@eicq.org--2005/xwem--steve--2.1--patch-9
+       H-w fix
+    
+
+    modified files:
+     lisp/xwem-selections.el
+
+    new patches:
+     steve@eicq.org--2005/xwem--steve--2.1--patch-9
+
+
+2005-03-06 23:14:54 GMT	Zajcev Evgeny <lg@xwem.org>	patch-33
+
+    Summary:
+      Some minor fixes, advances in xwem-mogu
+    Revision:
+      xwem--main--2.1--patch-33
+
+    * utils/xwem-osd.el: [fix] Merged from steve
+    
+    * lisp/xwem-netwm.el (xwem-fullscreen-apply-state): [change] Use real
+      raise/lower, omiting stack ranking.
+    
+    * extra/xwem-keytt.el (firefox): +/-/= and \\ commented out, because of
+      problems.
+    
+    * extra/xwem-mogu.el: Already usable.  No default bindings.
+
+    modified files:
+     extra/xwem-keytt.el extra/xwem-mogu.el lisp/xwem-minibuffer.el
+     lisp/xwem-netwm.el utils/xwem-osd.el
+
+
+2005-03-04 19:28:11 GMT	Zajcev Evgeny <lg@xwem.org>	patch-32
+
+    Summary:
+      Merge from steve
+    Revision:
+      xwem--main--2.1--patch-32
+
+    Patches applied:
+    
+     * steve@eicq.org--2005/xwem--steve--2.1--patch-7
+       Fix OSD bug
+    
+
+    modified files:
+     utils/xwem-osd.el
+
+    new patches:
+     steve@eicq.org--2005/xwem--steve--2.1--patch-7
+
+
+2005-03-03 23:21:54 GMT	Zajcev Evgeny <lg@xwem.org>	patch-31
+
+    Summary:
+      Initial import of XWEM MOuse Grid Uberness.
+    Revision:
+      xwem--main--2.1--patch-31
+
+
+    new files:
+     extra/.arch-ids/xwem-mogu.el.id extra/xwem-mogu.el
+
+
+2005-03-03 23:11:48 GMT	Zajcev Evgeny <lg@xwem.org>	patch-30
+
+    Summary:
+      merge from ckent, window stack introduced, fixes
+    Revision:
+      xwem--main--2.1--patch-30
+
+    Keyboard (lisp/xwem-keyboard.el lisp/xwem-keymacro.el lisp/xwem-events.el):
+    
+      Special tag <self-insert> introduced.  When some key has self-insert as
+      prefix - all following keys directly sent to client (omiting xwem
+      commands looking up).  This was done to avoid cross bindings problem in
+      xwem-keytt.  To define self-insert keys, use something like:
+    
+         (kbd "<self-insert> H-x o")  ; Send `H-x o' directly to client
+    
+    Stacking (lisp/xwem-misc.el):
+    
+      New, each X window can have special property - always-on-top-rank
+      (number).  This number denotes X window position in virtualized windows
+      stack.  So it always to make some window be always on top.
+    
+    Worklog (utils/xwem-worklog.el):
+    
+      Bug fix, Thanks to Steve!
+    
+    KeyTT (extra/xwem-keytt.el):
+    
+      All bindings are <self-insert> now to avoid cross binding problems.
+    
+    
+    * lisp/xwem-frame.el (xwem-frame-at): [bug typo fix sem] New argument
+      MAPED-P added - if non-nil only maped frames are examined.
+    
+    * lisp/xwem-minibuffer.el (xwem-minibiffer-always-on-top-rank): [new]
+      Rank in stack for minibuffer.  By default - xwem minibuffer is always
+      on top (rank = 20).
+    
+    * lisp/xwem-rooter.el (xwem-rooter-always-on-top-spec): [new] MATCH-SPEC
+      for always on top rooters.  To make xclock to be always on top - use
+      something like:
+    
+         (setq xwem-rooter-always-on-top-spec
+          '((application "xclock")))
+
+    modified files:
+     extra/xwem-keytt.el extra/xwem-ratanot.el
+     extra/xwem-rooticon.el lisp/xwem-clients.el
+     lisp/xwem-events.el lisp/xwem-frame.el lisp/xwem-keyboard.el
+     lisp/xwem-keymacro.el lisp/xwem-minibuffer.el
+     lisp/xwem-misc.el lisp/xwem-netwm.el lisp/xwem-rooter.el
+     lisp/xwem-special.el lisp/xwem-transient.el
+     utils/xwem-holer.el utils/xwem-osd.el utils/xwem-worklog.el
+
+    new patches:
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-26
+
+
+2005-03-02 23:03:33 GMT	Zajcev Evgeny <lg@xwem.org>	patch-29
+
+    Summary:
+      Merge from ckent, fixes, addons
+    Revision:
+      xwem--main--2.1--patch-29
+
+    * dockapp/xwem-battery.el (main): [addon] Support for non-nil
+      `xwem-misc-turbo-mode' added.
+    
+    * dockapp/xwem-pager.el (xwem-pager-redimentionize): [typo] fix.
+    
+    * lisp/xwem-keymacro.el (xwem-keymacro-internal-play): [fix] Recursive
+      keymacros execution is allowed.
+    
+    * lisp/xwem-minibuffer.el (xwem-manage-minibuffer): [addon] Apply state
+      immediately to avoid geometry breakage, when for example modeline is
+      enabled from xwemrc.el.  From this time  you are free to add
+      "(xwem-modeline-enable)" into your xwemrc!
+    
+    * lisp/xwem-minibuffer.el (xwem-refit-minibuffer): [bug] Change Y
+      position only if xwem minibuffer is in active state.
+    
+    * lisp/xwem-minibuffer.el (xwem-modeline-format): [fix addon] Minor modes
+      string formating fix.  Client geometry printing added.
+    
+    * lisp/xwem-minibuffer.el (xwem-modeline-enable): [sem] ARG removed.
+    
+    * lisp/xwem-minibuffer.el (xwem-modeline-disable): [sem] ARG removed.
+    
+    * lisp/xwem-register.el (register): [new] New client property -
+      'register.  Having registers in client's property allow to keep
+      registers between sessions when running under xwem-agent.
+    
+    * lisp/xwem-strokes.el (xwem-strokes-background-mode): [new] Saved
+      background mode when new stroke is started.
+    
+    * lisp/xwem-tabbing.el (xwem-tabber-font:frame.selected-tab.selected):
+      [new] Custom interface to change tabber font.
+    
+    * lisp/xwem-tabbing.el (xwem-tabber-font:frame.selected-tab.nonselected):
+      Ditto.
+    
+    * lisp/xwem-tabbing.el (xwem-tabber-font:frame.nonselected-tab.selected):
+      Ditto.
+    
+    * lisp/xwem-tabbing.el
+      (xwem-tabber-font:frame.nonselected-tab.nonselected): Ditto.
+    
+    * lisp/xwem-theme.el (themes): Some improvements, still under
+      reconstruction.
+    
+    * utils/xwem-worklog.el (dockapp): [addon] Support for non-nil
+      `xwem-misc-turbo-mode' added.
+
+    modified files:
+     dockapp/xwem-battery.el dockapp/xwem-pager.el
+     extra/xwem-edprops.el extra/xwem-keytt.el
+     lisp/xwem-keymacro.el lisp/xwem-minibuffer.el
+     lisp/xwem-register.el lisp/xwem-strokes.el
+     lisp/xwem-tabbing.el lisp/xwem-theme.el utils/xwem-worklog.el
+
+    new patches:
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-25
+
+
+2005-02-28 19:57:39 GMT	Zajcev Evgeny <lg@xwem.org>	patch-28
+
+    Summary:
+      bug fixes
+    Revision:
+      xwem--main--2.1--patch-28
+
+    * lisp/xwem-events.el (xwem-event-client): [bug fix]
+    
+    * lisp/xwem-win.el (xwem-window-set-pixsize): [bug fix]
+    
+    * lisp/xwem-minibuffer.el (xwem-minibuffer-map): [addon] C-<button1>
+      bound to `xwem-client-imove' by default.
+
+    modified files:
+     lisp/xwem-events.el lisp/xwem-minibuffer.el lisp/xwem-win.el
+
+    new patches:
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-23
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-24
+
+
+2005-02-25 10:55:23 GMT	Zajcev Evgeny <lg@xwem.org>	patch-27
+
+    Summary:
+      lambda fixes
+    Revision:
+      xwem--main--2.1--patch-27
+
+
+    modified files:
+     lisp/xwem-clients.el lisp/xwem-clswi.el lisp/xwem-compat.el
+     lisp/xwem-desktop.el lisp/xwem-edmacro.el lisp/xwem-faces.el
+     lisp/xwem-frame.el lisp/xwem-help.el lisp/xwem-interactive.el
+     lisp/xwem-keyboard.el lisp/xwem-keymacro.el
+     lisp/xwem-launcher.el lisp/xwem-main.el lisp/xwem-manage.el
+     lisp/xwem-minibuffer.el lisp/xwem-misc.el lisp/xwem-mouse.el
+     lisp/xwem-netwm.el lisp/xwem-register.el
+     lisp/xwem-selections.el lisp/xwem-strokes.el
+     lisp/xwem-struct.el lisp/xwem-tabbing.el lisp/xwem-theme.el
+     lisp/xwem-tray.el lisp/xwem-win.el
+
+
+2005-02-23 00:00:08 GMT	Zajcev Evgeny <lg@xwem.org>	patch-26
+
+    Summary:
+      keytt addons imported, aspect ratio fix, vline fix, help fix
+    Revision:
+      xwem--main--2.1--patch-26
+
+    * extra/xwem-keytt.el (xwem-keytt-global-mode): [new] Function to enable
+      global xwem-keytt minor mode.  Just add `(xwem-keytt-global-mode)' into
+      xwemrc.el to start using xwem-keytt globally.  xwem-keytt currently
+      supports: gv, firefox, acroread, xpdf, xdvi, djview, xchm applications.
+    
+    * extra/xwem-vline.el (xwem-turn-on-vline): [addon] Accepts numeric
+      prefix argument to specify column at which vline to display. NOTE:
+      `xwem-turn-on-vline' command is not bound by default.
+    
+    * lisp/xwem-clients.el (xwem-cl-switch-other-omit-mode-specific): [new]
+      Customizable variable to control `xwem-switch-other-client' command
+      behaviour.  Non-nil - mean new behaviour (smart switcher to recent
+      client), nil - old behaviour (always switch to last most recent client)
+    
+    * lisp/xwem-clients.el (xwem-cl-correct-size-for-size): [addon] Support
+      for aspect ratio, final, thanks to Richard for contribution!
+    
+    * lisp/xwem-help.el (xwem-describe-prefix-bindings): [fix] Show minor
+      mode bindings as well.
+    
+    * lisp/xwem-help.el (xwem-help-mode): [new] Command to describe current
+      major/minor mode.  By default bound to `H-h m'
+    
+    * lisp/xwem-keydefs.el (xwem-help-map): [addon] `H-h m'
+    
+    * lisp/xwem-manage.el (xwem-applications-alist): [addon] xdvi, xpdf, xchm
+      applications added.
+    
+    * lisp/xwem-minibuffer.el (xwem-manage-minibuffer): [bug fix] Select
+      correct position, thanks to Steve's eagle eyes!
+    
+    * lisp/xwem-minibuffer.el (modeline): fixes, automatical minibuffer
+      resizing on `xwem-modeline-enable' and `xwem-modeline-disable'
+      commands.  Everybody please try H-M-x xwem-modeline-enable RET ..
+    
+    * lisp/xwem-netwm.el (fullscreen): [addon] Set major mode property
+      'omit-aspect-ratio to disregard client's aspect ratio when doing
+      refiting.
+    
+    * lisp/xwem-selections.el (xwem-selections-no-remove): [change] t now by
+      default.  Was discussed and agreed.
+    
+    * lisp/xwem-selections.el (xwem-copy-cutbuffer): [fix] To make `H-w' work
+      with mozilla selections.
+
+    modified files:
+     extra/xwem-keytt.el extra/xwem-vline.el lisp/xwem-clients.el
+     lisp/xwem-help.el lisp/xwem-keydefs.el lisp/xwem-manage.el
+     lisp/xwem-minibuffer.el lisp/xwem-misc.el lisp/xwem-netwm.el
+     lisp/xwem-selections.el
+
+    new patches:
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-20
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-21
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-22
+
+
+2005-02-21 23:26:59 GMT	Zajcev Evgeny <lg@xwem.org>	patch-25
+
+    Summary:
+      initial support for aspect ratio and modeline
+    Revision:
+      xwem--main--2.1--patch-25
+
+    * lisp/xwem-clients.el (xwem-cl-correct-size-for-size): [addon] Check
+      aspect ration. (only min aspect ratio examination is implemented atm)
+    
+    * lisp/xwem-minibuffer.el (xwem-minib-specifiers): [addon] top-gutter nil
+    
+    * lisp/xwem-minibuffer.el (xwem-minibuffer-border-width): [change]
+      Default value is 2 now.
+    
+    * lisp/xwem-minibuffer.el (xwem-modeline-format): [new] Client local
+      variable for modeline format.
+    
+    * lisp/xwem-minibuffer.el (xwem-modeline-regenerate): [new] Generate
+      modeline string.
+    
+    * lisp/xwem-minibuffer.el (xwem-modeline-redraw): [new] Redisplay xwem
+      modeline.
+    
+    * lisp/xwem-minibuffer.el (xwem-modeline-enable): [new]
+    
+    * lisp/xwem-minibuffer.el (xwem-modeline-disable): [new]
+
+    modified files:
+     lisp/xwem-clients.el lisp/xwem-minibuffer.el
+
+
+2005-02-18 04:40:54 GMT	Zajcev Evgeny <lg@xwem.org>	patch-24
+
+    Summary:
+      merge from ckent, patch from ignotus, some bug fixs
+    Revision:
+      xwem--main--2.1--patch-24
+
+    * lisp/xwem-frame.el (xwem-frame-configuration): [BUG fix] s/nconc/append
+    
+    * lisp/xwem-main.el (xwem-init): [fix] reguarg larger `max-specpdl-size'
+      and `max-lisp-eval-depth' values --ignotus.
+    
+    * lisp/xwem-clgen.el (expect-win): [change] global option now.
+    
+    * lisp/xwem-clients.el (xwem-client-first-manage): [addon] accepts PROPS
+      argument now.
+    
+    * lisp/xwem-keyboard.el (xwem-cl-apply-pending-keys): [fix]
+
+    modified files:
+     lisp/xwem-clgen.el lisp/xwem-clients.el lisp/xwem-frame.el
+     lisp/xwem-keyboard.el lisp/xwem-main.el
+
+    new patches:
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-19
+
+
+2005-02-16 23:02:01 GMT	Zajcev Evgeny <lg@xwem.org>	patch-23
+
+    Summary:
+      Merge from ckent, xwem-vline initial import
+    Revision:
+      xwem--main--2.1--patch-23
+
+    * dockapp/xwem-time.el (xwem-time-format-distance): [new] Custom variable
+      to specify distance between time/load/main items.
+    
+    * lisp/xwem-clients.el (xwem-cl-XProperty-manage-spec-export): [fix]
+      Check client for aliveness before exporting.
+    
+    * lisp/xwem-clients.el (xwem-cl-XProperty-plist-export): [fix] Check
+      client for aliveness before exporting.
+    
+    * lisp/xwem-clients.el (xwem-cl-presetup): [addon] Grab keymaps of global
+      minor modes.
+    
+    * lisp/xwem-focus.el (xwem-add-minor-mode): [fix] due to minor modes
+      fixes.
+    
+    * lisp/xwem-frame.el (xwem-frame-export-frame-configuration): [comment]
+      Profiling results added.
+    
+    * lisp/xwem-frame.el (xwem-frame-frame-command-post-hook): [change]
+      Always export frames configuration.  Since profiling shows that
+      exporting does not strikes performance at all.
+    
+    * lisp/xwem-keyboard.el (xwem-keyboard-use-synth-events): Client local
+      now.
+    
+    * lisp/xwem-keyboard.el (xwem-lookup-map): [fix] due to minor modes
+      fixes.
+    
+    * lisp/xwem-keyboard.el (xwem-minor-mode-key-binding): [fix] due to minor
+      modes fixes.
+    
+    * lisp/xwem-main.el (xwem-commands-gc-cons-threshold): [change] 40000000
+      is too large for default value.  Now 5000000.
+    
+    * lisp/xwem-modes.el (xwem-add-minor-mode): [fix] KEYMAP is a symbol now
+      that holds a keymap, to make keymaps possible be client local.
+    
+    * lisp/xwem-modes.el (xwem-turn-on-minor-mode): [fix] due to minor modes
+      fixes.
+    
+    * lisp/xwem-modes.el (xwem-turn-off-minor-mode): [fix] due to minor modes
+      fixes.
+    
+    * utils/xwem-diagram.el (xwem-diag-draw-percentage): [BUG fix] incorrect
+      rendering fixed.
+    
+    * xwem-agent/xwem-agent.c (restart_emacs): [BUG fix] waiting is performed
+      in SIGCHLD handler.
+    
+    * xwem-agent/xwem-agent.c (state): [new] Variable represents current
+      xwem-agent state - waiting, running or killing.
+    
+    * xwem-agent/xwem-agent.c (main): [addon] kill key added on C-Sh-f9 to
+      kill emacs with SIGKILL.
+    
+    * extra/xwem-keytt.el (new): Initial import of keyboard translation minor
+      mode.  Use H-M-x xwem-keytt-minor-mode RET to toggle it for selected
+      client.  NOTE: only 'gv' application is supported currently.
+    
+    * extra/xwem-vline.el (new): Initial import of vertical line minor mode.
+      Use H-M-x xwem-vline-minor-mode RET to toggle it for selected client.
+    
+
+    new files:
+     extra/.arch-ids/xwem-keytt.el.id
+     extra/.arch-ids/xwem-vline.el.id extra/xwem-keytt.el
+     extra/xwem-vline.el
+
+    modified files:
+     dockapp/xwem-time.el lisp/xwem-clients.el lisp/xwem-focus.el
+     lisp/xwem-frame.el lisp/xwem-keyboard.el lisp/xwem-main.el
+     lisp/xwem-modes.el utils/xwem-diagram.el
+     xwem-agent/xwem-agent.c
+
+    new patches:
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-17
+
+
+2005-02-15 12:45:58 GMT	Zajcev Evgeny <lg@xwem.org>	patch-22
+
+    Summary:
+      merge from ckent and steve, some fixes, still EXPERIMENTAL.
+    Revision:
+      xwem--main--2.1--patch-22
+
+    * Makefile: (DEPS): [addon] Full list of dependences added.
+    
+    * lisp/xwem-launcher.el (xwem-execute-program-expecting): [new] Execute
+      program expecting for its management. (EXPERIMENTAL)
+    
+    * lisp/xwem-launcher.el (many): Use `xwem-execute-program-expecting' when
+      doing expecting execution.
+    
+    * lisp/xwem-time.el (xwem-time-default-get-mail): [bug fix] Boolean
+      return.
+    
+    * lisp/xwem-clgen.el (xwem-manage-generic): [addon] Find expect-win by
+      its id.
+    
+    * lisp/xwem-clients.el (client-window): [change] Now window-id.
+    
+    * lisp/xwem-main.el (XWEM_RUNNING): [new] (merge from steve)
+    
+    * lisp/xwem-report.el (xwem-bug-address): [change] xwem-bugs@xwem.org now
+    
+    * lisp/xwem-struct.el (xwem-win): [addon] id - unique window
+      identificator added.
+    
+    * lisp/xwem-struct.el (saved-win): [addon] id - saved unique window
+      identificator added. !!NOTE!! - This breaks restoring saved(in old
+      format) frame configuration.  You need to resave it in new format!  If
+      using `xwem-desktop-onetime-goals' - just remove files it uses.
+    
+    * lisp/xwem-win.el (xwem-win-gen-id): [new] Generate unique window
+      identificator.
+    
+    * lisp/xwem-win.el (xwem-win-find-by-id): [new] Search for window with
+      WIN-ID as unique window identificator.
+    
+    * xwem-agent/xwem-agent.c: Merge from steve, some tiny fixes.
+
+    new files:
+     xwem-agent/.arch-ids/.arch-inventory.id
+     xwem-agent/.arch-inventory
+
+    modified files:
+     Makefile dockapp/xwem-time.el extra/xwem-ratanot.el
+     lisp/xwem-clgen.el lisp/xwem-clients.el lisp/xwem-frame.el
+     lisp/xwem-launcher.el lisp/xwem-main.el lisp/xwem-report.el
+     lisp/xwem-root.el lisp/xwem-struct.el lisp/xwem-tabbing.el
+     lisp/xwem-win.el xwem-agent/xwem-agent.c
+
+    new patches:
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-15
+     steve@eicq.org--2005/xwem--steve--2.1--patch-5
+
+
+2005-02-13 23:04:16 GMT	Zajcev Evgeny <lg@xwem.org>	patch-21
+
+    Summary:
+      EXPERIMENTAL.  xwem-agent initial import.  dockapps rewritten (esp xwem-time), xwem-misc-turbo-mode introduced.
+    Revision:
+      xwem--main--2.1--patch-21
+
+    * xwem-agent/xwem-agent.c (initial): Initial import of xwem-agent.
+      xwem-agent is intermediate software that holds X server and controls
+      (S)XEmacs process.  See Commentary section for more info.
+    
+    * xwem-agent/Makefile (initial): Initial import of xwem-agent.
+    
+    * lisp/xwem-keyboard.el (xwem-local-map): [fix] Do not ungrab keymaps.
+    
+    * lisp/xwem-launcher.el (ladock): [rewriten] Launcher dock rewritten to
+      support `xwem-misc-turbo-mode'.
+    
+    * lisp/xwem-main.el (xwem-initial-manage): [fix] manage clients in
+      reverse order.
+    
+    * lisp/xwem-misc.el (xwem-misc-turbo-mode): [new] Non-nil enables turbo
+      drawing mode.  If `xwem-misc-turbo-mode' is non-nil drawings occurs
+      faster, but no on-fly color changes is possible.
+    
+    * lisp/xwem-mous.el (xwem-generate-cl-menu): [addon-fix]  Attach item
+      added to attach marked clients.  Soft kill changed to Close.
+    
+    * lisp/xwem-root.el (xwem-fini-root): [fix] Set input focus to
+      PointerRoot when exiting.
+    
+    * lisp/xwem-struct.el (xwem-XProperty-set): [new] For exporting data to
+      X.
+    
+    * lisp/xwem-struct.el (xwem-XProperty-get): [new] For importing data from
+      X.
+    
+    * lisp/xwem-tabbing.el (xwem-tabber-resize): [addon] Support for
+      `xwem-misc-turbo-mode' added.
+    
+    * lisp/xwem-theme.el (themes): [fix] `xwem-launch-dock-face' fixes.
+    
+    * lisp/xwem-win.el (xwem-win-num): [new] Return logical window number.
+    
+    * lisp/xwem-win.el (xwem-win-find-by-num): [new] Find window by its
+      logical number.
+    
+    * lisp/xwem-win.el (xwem-cl-set-win): [addon] Set 'client-window property
+      when client changes window.
+    
+    * lisp/xwem-clients.el (xwem-cl-activate-hook): [semchange] Now called
+      with two arguments - CL and TYPE.
+    
+    * lisp/xwem-clients.el (xwem-cl-deactivate-hook): [semchange] Now called
+      with two arguments - CL and TYPE.
+    
+    * lisp/xwem-clients.el (client-window): [new] New client property -
+      stores frame number and window number in cons cell.
+    
+    * lisp/xwem-clients.el (xwem-cl-presetup): [addon] Use XChangeSaveSet -
+      potential problem with embedded frames, because XChangeSaveSet throws X
+      error for windows controled by same client.
+    
+    * lisp/xwem-clients.el (xwem-client-first-manage): [addon] Import
+      manage-spec and properties from X.  Install expectance on
+      'client-window if needed.
+    
+    * lisp/xwem-clients.el (xwem-client-change-manage-type): [bug fix] use
+      `xwem-manage' when manage model has been changed.
+    
+    * lisp/xwem-clients.el (xwem-client-iconify-others): [bug fix] Do things
+      otherwise.
+    
+    * lisp/xwem-clients.el (xwem-manage): [addon] Export manage-spec to X.
+    
+    * lisp/xwem-clients.el (xwem-client-set-property): [addon] Alos export
+      properties to X.
+    
+    * lisp/xwem-frame.el (xwem-frame-configuration-exporting): [new] Non-nil
+      mean frame configuration is exported to X each time frame command is
+      executed.
+    
+    * lisp/xwem-framesel (xwem-frame-create-initial): [addon] Import frame
+      configuration from X.
+    
+    * lisp/xwem-time.el (): Totally rewritten.  Support for
+      `xwem-misc-turbo-mode' added.
+    
+
+    new files:
+     xwem-agent/.arch-ids/=id xwem-agent/.arch-ids/Makefile.id
+     xwem-agent/.arch-ids/xwem-agent.c.id xwem-agent/Makefile
+     xwem-agent/xwem-agent.c
+
+    modified files:
+     dockapp/xwem-battery.el dockapp/xwem-pager.el
+     dockapp/xwem-time.el lisp/xwem-clients.el lisp/xwem-frame.el
+     lisp/xwem-keyboard.el lisp/xwem-launcher.el lisp/xwem-main.el
+     lisp/xwem-manage.el lisp/xwem-misc.el lisp/xwem-mouse.el
+     lisp/xwem-root.el lisp/xwem-struct.el lisp/xwem-tabbing.el
+     lisp/xwem-theme.el lisp/xwem-win.el utils/xwem-osd.el
+
+    new directories:
+     xwem-agent xwem-agent/.arch-ids
+
+    new patches:
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-14
+
+
+2005-02-10 00:16:23 GMT	Zajcev Evgeny <lg@xwem.org>	patch-20
+
+    Summary:
+      merge from ckent, some addons and fixes
+    Revision:
+      xwem--main--2.1--patch-20
+
+    * lisp/xwem-pager.el (xwem-pager-dim): 2x3 is the default minimal pager
+      size. (agreed on #xwem)
+    
+    * lisp/xwem-weather.el (xwem-weather-keymap): [bug fix] typo.
+    
+    * lisp/xwem-focus.el (xwem-turn-on-focus-click-mode): [addon] more client
+      checks when enabling focus-click bindings.
+    
+    * lisp/xwem-focus.el (xwem-turn-off-focus-click-mode): [addon] more
+      client checks when disabling focus-click bindings.
+    
+    * lisp/xwem-frame.el (xwem-frame-events-handler): [bug typo] Handle
+      events for embedded frames only for embedded frames.
+    
+    * lisp/xwem-launcher.el (xwem-file-find-command): [typo] fix
+    
+    * lisp/xwem-misc.el (xwem-misc-linesp-show): [fix] support for Drawable
+    
+    * lisp/xwem-mouse.el (xwem-mouse-ungrab): [sem] FLUSH-P parameter added.
+      non-nil mean, ungrab mouse immediately.
+    
+    * lisp/xwem-theme.el (xwem-theme-apply): [addon] Apply face changes only
+      if face exists.
+    
+    * lisp/xwem-diagram.el (many): [fix] support for Drawable
+    
+    * lisp/xwem-worklog.el (many): Pixmaping done, worklog pause window (`H-W
+      l') will not flick anymore when updating.
+    
+    * lisp/xwem-worklog.el (xwem-worklog-dockapp-update-task-brick): [new]
+      update only current task brick in the worklog dockapp.
+    
+    * lisp/xwem-worklog.el (xwem-worklog-start-dockapp): Use
+      xwem-worklog-dockapp-update-task-brick instead of
+      xwem-worklog-dockapp-update when task is changed.  This will speedup
+      whole xwem for worklog dockapp users.
+
+    modified files:
+     dockapp/xwem-pager.el dockapp/xwem-weather.el
+     lisp/xwem-focus.el lisp/xwem-frame.el lisp/xwem-launcher.el
+     lisp/xwem-misc.el lisp/xwem-mouse.el lisp/xwem-theme.el
+     utils/xwem-diagram.el utils/xwem-worklog.el
+
+    new patches:
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-12
+
+
+2005-02-09 00:37:13 GMT	Zajcev Evgeny <lg@xwem.org>	patch-19
+
+    Summary:
+      bug fixes, addons, cleanup
+    Revision:
+      xwem--main--2.1--patch-19
+
+    * dockapp/xwem-pager.el (xwem-pager-dim): [change] default minimal pager
+      size is 3x3.
+    
+    * lisp/xwem-launcher.el (xwem-file-find-command): [new] Return
+      coresponding command from `xwem-open-file-commands-alist' for given
+      FILENAME.
+    
+    * lisp/xwem-launcher.el (xwem-open-file): [fix] adjust FILE and COMMAND
+      in case of non-interactive call.
+    
+    * lisp/xwem-minibuffer.el (xwem-minib-create):
+    
+    * lisp/xwem-minibuffer.el (xwem-minibuffer-init): [fix] workaround some
+      problem when creating xwem minibuffer after window-setup-hook is done.
+      This fix will create initial xemacs minibuffer only frame for xwem
+      minibuffer before window-setup-hook.
+    
+    * lisp/xwem-misc.el (xwem-misc-find-frame): [addon] FRAMES-LIST parameter
+      added.
+    
+    * lisp/xwem-mouse.el (xwem-mouse-ungrab): [feature-bug-fix] I think
+      everybody noticed how ugly popup menus behaves when they have more then
+      one leafs.  This will fix this issue.  The thing is that when menu pops
+      up xemacs needs to grab mouse in order to track the motions, but
+      issuing `xwem-mouse-ungrab' was not guaranties that pointer ungrabs,
+      because xlib caches X requests.
+    
+    * lisp/xwem-mouse.el (xwem-generate-recent-files): [addon] new menu
+      generator function.
+    
+    * lisp/xwem-mouse.el (xwem-generate-menu): [addon]
+      `xwem-generate-recent-files' added.
+    
+    * utils/xwem-diagram.el (many): clarification. 80th column stuff, etc.
+    
+    * utils/xwem-worklog.el (many): clarification, 80th column stuff, etc.
+    
+    * utils/xwem-worklog.el (dockapp): [addon] Shape masking for worklog
+      dockapp added.
+
+    modified files:
+     dockapp/xwem-pager.el lisp/xwem-launcher.el
+     lisp/xwem-minibuffer.el lisp/xwem-misc.el lisp/xwem-mouse.el
+     utils/xwem-diagram.el utils/xwem-worklog.el
+
+
+2005-02-08 00:38:40 GMT	Zajcev Evgeny <lg@xwem.org>	patch-18
+
+    Summary:
+      bug fixes, addons
+    Revision:
+      xwem--main--2.1--patch-18
+
+    * dockapp/xwem-battery.el (xwem-batt-win-remove): [new] Function to
+      remove battery dockapp.
+    
+    * dockapp/xwem-pager.el (many): Mostly totally rewritten.
+    
+    * dockapp/xwem-weather.el (top): [fix] Double variables removed.
+    
+    * lisp/xwem-clients.el (xwem-cl-destroy): [addon] run
+      `xwem-cl-destroy-hook' under protection.
+    
+    * lisp/xwem-desktop.el (xwem-desktop-goals): [addon] 'frame-config goal
+      removed.  xwem-open-file-commands-alist added.
+    
+    * lisp/xwem-desktop.el (xwem-desktop-onetime-goals): [new] onetime goals.
+    
+    * lisp/xwem-desktop.el (xwem-desktop-save-onetime): [new]
+    
+    * lisp/xwem-desktop.el (xwem-desktop-load-onetime): [new]
+    
+    * lisp/xwem-frame.el (xwem-frame-keep-number): [new] Custom variable.
+      Non-nil mean frames keeps their numbers even when intermediate frame is
+      destroyed.  NOTE: need more testing.
+    
+    * lisp/xwem-frame.el (many): [addon-fixes] Support for non-nil
+      `xwem-frame-keep-number'.
+    
+    * lisp/xwem-interactive.el (xwem-read-frame): [addon-fix] Support for
+      non-nil `xwem-frame-keep-number'.
+    
+    * lisp/xwem-keyboard.el (xwem-kbd-echo-keys-timer): [bug] fixed. display
+      only if there is something to display.
+    
+    * lisp/xwem-keyboard.el (xwem-kbd-schedule-command-keys-echoing): Ditto.
+    
+    * lisp/xwem-keyboard.el (xwem-kbd-stop-command-keys-echoing): [addon]
+      clear 'keys from echo area.
+    
+    * lisp/xwem-misc.el (xwem-shell-command): [typo] fix
+    
+    * lisp/xwem-netwm.el (xwem-nwm-set-number-of-desktops): [addon-fix]
+      Support for non-nil `xwem-frame-keep-number'.
+    
+    * lisp/xwem-struct.el (xwem-frame-alive-p): [addon-fix] Ditto.
+
+    modified files:
+     dockapp/xwem-battery.el dockapp/xwem-pager.el
+     dockapp/xwem-weather.el lisp/xwem-clients.el
+     lisp/xwem-desktop.el lisp/xwem-frame.el
+     lisp/xwem-interactive.el lisp/xwem-keyboard.el
+     lisp/xwem-misc.el lisp/xwem-mouse.el lisp/xwem-netwm.el
+     lisp/xwem-struct.el
+
+
+2005-02-06 20:03:12 GMT	Zajcev Evgeny <lg@xwem.org>	patch-17
+
+    Summary:
+      Merge from ckent
+    Revision:
+      xwem--main--2.1--patch-17
+
+    Patches applied:
+    
+     * dev@xwem.org--2004-w/xwem--dev--2.1--patch-9
+       Many fixes, copyright string changed
+    
+
+    modified files:
+     dockapp/xwem-battery.el dockapp/xwem-framei.el
+     dockapp/xwem-pager.el dockapp/xwem-time.el
+     dockapp/xwem-weather.el extra/ixwem.el extra/xwem-edprops.el
+     extra/xwem-frametrans.el extra/xwem-gamma.el
+     extra/xwem-ratanot.el extra/xwem-recover.el
+     extra/xwem-rooticon.el extra/xwem-smartmods.el
+     extra/xwem-vert.el lisp/xwem-clgen.el lisp/xwem-clients.el
+     lisp/xwem-clswi.el lisp/xwem-compat.el lisp/xwem-desktop.el
+     lisp/xwem-edmacro.el lisp/xwem-events.el lisp/xwem-faces.el
+     lisp/xwem-focus.el lisp/xwem-frame.el lisp/xwem-help.el
+     lisp/xwem-icons.el lisp/xwem-interactive.el
+     lisp/xwem-keyboard.el lisp/xwem-keydefs.el
+     lisp/xwem-keymacro.el lisp/xwem-launcher.el lisp/xwem-load.el
+     lisp/xwem-main.el lisp/xwem-manage.el lisp/xwem-minibuffer.el
+     lisp/xwem-misc.el lisp/xwem-modes.el lisp/xwem-mouse.el
+     lisp/xwem-netwm.el lisp/xwem-register.el lisp/xwem-report.el
+     lisp/xwem-root.el lisp/xwem-rooter.el lisp/xwem-selections.el
+     lisp/xwem-sound.el lisp/xwem-special.el lisp/xwem-strokes.el
+     lisp/xwem-struct.el lisp/xwem-tabbing.el lisp/xwem-theme.el
+     lisp/xwem-transient.el lisp/xwem-tray.el lisp/xwem-win.el
+     lpath.el utils/xwem-appcollect.el utils/xwem-diagram.el
+     utils/xwem-holer.el utils/xwem-osd.el utils/xwem-worklog.el
+     utils/xwem-xfig.el
+
+    new patches:
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-9
+
+
+2005-02-04 22:25:59 GMT	Zajcev Evgeny <lg@xwem.org>	patch-16
+
+    Summary:
+      little cleaning up started
+    Revision:
+      xwem--main--2.1--patch-16
+
+    This commit is broken, do not update this patch.
+
+    modified files:
+     dockapp/xwem-battery.el dockapp/xwem-framei.el
+     dockapp/xwem-pager.el dockapp/xwem-weather.el
+     lisp/xwem-frame.el lisp/xwem-launcher.el
+     lisp/xwem-selections.el
+
+
+2005-02-04 00:14:34 GMT	Zajcev Evgeny <lg@xwem.org>	patch-15
+
+    Summary:
+      Customizable addon to xwem-open-file
+    Revision:
+      xwem--main--2.1--patch-15
+
+
+    modified files:
+     lisp/xwem-launcher.el
+
+
+2005-02-03 23:52:39 GMT	Zajcev Evgeny <lg@xwem.org>	patch-14
+
+    Summary:
+      merge from ckent, xwem-open-file command added
+    Revision:
+      xwem--main--2.1--patch-14
+
+    * dockapp/xwem-time.el (xwem-time-event-handler): [fixes] typo
+    
+    * lisp/xwem-clients.el (xwem-switch-other-client): [addon] try to avoid
+      selecting client that would be choosen by `xwem-method-other-client'.
+      This increases accuracy of hitting necessary client when using `H-x
+      H-l'.
+    
+    * lisp/xwem-keydefs.el (H-x H-f): [new] xwem-open-file
+    
+    * lisp/xwem-launcher.el (xwem-open-file-commands-alist): [new] Custom
+      variable to control `xwem-open-file'.
+    
+    * lisp/xwem-launcher.el (xwem-open-file): [new cmd] Interactively open
+      some file.
+
+    modified files:
+     dockapp/xwem-time.el lisp/xwem-clients.el lisp/xwem-keydefs.el
+     lisp/xwem-launcher.el
+
+    new patches:
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-8
+
+
+2005-02-02 23:52:49 GMT	Zajcev Evgeny <lg@xwem.org>	patch-13
+
+    Summary:
+      tiny addons
+    Revision:
+      xwem--main--2.1--patch-13
+
+
+    modified files:
+     lisp/xwem-clients.el lisp/xwem-launcher.el
+     utils/xwem-worklog.el
+
+
+2005-02-02 22:11:35 GMT	Zajcev Evgeny <lg@xwem.org>	patch-12
+
+    Summary:
+      general fixes
+    Revision:
+      xwem--main--2.1--patch-12
+
+    * lisp/xwem-clients.el (xwem-cl-other-strategy): [rem] Was not used for
+      long time.
+    
+    * lisp/xwem-clients.el (xwem-cl-other-include-active): [new] To customise
+      other client choosing politics.
+    
+    * lisp/xwem-clients.el (xwem-cl-other-include-iconified): [new] Ditto.
+    
+    * lisp/xwem-clients.el (xwem-cl-other): [sem] Use defun* and keywording.
+    
+    * lisp/xwem-edmacro.el (xwem-edmacro-store): [bug fix] Check
+      `xwem-keymacro-macros-stack' for emptyness.
+    
+    * lisp/xwem-frame.el (xwem-frame-total-remove): [try] do `xwem-withdraw'
+      on frame's clients.
+    
+    * lisp/xwem-keyboard.el (xwem-keyboard-use-syth-events): [typo fix]
+      renamed to xwem-keyboard-use-synth-events.
+    
+    * lisp/xwem-keyboard.el (xwem-kbd-force-mods-release): [fix] Take into
+      account `xwem-keyboard-use-synth-events' value.
+    
+    * lisp/xwem-keyboard.el (xwem-kbd-wait-button-release): [fix] Ditto.
+    
+    * lisp/xwem-keyboard.el (xwem-kbd-filter-keycodes): [new] Filter valid
+      keycodes from keycodes list.
+    
+    * lisp/xwem-keyboard.el (xwem-kbd-initialize-modifiers): [fix] Use
+      `xwem-kbd-filter-keycodes' to create proper keycodes lists.
+    
+    * lisp/xwem-keymacro.el (xwem-keymacro-init): [try] defadvice
+      xwem-key-send-xtest-internal removed.  Recursive macroses are inlined
+      now.  This is because of race condition of XRECORD enable/disable.
+    
+    * lisp/xwem-keymacro.el (xwem-keymacro-internal-play): [try] Do nothing
+      if already executing keyboard macro.  Recursive macroses are inlined to
+      self-insert commands.
+    
+    * lisp/xwem-manage.el (xwem-applications-alist): [fix] Mozilla
+      application entry fixed.
+    
+    * lisp/xwem-selections.el (xwem-copy-cutbuffer): [addon]
+      `xwem-copy-cutbuffer' is smart now.  If there is some active region in
+      Emacs it copies it, if not it copies WHICH-ONE cutbuffer to
+      `xwem-selections'.
+    
+    * lisp/xwem-win.el (xwem-win-redraw-win): [bug fix] win&frame validation
+      added, it is required because `xwem-win-redraw-win' is deffered function.
+
+    modified files:
+     lisp/xwem-clients.el lisp/xwem-clswi.el lisp/xwem-edmacro.el
+     lisp/xwem-frame.el lisp/xwem-keyboard.el lisp/xwem-keymacro.el
+     lisp/xwem-manage.el lisp/xwem-netwm.el lisp/xwem-selections.el
+     lisp/xwem-win.el
+
+    new patches:
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-4
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-5
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-6
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-7
+
+
+2005-02-01 23:08:58 GMT	Zajcev Evgeny <lg@xwem.org>	patch-11
+
+    Summary:
+      Opera icon added.  Opera application defined.
+    Revision:
+      xwem--main--2.1--patch-11
+
+    * lisp/xwem-manage.el (xwem-applications-alist): [addon] Opera
+      application added.
+    
+    * lisp/xwem-icons.el (xwem-icons-list): [addon] mini-opera.xpm added.
+    
+    * lisp/xwem-selections.el (xwem-selections-no-remove): [new] Custom
+      variable to control `xwem-paste-cutbuffer' behaviour.
+    
+    * lisp/xwem-selections.el (xwem-copy-region-as-cutbuffer): [new] Command
+      to put Emacs active region to `xwem-selections', so it can be pasted
+      with `H-y' lately in any client.
+
+    new files:
+     icons/.arch-ids/mini-opera.xpm.id icons/mini-opera.xpm
+
+    modified files:
+     lisp/xwem-icons.el lisp/xwem-manage.el lisp/xwem-selections.el
+
+
+2005-01-31 00:09:12 GMT	Zajcev Evgeny <lg@xwem.org>	patch-10
+
+    Summary:
+      tiny fixes, little cleanup
+    Revision:
+      xwem--main--2.1--patch-10
+
+    * dockapp/xwem-weather.el (xwem-weather-display-temp): [fix]
+      `xwem-osd-show' removed.  `xwem-osd-show' implied by
+      `xwem-osd-create-dock'.
+    
+    * lisp/xwem-clgen.el (parenting): [addon] parenting stuff moved here from
+      xwem-misc.
+    
+    * lisp/xwem-misc.el (parenting): [rem] moved to xwem-clgen.
+    
+    * lisp/xwem-keymacro.el (xwem-executing-kbd-macro): [removed]
+    
+    * lisp/xwem-keymacro.el (xwem-keymacro-executing-p): [new] Return non-nil
+      if executing keyboard macro.
+    
+
+    modified files:
+     dockapp/xwem-weather.el lisp/xwem-clgen.el
+     lisp/xwem-keyboard.el lisp/xwem-keymacro.el lisp/xwem-misc.el
+
+
+2005-01-30 20:53:05 GMT	Zajcev Evgeny <lg@xwem.org>	patch-9
+
+    Summary:
+      Keyboard macroses enhancements, EXPERIMENTAL.  Minor bug fixes.
+    Revision:
+      xwem--main--2.1--patch-9
+
+    * lisp/xwem-clgen.el (xwem-clgen-apply-state): [bug fix] Reparent only
+      when there is real need.
+    
+    * lisp/xwem-clients.el (xwem-dummy-client-init): [bug fix] Set manage
+      type to 'dummy for dummy client.
+    
+    * lisp/xwem-edmacro.el (xwem-edmacro-store): [fix] use
+      `xwem-keymacro-macros-stack' now.
+    
+    * lisp/xwem-edmacro.el (xwem-edmacro-edit-kbd-macro): [fix] Ditto.
+    
+    * lisp/xwem-keyboard.el (xwem-keyboard-use-syth-events): [new] New
+      variable to customize keys sending mechanism.  Set it to non-nil to use
+      XSendEvent.
+    
+    * lisp/xwem-keyboard.el (xwem-kbd-initialize-modifiers): [fixes]
+      According to X PROTO Shift, Lock, Control modifiers bits are fixated,
+      so any key, not only Control_L and Control_R can be a control modifier.
+    
+    * lisp/xwem-keyboard.el (xwem-key-send-xtest-internal): [new] Old
+      xwem-key-sendseq-internal.
+    
+    * lisp/xwem-keyboard.el (xwem-key-send-xtest): [new] Send emacs keys
+      using XTEST sending mechanism.
+    
+    * lisp/xwem-keyboard.el (xwem-key-send-synth): [new] Send emacs keys
+      using XSendEvent sending mechanism.
+    
+    * lisp/xwem-keyboard.el (xwem-kbd-add-pending-keys): [new] Add pending
+      keys input to some client.
+    
+    * lisp/xwem-keyboard.el (xwem-cl-apply-pending-keys): [new] Deffered
+      applier for `xwem-kbd-add-pending-keys'.
+    
+    * lisp/xwem-keyboard.el (xwem-kbd-apply-grabbing): [bug fix] Use dummy
+      client to grab keyboard on.
+    
+    * lisp/xwem-keydefs.el (bindings): [new] `H-x 4 H-[', `H-x 4 H-]', `H-o
+      H-[', `H-o H-]' for clswi commands on other window.
+    
+    * lisp/xwem-keymacro.el (xwem-keymacro-show-macro): [change] nil now.
+    
+    * lisp/xwem-keymacro.el (xwem-keymacro-last-kbd-macro): [removed]
+    
+    * lisp/xwem-keymacro.el (xwem-keymacro-macros-stack): [new] Keyboard
+      macroses stack.
+    
+    * lisp/xwem-keymacro.el (xwem-keymacro-macros-depth): [new] Current depth
+      in `xwem-keymacro-macros-stack'.
+    
+    * lisp/xwem-keymacro.el (xwem-keymacro-execute-keys): [change]
+      Non-deffered variant. NOTE: needs workaround xwem minibuffer reading
+      blocking.
+    
+    * lisp/xwem-keymacro.el (xwem-keymacro-play-last): [fix] Now we can play
+      keyboard macro while recording keyboard macro.
+    
+    * lisp/xwem-keymacro.el (xwem-keymacro-init): [addon] Advise
+      `xwem-key-send-xtest-internal' to disable/enable recording context
+      while recording keyboard macro.
+    
+    * lisp/xwem-misc.el (xwem-misc-init): [addon] Advise `XReparentWindow' to
+      save last xparent for xwindow.
+    
+    * lisp/xwem-misc.el (xwem-misc-xwin-last-xparent): [new] Return last
+      xparent for XWIN.
+    
+
+    modified files:
+     Makefile extra/xwem-smartmods.el lisp/xwem-clgen.el
+     lisp/xwem-clients.el lisp/xwem-edmacro.el lisp/xwem-focus.el
+     lisp/xwem-help.el lisp/xwem-keyboard.el lisp/xwem-keydefs.el
+     lisp/xwem-keymacro.el lisp/xwem-misc.el lisp/xwem-strokes.el
+
+
+2005-01-27 21:46:41 GMT	Zajcev Evgeny <lg@xwem.org>	patch-8
+
+    Summary:
+      Merge with ckent, 80th column fixes, tab-space fixes
+    Revision:
+      xwem--main--2.1--patch-8
+
+    Patches applied:
+    
+     * dev@xwem.org--2004-w/xwem--dev--2.1--patch-3
+       80th column rule fixes
+    
+
+    modified files:
+     extra/xwem-rooticon.el lisp/xwem-clgen.el lisp/xwem-clients.el
+     lisp/xwem-desktop.el lisp/xwem-edmacro.el lisp/xwem-events.el
+     lisp/xwem-faces.el lisp/xwem-focus.el lisp/xwem-frame.el
+     lisp/xwem-help.el lisp/xwem-icons.el lisp/xwem-interactive.el
+     lisp/xwem-keyboard.el lisp/xwem-keydefs.el
+     lisp/xwem-keymacro.el lisp/xwem-launcher.el lisp/xwem-main.el
+     lisp/xwem-manage.el lisp/xwem-minibuffer.el lisp/xwem-misc.el
+     lisp/xwem-mouse.el lisp/xwem-netwm.el lisp/xwem-register.el
+     lisp/xwem-report.el lisp/xwem-root.el lisp/xwem-selections.el
+     lisp/xwem-sound.el lisp/xwem-special.el lisp/xwem-strokes.el
+     lisp/xwem-struct.el lisp/xwem-tabbing.el lisp/xwem-theme.el
+     lisp/xwem-tray.el lisp/xwem-win.el
+
+    new patches:
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-3
+
+
+2005-01-25 21:38:30 GMT	Zajcev Evgeny <lg@xwem.org>	patch-7
+
+    Summary:
+      Typo fix, thanks to Steve
+    Revision:
+      xwem--main--2.1--patch-7
+
+
+    modified files:
+     lisp/xwem-clients.el
+
+
+2005-01-25 00:06:08 GMT	Zajcev Evgeny <lg@xwem.org>	patch-6
+
+    Summary:
+      xwem-cl-manage-hook added
+    Revision:
+      xwem--main--2.1--patch-6
+
+    * lisp/xwem-clients.el (Commentary): [addons]
+    
+    * lisp/xwem-clients.el (xwem-cl-manage-hook): [new] hook called when
+      client manages initially or after managing model change.
+
+    modified files:
+     lisp/xwem-clients.el
+
+
+2005-01-24 23:45:28 GMT	Zajcev Evgeny <lg@xwem.org>	patch-5
+
+    Summary:
+      merges, fixes, addons
+    Revision:
+      xwem--main--2.1--patch-5
+
+    * lisp/xwem-clgen.el (xwem-manage-generic): [fix] proper handling of
+      `xwem-clgen-activate-new' and `xwem-clgen-select-new'.
+    
+    * lisp/xwem-clients.el (xwem-cl-get-uptime-1): [MERGE] New helper
+      function for calculating client uptimes.  (xwem-cl-get-uptime): Use it.
+      Also use a nicer output format.
+    
+      Don't autoload `subtract-time' from time-date.el, it is not needed
+      anymore.  And don't define our own version of it.
+    
+    * lisp/xwem-icons.el (xwem-icons-list): [addon] mini-djvu.xpm added.
+    
+    * lisp/xwem-manage.el (xwem-applications-alist): [addon] djview
+      added.  [fix] mozilla fixed.
+    
+    * lisp/xwem-minibuffer.el (xwem-minibuffer-init): [MERGE] Typo
+      fix. default-frame-plist -> default-x-frame-plist.
+    
+    * icons/mini-djvu.xpm (new): [ii]
+
+    new files:
+     icons/.arch-ids/mini-djvu.xpm.id icons/mini-djvu.xpm
+
+    modified files:
+     lisp/xwem-clgen.el lisp/xwem-clients.el lisp/xwem-icons.el
+     lisp/xwem-keymacro.el lisp/xwem-manage.el
+     lisp/xwem-minibuffer.el
+
+    new patches:
+     steve@eicq.org--2005/xwem--steve--2.1--patch-2
+     steve@eicq.org--2005/xwem--steve--2.1--patch-3
+
+
+2005-01-18 22:54:11 GMT	Zajcev Evgeny <lg@xwem.org>	patch-4
+
+    Summary:
+      merge with ckent
+    Revision:
+      xwem--main--2.1--patch-4
+
+    Patches applied:
+    
+     * dev@xwem.org--2004-w/xwem--dev--2.1--patch-2
+       merge, some fixes
+    
+
+    modified files:
+     lisp/xwem-clients.el lisp/xwem-frame.el
+
+    new patches:
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-2
+
+
+2005-01-16 00:16:39 GMT	Zajcev Evgeny <lg@xwem.org>	patch-3
+
+    Summary:
+      osd fixes, enhancements
+    Revision:
+      xwem--main--2.1--patch-3
+
+    * lisp/xwem-tray.el (xwem-tray-hide-dapp): [fix] Do not XUnmapWindow if
+      dockapp already unmapped, prevents infinite UnmapNotify events loop.
+    
+    * lisp/xwem-tray.el (xwem-tray-show-dapp): [fix] Do not XMapWindow if
+      dockapp already mapped, prevents infinite MapNotify events loop.
+    
+    * utils/xwem-osd.el (xwem-osd-apply-xmask): [new] Function to apply OSD
+      mask to life.  Note: deffered.
+    
+    * utils/xwem-osd.el (xwem-osd-show): Use xwem-osd-apply-xmask
+    
+    * utils/xwem-osd.el (xwem-osd-arc-add): [bug] Fixed, forgot
+      `xwem-osd-instance-show'.  Related to colours problem ignotus has.
+    
+    * utils/xwem-osd.el (xwem-osd-rect-add): [bug] Fixed, forgot
+      `xwem-osd-instance-show'.  Related to colours problem ignotus has.
+    
+    * utils/xwem-osd.el (MOST): Use `xwem-osd-apply-xmask', so mask applied
+      only once, prevents flicking.
+    
+    * utils/xwem-osd.el (xwem-osd-offscreen): [new] Move OSD to offscreen to
+      performe OSD operationgs in safety.  Copy of OSD is displayed on top of
+      OSD.  Usefull to prevent OSD flicking, when redrawing.
+    
+    * utils/xwem-osd.el (xwem-osd-commit): [new] Commit changes to OSD while
+      OSD was in offscreen.
+
+    modified files:
+     lisp/xwem-tray.el utils/xwem-osd.el
+
+
+2005-01-12 22:29:43 GMT	Zajcev Evgeny <lg@xwem.org>	patch-2
+
+    Summary:
+      merge with ckent's repo
+    Revision:
+      xwem--main--2.1--patch-2
+
+    * lisp/xwem-rooticon.el
+
+    modified files:
+     extra/xwem-rooticon.el
+
+    new patches:
+     dev@xwem.org--2004-w/xwem--dev--2.1--base-0
+     dev@xwem.org--2004-w/xwem--dev--2.1--patch-1
+
+
+2005-01-01 02:54:47 GMT	Zajcev Evgeny <lg@xwem.org>	patch-1
+
+    Summary:
+      start of 2.1
+    Revision:
+      xwem--main--2.1--patch-1
+
+
+    new files:
+     ChangeLog.d/.arch-ids/=id
+     ChangeLog.d/.arch-ids/ChangeLog-2.0.id
+     ChangeLog.d/ChangeLog-2.0
+
+    modified files:
+     Makefile
+
+    new directories:
+     ChangeLog.d ChangeLog.d/.arch-ids
+
+
+2005-01-01 02:45:16 GMT	Zajcev Evgeny <lg@xwem.org>	base-0
+
+    Summary:
+      tag of lg@xwem.org--2004/xwem--main--2.0--version-0
+    Revision:
+      xwem--main--2.1--base-0
+
+    (automatically generated log message)
+
+    new patches:
+     dev@xwem.org--2004-w/xwem--dev--2.0--patch-1
+     dev@xwem.org--2004-w/xwem--dev--2.0--patch-2
+     dev@xwem.org--2004-w/xwem--dev--2.0--patch-3
+     lg@xwem.org--2004/xwem--main--2.0--base-0
+     lg@xwem.org--2004/xwem--main--2.0--patch-1
+     lg@xwem.org--2004/xwem--main--2.0--patch-2
+     lg@xwem.org--2004/xwem--main--2.0--patch-3
+     lg@xwem.org--2004/xwem--main--2.0--patch-4
+     lg@xwem.org--2004/xwem--main--2.0--patch-5
+     lg@xwem.org--2004/xwem--main--2.0--patch-6
+     lg@xwem.org--2004/xwem--main--2.0--patch-7
+     lg@xwem.org--2004/xwem--main--2.0--patch-8
+     lg@xwem.org--2004/xwem--main--2.0--patch-9
+     lg@xwem.org--2004/xwem--main--2.0--patch-10
+     lg@xwem.org--2004/xwem--main--2.0--patch-11
+     lg@xwem.org--2004/xwem--main--2.0--patch-12
+     lg@xwem.org--2004/xwem--main--2.0--patch-13
+     lg@xwem.org--2004/xwem--main--2.0--patch-14
+     lg@xwem.org--2004/xwem--main--2.0--patch-15
+     lg@xwem.org--2004/xwem--main--2.0--patch-16
+     lg@xwem.org--2004/xwem--main--2.0--patch-17
+     lg@xwem.org--2004/xwem--main--2.0--patch-18
+     lg@xwem.org--2004/xwem--main--2.0--patch-19
+     lg@xwem.org--2004/xwem--main--2.0--version-0
+     steve@eicq.org--2004/xwem--steve--2.0--base-0
+     steve@eicq.org--2004/xwem--steve--2.0--patch-1
+     steve@eicq.org--2004/xwem--steve--2.0--patch-2
+     steve@eicq.org--2004/xwem--steve--2.0--patch-3
+     steve@eicq.org--2004/xwem--steve--2.0--patch-4
+     steve@eicq.org--2004/xwem--steve--2.0--patch-5
+
+2005-01-01 02:30:16 GMT	Zajcev Evgeny <lg@xwem.org>	version-0
+
+    Summary:
+      Version 2.0 is released
+    Revision:
+      xwem--main--2.0--version-0
+
+
+    new files:
+     .arch-ids/README.id README
+
+
+2004-12-29 22:32:15 GMT	Zajcev Evgeny <lg@xwem.org>	patch-19
+
+    Summary:
+      xparent problem kind of fix, dedicated problem kind of fix
+    Revision:
+      xwem--main--2.0--patch-19
+
+    * lisp/xwem-clgen.el (on-kill): [fix?] Do not do XDestroyWindow
+    
+    * lisp/xwem-clients.el (xwem-clded-disassociate-frame): [fix] check
+      xwem-cl-win for validity before operating on it.
+    
+    
+
+    modified files:
+     lisp/xwem-clgen.el lisp/xwem-clients.el
+
+
+2004-12-23 22:26:45 GMT	Zajcev Evgeny <lg@xwem.org>	patch-18
+
+    Summary:
+      very tiny fixes
+    Revision:
+      xwem--main--2.0--patch-18
+
+    * lisp/xwem-icons.el (xwem-icons-list): [fix] Removed redundant .*
+    
+    * lisp/xwem-keymacro.el (xwem-misc): [addon] Require xwem-misc
+    
+    * lisp/xwem-manage.el (xwem-applications-alist): [fix] xemacs to match
+      GNU Emacs, XEmacs and SXEmacs.
+    
+    
+    
+
+    modified files:
+     lisp/xwem-icons.el lisp/xwem-keymacro.el lisp/xwem-manage.el
+
+
+2004-12-20 21:03:40 GMT	Zajcev Evgeny <lg@xwem.org>	patch-17
+
+    Summary:
+      Merged with 2004-w
+    Revision:
+      xwem--main--2.0--patch-17
+
+    Patches applied:
+    
+     * dev@xwem.org--2004-w/xwem--dev--2.0--patch-3
+       Merged with main, some fixes
+    
+
+    modified files:
+     Makefile lisp/xwem-keymacro.el lisp/xwem-minibuffer.el
+     lisp/xwem-misc.el man/Makefile
+
+    new patches:
+     dev@xwem.org--2004-w/xwem--dev--2.0--patch-3
+
+
+2004-12-19 22:45:44 GMT	Zajcev Evgeny <lg@xwem.org>	patch-16
+
+    Summary:
+      xwem tray fixes to support dockapp's map/unmap, osd fix
+    Revision:
+      xwem--main--2.0--patch-16
+
+    * lisp/xwem-keyboard.el (xwem-kbd-quit): [typo]
+    
+    * lisp/xwem-tray.el (xwem-tray-remove-dapp): [fix] check dapp state.
+    
+    * lisp/xwem-tray.el (xwem-tray-hide-dapp): [new]
+    
+    * lisp/xwem-tray.el (xwem-tray-show-dapp): [new]
+    
+    * lisp/xwem-tray.el (xwem-tray-get-proper-position): [fix] check dapp's
+      state.
+    
+    * lisp/xwem-tray.el (xwem-tray-new-dapp): [fix] change dapp's state after
+      XMapWindow.
+    
+    * lisp/xwem-tray.el (xwem-tray-init): [fix] Handle MapNotify/UnmapNotify
+      events.
+    
+    * lisp/xwem-tray.el (xwem-tray-handle-xevent): [fix] Handle
+      MapNotify/UnmapNotify events.
+    
+    * utils/xwem-osd.el (xwem-osd-rect-add): [Sem] Optional FILL-P argument
+      added.
+
+    modified files:
+     lisp/xwem-keyboard.el lisp/xwem-tray.el utils/xwem-osd.el
+
+
+2004-12-19 01:40:32 GMT	Zajcev Evgeny <lg@xwem.org>	patch-15
+
+    Summary:
+      compile custom-load.el 
+    Revision:
+      xwem--main--2.0--patch-15
+
+    * Makefile (EXTRA_OBJ): [addon] custom-load.elc
+    
+    * Makefile (distclean): [addon] remove .elc files expilicitely.
+
+    modified files:
+     Makefile
+
+
+2004-12-19 00:00:11 GMT	Zajcev Evgeny <lg@xwem.org>	patch-14
+
+    Summary:
+      typo fix
+    Revision:
+      xwem--main--2.0--patch-14
+
+    * lisp/xwem-keyboard.el (xwem-kbd-xksym->xkcode): [typo] fixed.
+
+    modified files:
+     lisp/xwem-keyboard.el
+
+
+2004-12-18 23:52:35 GMT	Zajcev Evgeny <lg@xwem.org>	patch-13
+
+    Summary:
+      xwem-icons-list fixed, keyboarding fixed
+    Revision:
+      xwem--main--2.0--patch-13
+
+    * lisp/xwem-icons.el (xwem-icons-list): [fix] ".Term" -> ".[tT]erm" to
+      work with eterm and kterm.
+    
+    * lisp/xwem-keyboard.el (xwem-kbd-xksym->xkcode): [rewritten] now should
+      work properly with multiple keyboard groups.  This is important for
+      multi kbd layout users, such as Russians.
+
+    modified files:
+     lisp/xwem-icons.el lisp/xwem-keyboard.el
+
+
+2004-12-18 21:31:38 GMT	Zajcev Evgeny <lg@xwem.org>	patch-12
+
+    Summary:
+      merge with dev@xwem.org--2004-w/xwem--dev--2.0
+    Revision:
+      xwem--main--2.0--patch-12
+
+    * Makefile: Dependances adding started.
+    
+    * lisp/xwem-clgen.el (xwem-clgen-other-client): [fix] skip iconified
+      clients.
+    
+    * lisp/xwem-clients.el (xwem-cl-other): [fix] skip iconified clients.
+    
+    * lisp/xwem-frame.el (xwem-dedicated-frame-defalut-properties): [new]
+      Default properties for dedicated frames.
+    
+    * lisp/xwem-frame.el (xwem-make-frame-1): [addon] properties merging
+      according to desktop type.
+    
+    * lisp/xwem-frame.el (xwem-frame-adjust-geom): [addon] Adjust geometry
+      according to current xwem minibuffer state.
+    
+    * lisp/xwem-frame.el (xwem-frame-configuration): [addon] Use
+      'initially-unmapped for currently unmapped frames.
+    
+    * lisp/xwem-frame.el (xwem-frame-goto): [addon] Support for negative N.
+    
+    * lisp/xwem-frame.el (xwem-frame-imove-internal): [fix] Disallowed for
+      embedded frames.
+    
+    * lisp/xwem-keyboard (xwem-self-insert-or-undefined): [fix] Do nothing if
+      selected client is dummy.
+    
+    * lisp/xwem-keydefs (xwem-global-map): `H-x o' added to execute
+      `xwem-other-window'
+    
+    * lisp/xwem-minibuffer (xwem-minib-focusin-outline): [rem] was commented
+      for long time.
+    
+    * lisp/xwem-minibuffer (xwem-minib-focusout-outline): [rem] was commented
+      for long time.
+    
+    * lisp/xwem-minibuffer (xwem-minibuffer-init): Use
+      `xwem-misc-merge-plists'.
+    
+    * lisp/xwem-misc.el (xwem-message-1): [addon] limit print level
+    
+    * lisp/xwem-misc.el (xwem-misc-make-screenshot): [addon] Do it in post
+      deferring hook, so screenshot will be made, after minibuffer
+      deactivation.
+    
+    * lisp/xwem-misc.el (xwem-debug): [addon] limit print level
+    
+    * lisp/xwem-report.el (xwem-report-debug): print-level set to 4
+    
+    * lisp/xwem-struct.el (xwem-frame-saved): [addon] selected-p added,
+      denotes is frame was selected at dump time.
+    
+    * lisp/xwem-theme.el: Continuing structuring, not yet in shape.
+    
+    * lisp/xwem-tray.el (xwem-tray): [addon] xgeom slot added.
+    
+    * lisp/xwem-tray.el (xwem-tray-move-dapp): [addon] allow to ommit NEW-X,
+      NEW-Y.
+    
+    * lisp/xwem-tray.el (xwem-dapp-handle-xevent): [new] general X Events
+      handler for dockapps.
+    
+    * lisp/xwem-tray.el (xwem-tray-handle-xevent): [new] general X Events
+      handler for systray.  Support for handling ConfigureNotify events
+      added.  All dockapps are vertically realligned when systray changes its
+      height.
+    
+    * lisp/xwem-win.el (xwem-other-window): [new] alias to fixed
+      `xwem-frame-goto-next'.
+    
+    * lisp/xwem-win.el (xwem-set-window-configuration): [fix] get rid of evil
+      xwem-win-config-current-window.
+    
+    * lisp/xwem-win.el (xwem-win-restore-win-params): [fix] Ditto.
+    
+
+    modified files:
+     Makefile lisp/xwem-clgen.el lisp/xwem-clients.el
+     lisp/xwem-frame.el lisp/xwem-keyboard.el lisp/xwem-keydefs.el
+     lisp/xwem-minibuffer.el lisp/xwem-misc.el lisp/xwem-report.el
+     lisp/xwem-struct.el lisp/xwem-theme.el lisp/xwem-tray.el
+     lisp/xwem-win.el {arch}/=tagging-method
+
+    new patches:
+     dev@xwem.org--2004-w/xwem--dev--2.0--patch-1
+     dev@xwem.org--2004-w/xwem--dev--2.0--patch-2
+
+
+2004-12-17 10:58:28 GMT	Evgeny Zajcev <lg@xwem.org>	patch-11
+
+    Summary:
+      some files moved from lisp/ to extra/
+    Revision:
+      xwem--main--2.0--patch-11
+
+    * lisp/xwem-gamma.el (moved): to extra
+    
+    * lisp/xwem-rooticon.el (moved): Ditto.
+    
+    * lisp/xwem-ratanot.el (moved): Ditto.
+    
+
+    renamed files:
+     lisp/.arch-ids/xwem-gamma.el.id
+       ==> extra/.arch-ids/xwem-gamma.el.id
+     lisp/.arch-ids/xwem-ratanot.el.id
+       ==> extra/.arch-ids/xwem-ratanot.el.id
+     lisp/.arch-ids/xwem-rooticon.el.id
+       ==> extra/.arch-ids/xwem-rooticon.el.id
+     lisp/xwem-gamma.el
+       ==> extra/xwem-gamma.el
+     lisp/xwem-ratanot.el
+       ==> extra/xwem-ratanot.el
+     lisp/xwem-rooticon.el
+       ==> extra/xwem-rooticon.el
+
+
+2004-12-17 00:53:20 GMT	Evgeny Zajcev <lg@xwem.org>	patch-10
+
+    Summary:
+      .arch-inventory fixes, xwem-edprops-mode fix
+    Revision:
+      xwem--main--2.0--patch-10
+
+    * extra/xwem-edprops.el (xwem-edprops-mode): [pbug] set default to nil.
+
+    modified files:
+     extra/xwem-edprops.el lisp/.arch-inventory man/.arch-inventory
+
+
+2004-12-15 20:47:34 GMT	Evgeny Zajcev <lg@xwem.org>	patch-9
+
+    Summary:
+      xwem-debug, popup menu fix, transpose win fix
+    Revision:
+      xwem--main--2.0--patch-9
+
+    * lisp/xwem-win.el (xwem-transpose-windows): [bug] fix.
+    
+    * lisp/xwem-misc.el (xwem-debug): [new] For debugging output.
+    
+    * lisp/xwem-keyboard.el (xwem-kbd-hack-mouse): [fixate] Use
+      `last-nonminibuf-frame' instead of `selected-frame'.
+    
+
+    modified files:
+     extra/xwem-edprops.el lisp/xwem-clients.el lisp/xwem-events.el
+     lisp/xwem-frame.el lisp/xwem-keyboard.el lisp/xwem-keymacro.el
+     lisp/xwem-main.el lisp/xwem-minibuffer.el lisp/xwem-misc.el
+     lisp/xwem-netwm.el lisp/xwem-root.el lisp/xwem-special.el
+     lisp/xwem-struct.el lisp/xwem-tray.el lisp/xwem-win.el
+     lpath.el
+
+
+2004-12-14 23:26:41 GMT	Evgeny Zajcev <lg@xwem.org>	patch-8
+
+    Summary:
+      emods->xmodmask fix, Xmask-or fix, alt-meta collision fix
+    Revision:
+      xwem--main--2.0--patch-8
+
+    * lisp/xwem-keyboard.el (xwem-kbd-xmodmask->emods): [fixate] Workaround
+      alt-meta collision
+    
+    * lisp/xwem-clients.el (dummy-client): [fix] Do XSelectInput, however
+      dunno why this is needed.
+    
+    * lisp/xwem-clients.el (xwem-clients-init): [fix] add-hook with append
+      argument.
+    
+    * lisp/xwem-frame.el (embedded): [fix] fixes to make embedded and
+      embedded-desktop to work.  However have problems with xwem-desktop.
+      xwem-desktop can't restore embedded frames properly.  Need to
+      investigate what happening.
+    
+    * Makefile (clarification): minor
+
+    modified files:
+     Makefile dockapp/xwem-framei.el lisp/xwem-clients.el
+     lisp/xwem-frame.el lisp/xwem-keyboard.el lisp/xwem-manage.el
+
+
+2004-12-13 23:11:14 GMT	Evgeny Zajcev <lg@xwem.org>	patch-7
+
+    Summary:
+      testing commit hooks
+    Revision:
+      xwem--main--2.0--patch-7
+
+    
+    
+
+    modified files:
+     Makefile
+
+
+2004-12-13 23:07:32 GMT	Evgeny Zajcev <lg@xwem.org>	patch-6
+
+    Summary:
+      Makefile fixes, some addons, little fixes, tec
+    Revision:
+      xwem--main--2.0--patch-6
+
+    *  Makefile (): clarification
+    
+    * xwem-custom-gen.el (New): custom-load.el generator.
+    
+    * lisp/xwem-minibuffer.el (xwem-minib-specifiers): [new] Specifiers to
+      set for xwem minibuffer.
+    
+    * lisp/xwem-misc.el (xwem-misc-rotate-data): [new] Helpful function to
+      rotate X images.
+    
+    * lisp/xwem-tabbing.el (title-layout): [addons] Support for title-layout
+      frame property added.
+    
+    * lisp/xwem-frame.el (title-layout): [new] New frame property.
+    
+    
+
+    new files:
+     .arch-ids/xwem-custom-gen.el.id xwem-custom-gen.el
+
+    modified files:
+     Makefile lisp/xwem-frame.el lisp/xwem-minibuffer.el
+     lisp/xwem-misc.el lisp/xwem-tabbing.el lisp/xwem-theme.el
+     lisp/xwem-win.el lpath.el man/Makefile
+
+
+2004-12-11 21:22:18 GMT	Evgeny Zajcev <lg@xwem.org>	patch-5
+
+    Summary:
+      hot fix
+    Revision:
+      xwem--main--2.0--patch-5
+
+
+    modified files:
+     Makefile lisp/xwem-clients.el lisp/xwem-main.el
+     lisp/xwem-minibuffer.el lisp/xwem-root.el
+
+
+2004-12-11 20:33:02 GMT	Evgeny Zajcev <lg@xwem.org>	patch-4
+
+    Summary:
+      Sync with CVS, some fixes.
+    Revision:
+      xwem--main--2.0--patch-4
+
+    lisp/xwem-clgen.el (xwem-withdraw-generic): [rem] Evil things removed to
+    avoid BadWindow X errors.
+    
+    lisp/xwem-keyboard.el (modifiers): [sch] Modifiers handling changed.  Alt
+    key should work, however not checked.
+    
+    lisp/xwem-clients.el (xwem-client-apply-state): [fix] Handle change to
+    withdrawn state specially to avoid BadWindow X errors.
+    
+    lisp/xwem-root.el (xwem-root-events-handler): [addon] X-MappingNotify
+    handler added.
+    
+    lisp/xwem-events.el (xwem-ev-reconfig): [fix] Do things more safely,
+    should fix opera issue.
+    
+    lisp/xwem-win.el (xwem-frame-set-win-config-frame-params): [fix] use
+    `xwem-frame-apply-xgeom-1'.
+    
+
+    modified files:
+     lisp/xwem-clgen.el lisp/xwem-clients.el lisp/xwem-events.el
+     lisp/xwem-keyboard.el lisp/xwem-main.el lisp/xwem-root.el
+     lisp/xwem-win.el
+
+
+2004-12-10 23:29:27 GMT	Evgeny Zajcev <lg@xwem.org>	patch-3
+
+    Summary:
+      merge from steve (build cleanup)
+    Revision:
+      xwem--main--2.0--patch-3
+
+    Patches applied:
+    
+     * steve@eicq.org--2004/xwem--steve--2.0--patch-4
+       sync to lg
+    
+     * steve@eicq.org--2004/xwem--steve--2.0--patch-5
+       fix some function foo not known to be defined warnings
+    
+
+    modified files:
+     lpath.el
+
+    new patches:
+     steve@eicq.org--2004/xwem--steve--2.0--patch-4
+     steve@eicq.org--2004/xwem--steve--2.0--patch-5
+
+
+2004-12-10 22:46:33 GMT	Evgeny Zajcev <lg@xwem.org>	patch-2
+
+    Summary:
+      makefile changes
+    Revision:
+      xwem--main--2.0--patch-2
+
+
+    modified files:
+     Makefile
+
+
+2004-12-10 21:51:10 GMT	Evgeny Zajcev <lg@xwem.org>	patch-1
+
+    Summary:
+      merge from steve
+    Revision:
+      xwem--main--2.0--patch-1
+
+    Patches applied:
+    
+     * steve@eicq.org--2004/xwem--steve--2.0--base-0
+       tag of lg@xwem.org--2004/xwem--main--2.0--base-0
+    
+     * steve@eicq.org--2004/xwem--steve--2.0--patch-1
+       Add some missing files to the repo
+    
+     * steve@eicq.org--2004/xwem--steve--2.0--patch-2
+       Introduce a tla-stlye version string, clean up the build
+    
+     * steve@eicq.org--2004/xwem--steve--2.0--patch-3
+       emergancy build fix
+    
+
+    new files:
+     .arch-ids/Makefile.id .arch-ids/xwem-loaddefs-gen.el.id
+     Makefile battery/.arch-ids/=id battery/.arch-ids/Makefile.id
+     battery/.arch-ids/battery.c.id battery/Makefile
+     battery/battery.c dockapp/.arch-ids/.arch-inventory.id
+     dockapp/.arch-ids/=id dockapp/.arch-ids/xwem-battery.el.id
+     dockapp/.arch-ids/xwem-framei.el.id
+     dockapp/.arch-ids/xwem-pager.el.id
+     dockapp/.arch-ids/xwem-time.el.id
+     dockapp/.arch-ids/xwem-weather.el.id dockapp/.arch-inventory
+     dockapp/xwem-battery.el dockapp/xwem-framei.el
+     dockapp/xwem-pager.el dockapp/xwem-time.el
+     dockapp/xwem-weather.el extra/.arch-ids/.arch-inventory.id
+     extra/.arch-ids/=id extra/.arch-ids/ixwem.el.id
+     extra/.arch-ids/xwem-edprops.el.id
+     extra/.arch-ids/xwem-frametrans.el.id
+     extra/.arch-ids/xwem-recover.el.id
+     extra/.arch-ids/xwem-smartmods.el.id
+     extra/.arch-ids/xwem-vert.el.id extra/.arch-inventory
+     extra/ixwem.el extra/xwem-edprops.el extra/xwem-frametrans.el
+     extra/xwem-recover.el extra/xwem-smartmods.el
+     extra/xwem-vert.el icons/.arch-ids/=id
+     icons/.arch-ids/README.id icons/.arch-ids/mini-acroread.xpm.id
+     icons/.arch-ids/mini-aim.xpm.id
+     icons/.arch-ids/mini-bitchx.xpm.id
+     icons/.arch-ids/mini-calc.xpm.id
+     icons/.arch-ids/mini-cd.xpm.id
+     icons/.arch-ids/mini-clock.xpm.id
+     icons/.arch-ids/mini-colors.xpm.id
+     icons/.arch-ids/mini-cross.xpm.id
+     icons/.arch-ids/mini-daemon.xpm.id
+     icons/.arch-ids/mini-ddd.xpm.id
+     icons/.arch-ids/mini-diag.xpm.id
+     icons/.arch-ids/mini-diskete.xpm.id
+     icons/.arch-ids/mini-diskete2.xpm.id
+     icons/.arch-ids/mini-diskette.xpm.id
+     icons/.arch-ids/mini-display.xpm.id
+     icons/.arch-ids/mini-doc1.xpm.id
+     icons/.arch-ids/mini-ethereal.xpm.id
+     icons/.arch-ids/mini-firefox.xpm.id
+     icons/.arch-ids/mini-font.xpm.id
+     icons/.arch-ids/mini-freedesk.xpm.id
+     icons/.arch-ids/mini-ftp.xpm.id
+     icons/.arch-ids/mini-gimp.xpm.id
+     icons/.arch-ids/mini-gnus.xpm.id
+     icons/.arch-ids/mini-graph.xpm.id
+     icons/.arch-ids/mini-gv.xpm.id icons/.arch-ids/mini-icq.xpm.id
+     icons/.arch-ids/mini-imagemagic.xpm.id
+     icons/.arch-ids/mini-info.xpm.id
+     icons/.arch-ids/mini-keyboard.xpm.id
+     icons/.arch-ids/mini-links.xpm.id
+     icons/.arch-ids/mini-lower.xpm.id
+     icons/.arch-ids/mini-measure.xpm.id
+     icons/.arch-ids/mini-mozilla.xpm.id
+     icons/.arch-ids/mini-mozilla1.xpm.id
+     icons/.arch-ids/mini-mozilla2.xpm.id
+     icons/.arch-ids/mini-mozilla3.xpm.id
+     icons/.arch-ids/mini-netscape.xpm.id
+     icons/.arch-ids/mini-netscape1.xpm.id
+     icons/.arch-ids/mini-netscape2.xpm.id
+     icons/.arch-ids/mini-pager.xpm.id
+     icons/.arch-ids/mini-penguin.xpm.id
+     icons/.arch-ids/mini-raise.xpm.id
+     icons/.arch-ids/mini-ray.xpm.id
+     icons/.arch-ids/mini-redhat.xpm.id
+     icons/.arch-ids/mini-sh1.xpm.id
+     icons/.arch-ids/mini-stroke.xpm.id
+     icons/.arch-ids/mini-term.xpm.id
+     icons/.arch-ids/mini-tex.xpm.id
+     icons/.arch-ids/mini-turn.xpm.id
+     icons/.arch-ids/mini-vnc.xpm.id icons/.arch-ids/mini-x.xpm.id
+     icons/.arch-ids/mini-x2.xpm.id
+     icons/.arch-ids/mini-xchat.xpm.id
+     icons/.arch-ids/mini-xchat1.xpm.id
+     icons/.arch-ids/mini-xdvi.xpm.id
+     icons/.arch-ids/mini-xemacs.xpm.id
+     icons/.arch-ids/mini-xemacs1.xpm.id
+     icons/.arch-ids/mini-xemacsC.xpm.id
+     icons/.arch-ids/mini-xemacsgnus.xpm.id
+     icons/.arch-ids/mini-xemacsinfo.xpm.id
+     icons/.arch-ids/mini-xemacspy.xpm.id
+     icons/.arch-ids/mini-xemacstex.xpm.id
+     icons/.arch-ids/mini-xfig.xpm.id
+     icons/.arch-ids/mini-xkeycaps.xpm.id
+     icons/.arch-ids/mini-xterm.xpm.id
+     icons/.arch-ids/mini-xterm1.xpm.id
+     icons/.arch-ids/mini-xv.xpm.id icons/.arch-ids/mini-xv1.xpm.id
+     icons/.arch-ids/mini-xwem.xpm.id
+     icons/.arch-ids/mini-zoom.xpm.id
+     icons/.arch-ids/mini32x32-help.xpm.id
+     icons/.arch-ids/root-icon.xpm.id icons/README
+     icons/mini-acroread.xpm icons/mini-aim.xpm
+     icons/mini-bitchx.xpm icons/mini-calc.xpm icons/mini-cd.xpm
+     icons/mini-clock.xpm icons/mini-colors.xpm
+     icons/mini-cross.xpm icons/mini-daemon.xpm icons/mini-ddd.xpm
+     icons/mini-diag.xpm icons/mini-diskete.xpm
+     icons/mini-diskete2.xpm icons/mini-diskette.xpm
+     icons/mini-display.xpm icons/mini-doc1.xpm
+     icons/mini-ethereal.xpm icons/mini-firefox.xpm
+     icons/mini-font.xpm icons/mini-freedesk.xpm icons/mini-ftp.xpm
+     icons/mini-gimp.xpm icons/mini-gnus.xpm icons/mini-graph.xpm
+     icons/mini-gv.xpm icons/mini-icq.xpm icons/mini-imagemagic.xpm
+     icons/mini-info.xpm icons/mini-keyboard.xpm
+     icons/mini-links.xpm icons/mini-lower.xpm
+     icons/mini-measure.xpm icons/mini-mozilla.xpm
+     icons/mini-mozilla1.xpm icons/mini-mozilla2.xpm
+     icons/mini-mozilla3.xpm icons/mini-netscape.xpm
+     icons/mini-netscape1.xpm icons/mini-netscape2.xpm
+     icons/mini-pager.xpm icons/mini-penguin.xpm
+     icons/mini-raise.xpm icons/mini-ray.xpm icons/mini-redhat.xpm
+     icons/mini-sh1.xpm icons/mini-stroke.xpm icons/mini-term.xpm
+     icons/mini-tex.xpm icons/mini-turn.xpm icons/mini-vnc.xpm
+     icons/mini-x.xpm icons/mini-x2.xpm icons/mini-xchat.xpm
+     icons/mini-xchat1.xpm icons/mini-xdvi.xpm
+     icons/mini-xemacs.xpm icons/mini-xemacs1.xpm
+     icons/mini-xemacsC.xpm icons/mini-xemacsgnus.xpm
+     icons/mini-xemacsinfo.xpm icons/mini-xemacspy.xpm
+     icons/mini-xemacstex.xpm icons/mini-xfig.xpm
+     icons/mini-xkeycaps.xpm icons/mini-xterm.xpm
+     icons/mini-xterm1.xpm icons/mini-xv.xpm icons/mini-xv1.xpm
+     icons/mini-xwem.xpm icons/mini-zoom.xpm
+     icons/mini32x32-help.xpm icons/root-icon.xpm
+     lisp/.arch-ids/.arch-inventory.id lisp/.arch-ids/=id
+     lisp/.arch-ids/xwem-clgen.el.id
+     lisp/.arch-ids/xwem-clients.el.id
+     lisp/.arch-ids/xwem-clswi.el.id
+     lisp/.arch-ids/xwem-compat.el.id
+     lisp/.arch-ids/xwem-desktop.el.id
+     lisp/.arch-ids/xwem-edmacro.el.id
+     lisp/.arch-ids/xwem-events.el.id
+     lisp/.arch-ids/xwem-faces.el.id
+     lisp/.arch-ids/xwem-focus.el.id
+     lisp/.arch-ids/xwem-frame.el.id
+     lisp/.arch-ids/xwem-gamma.el.id lisp/.arch-ids/xwem-help.el.id
+     lisp/.arch-ids/xwem-icons.el.id
+     lisp/.arch-ids/xwem-interactive.el.id
+     lisp/.arch-ids/xwem-keyboard.el.id
+     lisp/.arch-ids/xwem-keydefs.el.id
+     lisp/.arch-ids/xwem-keymacro.el.id
+     lisp/.arch-ids/xwem-launcher.el.id
+     lisp/.arch-ids/xwem-load.el.id lisp/.arch-ids/xwem-main.el.id
+     lisp/.arch-ids/xwem-manage.el.id
+     lisp/.arch-ids/xwem-minibuffer.el.id
+     lisp/.arch-ids/xwem-misc.el.id lisp/.arch-ids/xwem-modes.el.id
+     lisp/.arch-ids/xwem-mouse.el.id
+     lisp/.arch-ids/xwem-netwm.el.id
+     lisp/.arch-ids/xwem-ratanot.el.id
+     lisp/.arch-ids/xwem-register.el.id
+     lisp/.arch-ids/xwem-report.el.id
+     lisp/.arch-ids/xwem-root.el.id
+     lisp/.arch-ids/xwem-rooter.el.id
+     lisp/.arch-ids/xwem-rooticon.el.id
+     lisp/.arch-ids/xwem-selections.el.id
+     lisp/.arch-ids/xwem-sound.el.id
+     lisp/.arch-ids/xwem-special.el.id
+     lisp/.arch-ids/xwem-strokes.el.id
+     lisp/.arch-ids/xwem-struct.el.id
+     lisp/.arch-ids/xwem-tabbing.el.id
+     lisp/.arch-ids/xwem-theme.el.id
+     lisp/.arch-ids/xwem-transient.el.id
+     lisp/.arch-ids/xwem-tray.el.id lisp/.arch-ids/xwem-win.el.id
+     lisp/.arch-inventory lisp/xwem-clgen.el lisp/xwem-clients.el
+     lisp/xwem-clswi.el lisp/xwem-compat.el lisp/xwem-desktop.el
+     lisp/xwem-edmacro.el lisp/xwem-events.el lisp/xwem-faces.el
+     lisp/xwem-focus.el lisp/xwem-frame.el lisp/xwem-gamma.el
+     lisp/xwem-help.el lisp/xwem-icons.el lisp/xwem-interactive.el
+     lisp/xwem-keyboard.el lisp/xwem-keydefs.el
+     lisp/xwem-keymacro.el lisp/xwem-launcher.el lisp/xwem-load.el
+     lisp/xwem-main.el lisp/xwem-manage.el lisp/xwem-minibuffer.el
+     lisp/xwem-misc.el lisp/xwem-modes.el lisp/xwem-mouse.el
+     lisp/xwem-netwm.el lisp/xwem-ratanot.el lisp/xwem-register.el
+     lisp/xwem-report.el lisp/xwem-root.el lisp/xwem-rooter.el
+     lisp/xwem-rooticon.el lisp/xwem-selections.el
+     lisp/xwem-sound.el lisp/xwem-special.el lisp/xwem-strokes.el
+     lisp/xwem-struct.el lisp/xwem-tabbing.el lisp/xwem-theme.el
+     lisp/xwem-transient.el lisp/xwem-tray.el lisp/xwem-win.el
+     man/.arch-ids/.arch-inventory.id man/.arch-ids/=id
+     man/.arch-ids/Makefile.id man/.arch-ids/addons.texi.id
+     man/.arch-ids/client.texi.id man/.arch-ids/frame.texi.id
+     man/.arch-ids/help.texi.id man/.arch-ids/hooking.texi.id
+     man/.arch-ids/logging.texi.id man/.arch-ids/manda.texi.id
+     man/.arch-ids/minibuf.texi.id man/.arch-ids/overview.texi.id
+     man/.arch-ids/primitives.texi.id man/.arch-ids/start.texi.id
+     man/.arch-ids/subsystems.texi.id
+     man/.arch-ids/textspec.texi.id man/.arch-ids/tray.texi.id
+     man/.arch-ids/win.texi.id man/.arch-ids/xwem.texi.id
+     man/.arch-inventory man/Makefile man/addons.texi
+     man/client.texi man/frame.texi man/help.texi man/hooking.texi
+     man/logging.texi man/manda.texi man/minibuf.texi
+     man/overview.texi man/primitives.texi man/start.texi
+     man/subsystems.texi man/textspec.texi man/tray.texi
+     man/win.texi man/xwem.texi utils/.arch-ids/.arch-inventory.id
+     utils/.arch-ids/=id utils/.arch-ids/xwem-appcollect.el.id
+     utils/.arch-ids/xwem-diagram.el.id
+     utils/.arch-ids/xwem-holer.el.id
+     utils/.arch-ids/xwem-osd.el.id
+     utils/.arch-ids/xwem-worklog.el.id
+     utils/.arch-ids/xwem-xfig.el.id utils/.arch-inventory
+     utils/xwem-appcollect.el utils/xwem-diagram.el
+     utils/xwem-holer.el utils/xwem-osd.el utils/xwem-worklog.el
+     utils/xwem-xfig.el xwem-loaddefs-gen.el
+
+    modified files:
+     lpath.el package-info.in
+
+    renamed files:
+     .arch-ids/Makefile.id
+       ==> .arch-ids/Makfile.CVS.id
+     Makefile
+       ==> Makfile.CVS
+
+    new directories:
+     battery battery/.arch-ids dockapp dockapp/.arch-ids extra
+     extra/.arch-ids icons icons/.arch-ids lisp lisp/.arch-ids man
+     man/.arch-ids utils utils/.arch-ids
+
+    new patches:
+     steve@eicq.org--2004/xwem--steve--2.0--base-0
+     steve@eicq.org--2004/xwem--steve--2.0--patch-1
+     steve@eicq.org--2004/xwem--steve--2.0--patch-2
+     steve@eicq.org--2004/xwem--steve--2.0--patch-3
+
+
+2004-12-08 19:22:14 GMT	Evgeny Zajcev <lg@xwem.org>	base-0
+
+    Summary:
+      Initial import of xwem sources.
+    Revision:
+      xwem--main--2.0--base-0
+
+
+    new files:
+     ChangeLog.CVS Makefile TODO logo.xpm lpath.el package-info.in
+
+
+2004-12-08  Zajcev Evgeny  <zevlg@yandex.ru>
+
+	* lisp/xwem-minibuffer.el: [addon] Define
+		  x-emacs-application-class at compile time.
+	* lisp/xwem-special.el: Ditto.
+
+2004-12-08  Steve Youngs  <steve@youngs.au.com>
+
+	* lisp/xwem-misc.el (xwem-misc-find-cl-by-emacs-frame): Fix
+	logic... a when statement was closed too soon.
+
+2004-12-07  Zajcev Evgeny  <zevlg@yandex.ru>
+
+	* lisp/xwem-keyboard.el (xwem-kbd-xksym->emacs):
+	(xwem-kbd-emacs->xksym): support for all the special X keysyms like
+	multimedia keys in /usr/X11R6/lib/X11/XKeysymDB.
+
+2004-12-08  Richard Klinda  <ignotus@hixsplit.hu>
+
+	* lisp/xwem-misc.el: (xwem-misc-find-cl-by-emacs-frame):
+	[fix] use x-emacs-application-class nstead of hardcoded
+	"Emacs" string.
+
+2004-12-06  Zajcev Evgeny <zevlg@yandex.ru>
+
+	* extra/xwem-frametrans.el (Repository): initial import of frame
+		  transparency code.  Not yet fully functional however.
+
+	* dockapp/xwem-pager.el:
+	* dockapp/xwem-pager.el (requires): [fix] xwem-load, xlib-xshape
+		  added.
+
+2004-12-06  Zajcev Evgeny <zevlg@yandex.ru>
+
+	* *.el (Author): Fixes.
+	
+2004-12-06  Zajcev Evgeny <zevlg@yandex.ru>
+
+	* dockapp/xwem-pager.el (Repository): Initial import of xwem-pager
+		  code done by Richard Klinda <ignotus@hixsplit.hu>
+
+2004-12-06  Zajcev Evgeny <zevlg@yandex.ru>
+
+	* lisp/xwem-keyboard.el (xwem-hyper-modifier): [addon] Alt 
+	* lisp/xwem-keyboard.el (xwem-meta-modifier): Ditto.
+	* lisp/xwem-keyboard.el (xwem-control-modifier): Ditto.
+
+	Alt modifier added, however not yet supported in keys resolution
+	code.
+	
+	* lisp/xwem-misc.el:
+	* lisp/xwem-misc.el (xwem-misc-mask-pixmap): New.
+	* lisp/xwem-misc.el (xwem-misc-mask-fgc): New.
+	* lisp/xwem-misc.el (xwem-misc-mask-bgc): New.
+	* lisp/xwem-misc.el (xwem-misc-init): [addon] common masking
+		  initialisation.
+
+	Masking fg/bg X-Gc's added for common use.
+	
+	* dockapp/xwem-battery.el:
+	* dockapp/xwem-battery.el (apm-battery): New.  Emacs lisp version
+		  of apm-battery.  It is not required to have apm-battery
+		  DSO loaded to use xwem-battery dockapp.
+
+	* dockapp/xwem-framei.el:
+	* dockapp/xwem-framei.el (xwem-frame):
+	* dockapp/xwem-framei.el (xwem-framei-default-format):
+	* dockapp/xwem-framei.el (xwem-framei-dockapp-keymap):
+	* dockapp/xwem-framei.el (xwem-framei-dockapp-default-format):
+	* dockapp/xwem-framei.el (xwem-framei-stop-dockapp):
+	* dockapp/xwem-framei.el (xwem-framei-dockapp):
+	* dockapp/xwem-framei.el (xwem-framei-dockapp-popup-menu):
+	* dockapp/xwem-framei.el (xwem-framei-dockapp-popup-alt-menu):
+		  New.  Alternative menu.
+
+	Fixes due to race condition, when killing client in dedicated
+	frame.
+
+	* utils/xwem-osd.el (xwem-osd-event-handler): [fix] use
+		  xwem-override-local-map
+
+	* lisp/xwem-help.el (xwem-help-where-is): [fix] use
+		  xwem-global-keymap.
+
+	* lisp/xwem-clients.el (xwem-cl-apply-new-xgeom): [arguments]
+		  HOLD-SIZE argument added.
+	* lisp/xwem-clients.el (xwem-refit-dedicated): [fix] Use
+		  HOLD-SIZE.
+
+	* extra/xwem-recover.el (xwem-recover-real-recover): [fix] xdpy ->
+		  xwem-dpy
+
+2004-12-06  Steve Youngs  <steve@youngs.au.com>
+
+	From Richard Klinda <ignotus@hixsplit.hu>
+	* lisp/xwem-manage.el (xwem-cl-match-p): Guard against buffers
+	that don't have filenames assoctiated with them.
+
+2004-12-05  Steve Youngs  <steve@youngs.au.com>
+
+	* lisp/xwem-report.el: Autoload xwem-dpy, X-Dpy at compile time.
+	(xwem-report-debug): Don't include
+	xwem-loaddefs.el in the files to snoop for changed variables.
+	(xwem-prepare-report): Include xwem and xlib version strings.
+
+2004-12-05  Steve Youngs  <steve@youngs.au.com>
+
+	* utils/xwem-holer.el:
+	* utils/xwem-osd.el:
+	* utils/xwem-worklog.el:
+	* lisp/xwem-clgen.el:
+	* lisp/xwem-clients.el:
+	* lisp/xwem-clswi.el:
+	* lisp/xwem-desktop.el:
+	* lisp/xwem-edmacro.el:
+	* lisp/xwem-faces.el:
+	* lisp/xwem-focus.el:
+	* lisp/xwem-frame.el:
+	* lisp/xwem-icons.el:
+	* lisp/xwem-interactive.el:
+	* lisp/xwem-keyboard.el:
+	* lisp/xwem-keymacro.el:
+	* lisp/xwem-launcher.el:
+	* lisp/xwem-main.el:
+	* lisp/xwem-manage.el:
+	* lisp/xwem-minibuffer.el:
+	* lisp/xwem-misc.el:
+	* lisp/xwem-mouse.el:
+	* lisp/xwem-netwm.el:
+	* lisp/xwem-register.el:
+	* lisp/xwem-report.el: New file.
+	* lisp/xwem-root.el:
+	* lisp/xwem-rooter.el:
+	* lisp/xwem-rooticon.el:
+	* lisp/xwem-selections.el:
+	* lisp/xwem-sound.el:
+	* lisp/xwem-special.el:
+	* lisp/xwem-strokes.el:
+	* lisp/xwem-tabbing.el:
+	* lisp/xwem-theme.el:
+	* lisp/xwem-transient.el:
+	* lisp/xwem-tray.el:
+	* lisp/xwem-win.el:
+	* extra/ixwem.el:
+	* extra/xwem-recover.el:
+	* extra/xwem-smartmods.el:
+	* dockapp/xwem-battery.el:
+	* dockapp/xwem-framei.el:
+	* dockapp/xwem-time.el:
+	* dockapp/xwem-weather.el:
+
+	Add a bug-reporting module.  All files that have user configurable
+	variables have been touched to accomodate the bug-reporter.
+	Basically all the defcustoms were grouped together and a magic
+	cookie `;;; Internal variables' was added to each of these files.
+
+2004-12-04  Zajcev Evgeny  <zevlg@yandex.ru>
+
+	* lisp/xwem-misc.el (xwem-misc-find-emacs-frame): [fix] window-id
+		  stringp error
+	* lisp/xwem-misc.el (xwem-misc-find-cl-by-emacs-frame): [fix]
+		  window-id stringp error
+
+	Also multidevicing fixes.
+
+2004-12-04  Zajcev Evgeny  <zevlg@yandex.ru>
+
+	* lisp/xwem-special.el (xwem-special-make-frame):
+
+	* lisp/xwem-ratanot.el (xwem-rnt-create-frame):
+
+	* lisp/xwem-mouse.el (xwem-applications-submenu):
+
+	* lisp/xwem-minibuffer.el (xwem-minib-create):
+
+	Use default x device to create XEmacs frames.  AKA multidevicing
+	patch.
+
+2004-12-04  Steve Youngs  <steve@youngs.au.com>
+
+	* lisp/xwem-main.el (xwem-init): Don't set print-level, it breaks
+	BBDB. 
+
+2004-12-04  Zajcev Evgeny  <zevlg@yandex.ru>
+
+	* lisp/xwem-rooticon.el (xwem-rooticon-select-place): [fix]
+		  debugging stuff removed.
+
+2004-12-04  Zajcev Evgeny  <zevlg@yandex.ru>
+
+	* lisp/xwem-desktop.el (xwem-desktop-save): [fix] Set print-length
+	and print-level to nil, before printing values to buffer.  Note:
+	Other code which performes similiar functionality also need to be
+	fixed this way.
+
+2004-12-04  Steve Youngs  <steve@youngs.au.com>
+
+	From Richard Klinda <ignotus@hixsplit.hu>
+	* utils/xwem-worklog.el (xwem-worklog-meaning-update-time): Take
+	into account the situation where the day's end hour can be smaller
+	than the day's start hour.
+	(xwem-worklog-generate-percentage-spec): Ditto.
+
+2004-12-04  Steve Youngs  <steve@youngs.au.com>
+
+	* lisp/xwem-main.el (xwem-init): Remove a `setq' as it is inside a
+	`setf'.
+
+2004-12-03  Zajcev Evgeny  <zevlg@yandex.ru>
+
+	* lisp/xwem-clients.el (xwem-dummy-client-init): [fix] Set event
+		  mask to receive key/button events.  Thanks to Richard
+		  Klinda for finding this.
+
+	* lisp/xwem-frame.el (xwem-frame-imove-internal): [fix] Unneded
+		  call to `xwem-frame-set-size' removed.
+
+	* lisp/xwem-main.el (xwem-init): [addon] set print-level to 2 if
+		  using presetup.  This solves xwem objects printing
+		  problem.
+
+2004-12-03  Steve Youngs  <steve@youngs.au.com>
+
+	* lisp/xwem-gamma.el (xwem-gamma-corector): Call `XFlush' on
+	`xwem-gamma-display'. 
+
+	* lisp/xwem-events.el (xwem-event-as-command): Make sure we're not
+	in xwem's global keymap.
+
+2004-12-03  Steve Youngs  <steve@youngs.au.com>
+
+	* utils/xwem-osd.el: Update my commented example OSD.
+
+2004-12-03  Zajcev Evgeny  <zevlg@yandex.ru>
+
+	* lisp/xwem-rooticon.el (xwem-rooticon-select-place):
+	* lisp/xwem-rooticon.el (xwem-rooticon-apply-state):
+
+	Position selection fixes.
+
+2004-12-02  Zajcev Evgeny  <zevlg@yandex.ru>
+
+	* utils/xwem-worklog.el (xwem-worklog-history-init): [fix]
+
+	Patch from Richard Klinda applied.
+
+2004-12-01  Steve Youngs  <steve@youngs.au.com>
+
+	* Makefile (REQUIRES): Add mail-lib.
+
+	* lisp/.cvsignore: New.  Add generated file `xwem-loaddefs.el'.
+
+2004-12-01  Zajcev Evgeny <zevlg@yandex.ru>
+
+	* dockapp/xwem-framei.el:
+	* dockapp/xwem-framei.el (xwem-framei-face):
+	* dockapp/xwem-framei.el (xwem-framei-default-sff):
+	* dockapp/xwem-framei.el (xwem-framei-show-osd): New.
+
+	Fixes to make it work.
+
+	* lisp/xwem-rooticon.el:
+	* lisp/xwem-rooticon.el (xwem-rooticon-default-icon): New.
+	* lisp/xwem-rooticon.el (xwem-rooticon-default-show-label): New.
+	* lisp/xwem-rooticon.el (xwem-rooticon-default-pixmap): New.
+	* lisp/xwem-rooticon.el (xwem-rooticon-icons): New.
+	* lisp/xwem-rooticon.el (xwem-rooticon-create):
+	* lisp/xwem-rooticon.el (xwem-rooticon-draw):
+	* lisp/xwem-rooticon.el (xwem-rooticon-apply-state):
+
+	Fixes to show rooticon for client that does not their own icon.
+
+	* lisp/xwem-keydefs.el: H-z - xwem-client-iconify
+
+	* lisp/xwem-faces.el:
+	* lisp/xwem-faces.el (xwem-custom-declare-face): [fix] Support for
+		  :size and :family face attributes added.
+	* lisp/xwem-faces.el (xwem-set-face-font-attribute): New.
+	* lisp/xwem-faces.el (xwem-set-face-font-family): New.
+	* lisp/xwem-faces.el (xwem-set-face-font-size): New.
+	* lisp/xwem-faces.el (xwem-set-face-bold): New.
+	* lisp/xwem-faces.el (xwem-set-face-italic): New.
+
+	* lisp/xwem-clients.el:
+	* lisp/xwem-clients.el (xwem-cl-noicon-name): New.
+	* lisp/xwem-clients.el (xwem-cl-presetup): cleanup
+	* lisp/xwem-clients.el (xwem-cl-hproperty): Ditto.
+
+	* utils/xwem-diagram.el (xwem-diag-plot-coordinates): tiny cleanup.
+	* utils/xwem-diagram.el (xwem-diag-plot-points): Ditto.
+	* utils/xwem-diagram.el (xwem-diag-plot-dots): Ditto.
+
+	* utils/xwem-worklog.el (xwem-worklog-tasks-description): [fix]
+		  Unknown task has grey color.
+
+	* package-info.in (requires): xwem-macros removed.
+
+2004-11-30  Zajcev Evgeny <zevlg@yandex.ru>
+
+	* TODO: Steve Youngs's proposal to click and drag client tab.
+
+	* lisp/xwem-frame.el (xwem-frame-showroot): [fix] select dummy
+		  client after all frames unmapped.
+
+2004-11-29  Zajcev Evgeny <zevlg@yandex.ru>
+
+	* xwem: Initial import of 2.0 release candidate 2.
+
+	To many fixes to describe here.  There was no posibilities to add
+	entries to this changelog file while developing 2.0 :(
+
+2004-09-16  Norbert Koch  <viteno@xemacs.org>
+
+	* Makefile (VERSION): XEmacs package 1.18 released.
+
+2004-09-15  Steve Youngs  <steve@youngs.au.com>
+
+	* lisp/xwem-clients.el (xwem-client-info): Typo fix. car -> cdr.
+
+2004-09-15  Norbert Koch  <viteno@xemacs.org>
+
+	* Makefile (VERSION): XEmacs package 1.17 released.
+
+2004-09-15  Steve Youngs  <steve@youngs.au.com>
+
+	* lisp/xwem-icons.el (xwem-icons-cl-icon): Remove redundant `if' in
+	previous patch.
+
+2004-09-15  Norbert Koch  <viteno@xemacs.org>
+
+	* Makefile (VERSION): XEmacs package 1.16 released.
+
+2004-09-15  Steve Youngs  <steve@youngs.au.com>
+
+	* lisp/xwem-icons.el (xwem-icons-cl-icon): Allow for a user set
+	icon path.
+
+2004-09-13  Norbert Koch  <viteno@xemacs.org>
+
+	* Makefile (VERSION): XEmacs package 1.15 released.
+
+	* lisp/xwem-interactive.el (read-from-minibuffer-for-xwem): Fix
+	build, add missing closing paren.
+
+2004-09-13  Steve Youngs  <steve@youngs.au.com>
+
+	* lisp/xwem-interactive.el: Use `symbol-function' in the defalias
+	for `read-from-minibuffer-for-xwem'.
+	This fixes a "exceeds max-specpdl-size" error when doing things
+	like `H-x b', `H-!' etc.
+
+2004-09-13  Steve Youngs  <steve@youngs.au.com>
+
+	* xwem-clients.el: Don't autoload `subtract-time' from time-date
+	at compile time as it isn't needed anymore.
+	(xwem-cl-get-uptime-1): New.
+	(xwem-cl-get-uptime): Use it.
+	This fixes a bug that meant a client's uptime couldn't be measured
+	beyond 65535 seconds.
+
+	The fix was inspired by code
+	From Sebastian Freundt <freundt@math.tu-berlin.de>
+
+2004-07-14  Norbert Koch  <viteno@xemacs.org>
+
+	* Makefile (VERSION): XEmacs package 1.14 released.
+
+2004-07-14  Steve Youngs  <steve@youngs.au.com>
+
+	* lisp/xwem-weather.el: New file.
+
+2004-07-13  Jerry James  <james@xemacs.org>
+
+	* lisp/xwem-clients.el:
+	* lisp/xwem-compat.el:
+	* lisp/xwem-frame.el:
+	* lisp/xwem-framei.el:
+	* lisp/xwem-holer.el:
+	* lisp/xwem-interactive.el:
+	* lisp/xwem-keyboard.el:
+	* lisp/xwem-keydefs.el:
+	* lisp/xwem-keymacro.el:
+	* lisp/xwem-launcher.el:
+	* lisp/xwem-main.el:
+	* lisp/xwem-minibuffer.el:
+	* lisp/xwem-misc.el:
+	* lisp/xwem-root.el:
+	* lisp/xwem-rooter.el:
+	* lisp/xwem-smartmods.el:
+	* lisp/xwem-strokes.el:
+	* lisp/xwem-tabbing.el:
+	* lisp/xwem-tray.el:
+	* lisp/xwem-win.el:
+	* lisp/xwem-worklog.el: Remove many autoloads, replacing them with
+	require forms.  Fix a few typos.
+
+2004-05-19  Norbert Koch  <viteno@xemacs.org>
+
+	* Makefile (VERSION): XEmacs package 1.13 released.
+
+2004-05-15  Steve Youngs  <steve@youngs.au.com>
+
+	* lisp/xwem-keyboard.el (xwem-kbd-quote-command): Removed
+	temporarily because it is broken and if used will cause xwem to
+	hang. 
+
+	* lisp/xwem-keydefs.el: Comment out binding for `H-q' which is
+	currently broken.
+
+	* lisp/xwem-worklog.el (xwem-worklog-auto-continue): Typo fix.
+	(xwem-worklog-end-task): Ditto.
+	(xwem-worklog-pause-task): Ditto.
+	(xwem-worklog-auto-worklog-file): Slightly massage the docstring.
+	Add a `:link' for worklog package's URL.
+
+	* Makefile (DONTCOMPILE): Add auto-autoloads.el and custom-load.el
+	so that they don't appear twice in the package tarball.
+
+2004-05-14  Norbert Koch  <viteno@xemacs.org>
+
+	* Makefile (VERSION): XEmacs package 1.12 released.
+
+2004-05-14  Steve Youngs  <steve@youngs.au.com>
+
+	* lisp/xwem-minibuffer.el (xwem-minibuffer-init): Turn off the
+	gutter in xwem-minibuffer.
+
+2004-05-14  Norbert Koch  <viteno@xemacs.org>
+
+	* Makefile (VERSION): XEmacs package 1.11 released.
+
+2004-05-14  Zajcev Evgeny  <zevlg@yandex.ru>
+
+	* lisp/xwem-worklog.el (xwem-worklog-auto-worklog-file): [fix]
+	Comment fix.
+
+	* lisp/xwem-main.el (xwem-init): [addon] Common configuration
+	added for joe public.
+
+	* lisp/xwem-keyboard.el (xwem-kbd-quote-command): [hmm] marked as
+	non-workable.
+
+2004-05-12  Zajcev Evgeny  <zevlg@yandex.ru>
+
+	* lisp/xwem-frame.el (xwem-frame-config-dump): [fix] Use
+	expand-file-name.
+	* lisp/xwem-frame.el (xwem-frame-config-restore): [fix] Ditto.
+
+	* lisp/xwem-worklog.el (misc): [fix] Ditto.
+
+2004-05-12  Zajcev Evgeny  <zevlg@yandex.ru>
+
+	* lisp/xwem-tray.el (xwem-tray-delimiter): [new] Delimiter stuff
+	added.
+
+	* lisp/xwem-sound.el (xwem-sound-do-visible-bell): [fix] Don't use
+	`X-Dpy-events-excursion'.
+
+	* lisp/xwem-misc.el (xwem-misc-make-screenshot): [fix] Use
+	absolute pathname to import screenshot to.
+
+	* lisp/xwem-launcher.el (xwem-launch-dock): [new] Dockapp to
+	launch clients.
+
+	* lisp/xwem-keydefs.el (xwem-global-map): [addon]
+	`xwem-frame-imove' at Sh-C-button1, `xwem-frame-iresize' on
+	Sh-C-button3.
+
+2004-05-11  Norbert Koch  <viteno@xemacs.org>
+
+	* Makefile (VERSION): XEmacs package 1.10 released.
+
+2004-05-12  Steve Youngs  <steve@youngs.au.com>
+
+	* lisp/xwem-keymacro.el (xwem-keymacro-save-macros): Use
+	`expand-file-name'.
+	(xwem-keymacro-load-macros): Ditto.
+
+	* lisp/xwem-strokes.el (xwem-strokes-save-strokes): Use
+	`expand-file-name' to define `strokes-file'.
+	(xwem-strokes-load-strokes): Ditto.
+
+	* lisp/xwem-main.el (xwem-dir): Change to custom type `directory'
+	and use `file-name-as-directory' to define the default.
+	(xwem-init): Simplify the `expand-file-name' call on xwemrc.el.
+
+2004-05-11  Zajcev Evgeny  <zevlg@yandex.ru>
+
+	* lisp/xwem-frame.el (xwem-frame-config-dump): [fix] Save only
+	builtin frame properties, because others can reference to
+	unrestorable objects.
+
+2004-05-11  Steve Youngs  <steve@youngs.au.com>
+
+	* lisp/xwem-interactive.el (xwem-read-from-minibuffer): Add
+	`notused' argument to prevent `wrong number of ags' errors
+
+2004-05-06  Norbert Koch  <viteno@xemacs.org>
+
+	* Makefile (VERSION): XEmacs package 1.09 released.
+
+2004-05-06  Zajcev Evgeny  <zevlg@yandex.ru>
+
+	* Makefile (AUTHOR_VERSION): 0.1 -> 0.2
+
+	* lisp/xwem-load.el: Removed at last.
+
+	* lisp/xwem-worklog.el (general): Autoloads added, fixes due to
+	new events processing scheme.
+
+	* lisp/xwem-win.el (general): Tabbing stuff totally
+	removed. autoloads added, various fixes and new custom variables
+	added, also too many changes to list.
+
+	* lisp/xwem-time.el (general): Fixes, using backing store X
+	feature.
+	* lisp/xwem-time.el (xwem-time): [fix] Exposure waiting removed.
+
+	* lisp/xwem-tabbing.el (general): Tabbing now totally independed,
+	using hooks mechanism to do the job, and fixes too many to list.
+	* lisp/xwem-tabbing.el (xwem-tabber-map): [new] Tabber keymap,
+	default bindings is <button1> and <button3>.
+
+	* lisp/xwem-strokes.el (general): Autoloads added.
+	* lisp/xwem-strokes.el (xwem-strokes-go): [fix] Use `xwem-next-event'.
+	* lisp/xwem-strokes.el (xwem-strokes-gc-function): [fix] typo.
+
+	* lisp/xwem-special.el (general): Autoloads added, fixes. Using
+	safe way when destroing special frame.
+
+	* lisp/xwem-rooter.el (xwem-rooter-auto-raised-regexp): [new] Not
+	yet implemented, sorry.  Pretty complicated task, but possible.
+	
+	* lisp/xwem-root.el (general): Tiny fixes.
+	* lisp/xwem-root.el (xwem-root-keymap): [addon]
+	xwem-popup-clients-menu on <button1> by default.
+
+	* lisp/xwem-register.el (general): Autoloads added.
+
+	* lisp/xwem-osd.el (general): Various tiny bug fixes, cleanup, etc.
+	* lisp/xwem-osd.el (xwem-osd-create): [addon] Properties
+	support. OSD can have its own keymap now.
+	* lisp/xwem-osd.el (xwem-osd-dots-add): [new] To plot dots set.
+	* lisp/xwem-osd.el (xwem-osd-create-dock): [new] Dockapp that uses
+	OSD primitives, i.e. dockappable osd.
+	* lisp/xwem-osd.el (xwem-osd-XXX-prop): [new] osd supports user
+	props.
+
+	* lisp/xwem-mouse.el (general): Autoloads added, little cleanup.
+	* lisp/xwem-mouse.el (xwem-popup-clients-menu): [new] Popup
+	clients menu.
+	* lisp/xwem-mouse.el (xwem-gen-cl-menu): [new] Generate popup menu
+	for CL.
+
+	* lisp/xwem-misc.el (general): Autoloads added, little cleanup,
+	few usefull functions added.
+	* lisp/xwem-misc.el (xwem-misc-draw-shadow): [fix] Optimization.
+	* lisp/xwem-misc.el (xwem-misc-outline): [new] Function to outline
+	some rectangle.
+
+	* lisp/xwem-minibuffer.el (general): Autoloads, new commented code
+	added, its usage is under argue.
+
+	* lisp/xwem-manage.el (general): Autoloads added, cleanup, few
+	usefull wrappers added.
+
+	* lisp/xwem-main.el (general): Autoloads added, little fixes.
+	* lisp/xwem-main.el (xwem-before-init-wins-hook): [new]
+	* lisp/xwem-main.el (xwem-after-init-wins-hook): [new]
+	More hookenization all over the place.
+
+	* lisp/xwem-macros.el (general): Autoloads added, little cleanup.
+
+	* lisp/xwem-launcher.el (general): Autoloads added.
+
+	* lisp/xwem-keymacro.el (general): Autoloads added, tiny fixes.
+
+	* lisp/xwem-keyboard.el (general): Autoloads added, minor fixes.
+	* lisp/xwem-keyboard.el (xwem-universal-key): [fix] `xwem-kbd'
+	usage eliminated.
+	* lisp/xwem-keyboard.el (xwem-kbd-evilmasks): [new] Mask
+	constructed from `xwem-kbd-evillocks'.
+	* lisp/xwem-keyboard.el (xwem-kbd-evillocks): [new] Locks that
+	totaly skipped when processing input events.
+	
+	* lisp/xwem-help.el (general): Autoloads added.
+
+	* lisp/xwem-framei.el (xwem-framei-dockapp-XX): [new] Dockapp
+	support to show current frame in system tray.
+	* lisp/xwem-framei.el (xwem-framei-stop): [new] Destroy frame
+	indicator.
+
+	* lisp/xwem-frame.el (xwem-frame-imove): [new] Interactively move
+	frame.
+	* lisp/xwem-frame.el (xwem-frame-iresize): [new] Interactively
+	resize frame.
+	* lisp/xwem-frame.el (general): Tabbing stuff totally removed.
+	Various fixes: embedded frame fixes, autoloads added.
+	* lisp/xwem-frame.el (xwem-frame-XXX-hook): [new] More hookenization.
+	* lisp/xwem-frame.el (xwem-frame-omit-init-frame): [new] Non-nil
+	mean do not create frames at start time.  Usefull if you want to
+	restore saved frame configuration from file at start time.
+	* lisp/xwem-frame.el (xwem-frame-autoiconify-mode): [new] Non-nil
+	mean autoiconify overlapping frames, when switching.
+	* lisp/xwem-frame.el (xwem-frame-iresize-mode): [new] Mode for
+	interactive frame resizing.
+	* lisp/xwem-frame.el (xwem-frame-imove-mode): [new] Mode for
+	interactive frame moving.
+	* lisp/xwem-frame.el (xwem-frame-imoveresize-mode-function): [new]
+	* lisp/xwem-frame.el (xwem-frame-imoveresize-mode-function-default): [new]
+
+2004-05-05  Zajcev Evgeny  <zevlg@yandex.ru>
+
+	* lisp/xwem-focus.el (general): Various minor fixes.
+	* lisp/xwem-focus.el (xwem-focus-set): [fix] Do not push by
+	default.
+
+	* lisp/xwem-faces.el (xwem-eface-to-gc): [fix] :graphics-exposures
+	default value X-False now.
+
+	* lisp/xwem-events.el (general): Various fixes.
+	* lisp/xwem-events.el (xwem-parse-message-guess): [new] Events
+	processing restructured, due to reentrance bug in xlib.  xwem now
+	has its own parse-message-guess function to store input events,
+	such ass keypress/buttonpress/buttonrelease/motion separately from
+	dpy's events queue.
+	
+	* lisp/xwem-edmacro.el (general): Autoloads added.
+
+	* lisp/xwem-diagram.el (general): Autoloads added.
+	* lisp/xwem-diagram.el (xwem-diag-draw-3d-sector): [fix] Bug fix,
+	incorrect sector filling.
+
+	* lisp/xwem-compat.el (gerenal): Autoloads added.
+	
+	* lisp/xwem-clients.el (general): Tabbing stuff totally removed.
+	Some minor modifications, more hookenization, etc.
+	
+	* lisp/xwem-clients.el (xwem-cl-create-hook): [new]
+	* lisp/xwem-clients.el (xwem-cl-destroy-hook): [new]
+	* lisp/xwem-clients.el (xwem-cl-refit-hook): [new]
+	* lisp/xwem-clients.el (xwem-cl-iconify-hook): [new]
+	* lisp/xwem-clients.el (xwem-cl-change-hook): [new]
+	
+	* lisp/xwem-clients.el (xwem-cl-use-parent-xwin): [new] Non-nil to
+	reparent client to temporary window when client hides, aka mozilla
+	workaround.
+	
+
+2004-03-29  Norbert Koch  <viteno@xemacs.org>
+
+	* Makefile (VERSION): XEmacs package 1.08 released.
+
+2004-03-27  Zajcev Evgeny  <zevlg@yandex.ru>
+
+	* lisp/xwem-worklog.el (fixes): X Exposure notify waiting fixes.
+	
+	* lisp/xwem-worklog.el (xwem-worklog-start-dockapp): [fix] Can be
+	used without args at all.
+	
+	* lisp/xwem-worklog.el (xwem-worklog-time-sum): [fix] Can be used
+	without args at all.
+
+	* lisp/xwem-win.el (xwem-win-configuration): [fix] Multiple fixes
+	to xwem win configuration handling.  Use `xwem-cl-alive-p' instead
+	of `xwem-cl-p' to check CL vilidity, etc.
+
+	* lisp/xwem-win.el (xwem-frame-reduce-to-one-window): [fix] Can't
+	use `xwem-window-delete-others'.
+
+	* lisp/xwem-time.el (xwem-time): [fix] Can use already opened
+	display.  Fixed Exosure notify waiting.
+
+	* lisp/xwem-register.el (fixes): [fix] typo H-6 -> H-x 6.
+
+	* lisp/xwem-register.el (xwem-register-frame-config): [new]
+	Command to save frames configuration to register.  Default bindig
+	- H-x 8.
+	
+	* lisp/xwem-register.el (xwem-registers-frame-config-no-delete):
+	[new] This variable passed directly to
+	`xwem-set-frame-configuration' as NO-DELETE argument.
+
+	* lisp/xwem-minibuffer.el
+	(xwem-minibuffer-emacs-frames-has-minibuffer): [new] Non-nil mean
+	initial/default Emacs frame will have their own minibuffer, not
+	using xwem-minibuffer.  This option is for people who dislike
+	minibuffer only Emacs frames, for some reason.
+
+	* lisp/xwem-main.el (xwem-init): [fix] Explicitely require
+	xwem-keydefs to be sure.
+	
+	* lisp/xwem-main.el (xwem-after-window-setup): [fix]
+	`xwem-minib-create' issued before opening display.  Also frames
+	fitting commented out.
+
+	* lisp/xwem-load.el (autoloads): `xwem-frame-set-name' added.
+
+	* lisp/xwem-keydefs.el (xwem-global-mapModule): [new] `H-x 5 n'
+	executes `xwem-frame-set-name'.
+
+	* lisp/xwem-keyboard.el (xwem-kbd-process-after-lookup): [fix]
+	Keyboard macro execution fix, wait keyrelease, ungrab keyboard
+	before execution.
+
+	* lisp/xwem-help.el (xwem-help-describe-key1): [fix] Can be used
+	for macros as well as for commands.
+
+	* lisp/xwem-framei.el (xwem-framei-show-frame-name): [new] Non-nil
+	mean show frame name as well as frame number.
+
+	* lisp/xwem-framei.el (fixes): Some fixes and enhancements.
+
+	* lisp/xwem-frame.el (frame-cofinguration): [new] Added support
+	for frame configurations.
+
+	* lisp/xwem-frame.el (xwem-frame-configuration): [new] Return
+	current frame configuration.
+
+	* lisp/xwem-frame.el (xwem-set-frame-configuration): [new] Restore
+	frame configuration.
+
+	* lisp/xwem-frame.el (xwem-frame-set-name): [new] Command to set
+	frame name.
+	
+	* lisp/xwem-frame.el (xwem-frame-goto): [fix] Reguard prefix arg.
+
+	* lisp/xwem-frame.el (xwem-init-frame-at-rect): [fix] Take into
+	account border width.
+	
+	* lisp/xwem-edmacro.el (xwem-edmacro-edit-kbd-macro): [fix]
+	Workauround edmacro.el bug.
+
+	* lisp/xwem-clients.el (autoloads): Some funcs became
+	autoloadable.
+	
+	* lisp/xwem-clients.el (xwem-cl-pop-to-client): [fix] Using
+	`xwem-cl-alive-p' istead of `xwem-cl-p' to check client.
+
+2004-03-23  Norbert Koch  <viteno@xemacs.org>
+
+	* Makefile (VERSION): XEmacs package 1.07 released.
+
+2004-03-23  Zajcev Evgeny  <zevlg@yandex.ru>
+
+	* lisp/xwem-misc.el (X-Event-seq): autoloading when compile.
+
+	* lisp/xwem-custom-load.el (file): removed.
+
+	Thanks to Steve Youngs for many suggestions.
+
+2004-03-22  Zajcev Evgeny  <zevlg@yandex.ru>
+
+	* Makefile: fixes due to files moving.
+
+	* lisp/diagram.el (ploting): Various ploting functions added.
+	Result can look like this
+	http://lgarc.narod.ru/xwem/xwem-diagram.png
+	
+	* lisp/worklog.el (dockapp): System tray support added.
+	
+	* lisp/addons/* (files): moved to parent directory.
+	
+	* lisp/xwem-faces.el (xwem-eface-to-gc): Default values added.
+
+	* lisp/xwem-keyboard.el (xwem-this-command): [new]
+	* lisp/xwem-keyboard.el (xwem-last-command): [new]
+	* lisp/xwem-keyboard.el (xwem-pre-command-hook): [new]
+
+	* lisp/xwem-tray.el (xwem-tray-run-config): argument now optional.
+
+2004-03-22  Norbert Koch  <viteno@xemacs.org>
+
+	* Makefile (VERSION): XEmacs package 1.05 released.
+	(VERSION): Update version to 1.06, revert changes that slipped in
+	by accident.
+
+2004-03-17  Norbert Koch  <viteno@xemacs.org>
+
+	* Makefile (VERSION): XEmacs package 1.04 released.
+
+2004-03-16  Zajcev Evgeny  <zevlg@yandex.ru>
+
+	* lisp/xwem-main.el (xwem-version): [new] version variable added.
+
+	* man/*.texi (Initial): Initial import of docs for xwem.
+	
+	* Makefile (EXPLICIT_DOCS): [new]
+
+2004-03-15  Norbert Koch  <viteno@xemacs.org>
+
+	* Makefile (VERSION): XEmacs package 1.03 released.
+
+2004-03-15  Zajcev Evgeny  <zevlg@yandex.ru>
+
+	* Makefile (MAINTAINER): e-mail added.
+
+2004-03-11  Zajcev Evgeny  <zevlg@yandex.ru>
+
+	* Makefile (ELCS): Added forgotten xwem-macros.elc
+
+2004-03-11  Norbert Koch  <viteno@xemacs.org>
+
+	* Makefile (VERSION): XEmacs package 1.02 released.
+
+	* Makefile (VERSION): XEmacs package 1.01 released.
+
+2004-03-11  Zajcev Evgeny  <zevlg@yandex.ru>
+
+	* package-info.in (Initial): xwem package description added.
+	
+2004-03-09  Zajcev Evgeny  <zevlg@yandex.ru>
+
+	* lisp/addons/xwem-rooter.el (Initial): Handle xwem clients on
+	root window.
+
+	* lisp/addons/xwem-xfig.el (Initial): XFIG stuff for XWEM.
+
+	* lisp/addons/xwem-worklog.el (Initial): Worklog mode for XWEM.
+	Snapshot at http://lgarc.narod.ru/xwem/xwem-worklog.png
+
+	* lisp/addons/xwem-diagram.el (Initial): Diagram drawer for XWEM.
+
+	* lisp/xwem-keyboard.el (xwem-kbd-process-after-lookup): Some
+	major changes, get rid of evil lkm symbol props.
+
+	* lisp/xwem-interactive.el (xwem-interactive): ?* added to wait
+	keyrelease.
+
+	* Makefile (Module): xwem-diagram, xwem-worklog, xwem-xfig added.
+
+2004-02-15  Zajcev Evgeny  <zevlg@yandex.ru>
+	
+	* XWEM: Many improvements, window configurations, keyboard macros,
+	etc.  I think we are ready for beta or even for pre-release.
+
+	* addons/xwem-register.el (new): Registers for XWEM added.
+
+	* addons/xwem-framei.el (new): Frame indicator added.
+
+	* xwem-sound.el (new): Sound support added.
+
+2004-01-23 Zajcev Evgeny <zevlg@yandex.ru>
+
+	* addons/xwem-osd.el (Bugs): Some bug fixes.
+
+	* addons/xwem-holer.el (interactive): More interactive support
+	added, now it is possible to create/move/resize/delete holers
+	interactively.
+
+	* addons/xwem-edmacro.el (xwem-edmacro-can-edit-unbinded): Now it
+	is possible to edit(create) even unbinded keyboard macros.
+
+	* xwem-keymacro.el (xwem-keymacro-show-macro): Added new
+	customizable variable.
+
+	* xwem-macros.el (xwem-cursor-shape-choice): Added new shapes. 
+
+	* xwem-misc.el (xwem-make-cursor): Moved here from xwem-macros.el.
+
+	* xwem-minibuffer.el (xwem-minibuffer-init): Work around
+	`menubar-visible-p' specifier problem.
+
+2004-01-21 Zajcev Evgeny <zevlg@yandex.ru>
+
+	* xwem-keyboard.el (xwem-kbd-process-after-lookup): Bug fix. check
+	for `xwem-kbd-reading-keyseq' added when lkm is nil.
+
+2004-01-21 Zajcev Evgeny <zevlg@yandex.ru>
+
+	* ChangeLog (Revision): ChangeLog in new XWEM layout created.
+	
+;; $Id: ChangeLog,v 1.71 2004/12/08 19:11:26 lg Exp $

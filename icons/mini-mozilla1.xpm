@@ -1,0 +1,28 @@
+/* XPM */
+static char *mini_mozilla1_xpm[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 6 1",
+" 	c None",
+"#	c black",
+".	c gray50",
+"X	c #fe2a04",
+"o	c gray74",
+"O	c white",
+/* pixels */
+"#####           ",
+"X#O###          ",
+"X###O##         ",
+"XX###X###       ",
+"X#XXXXXX###     ",
+"XX##XXXXXX###   ",
+"#XXXXXXXXXXX### ",
+"##XXXXXXXXXXXX##",
+"####XXXXXXXXXX##",
+"#####XXXXXXXX###",
+"#######XXXXXX#X#",
+"####O###XXXXXXX#",
+"####.#O#####XXX#",
+"#XX###.#O#.#####",
+"XXXXX#####O#O#O#",
+"X###XXXXX###### "
+};

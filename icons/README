@@ -1,0 +1,60 @@
+ CREATING NEW ICONS:
+
+   If you are going to add icon in this directory please check your
+   icon to correspond next xpm format:
+
+    Required:
+
+      * icon filename must begin with 'mini-' if size of icon < 32 in
+        both directions.
+
+      * icon filename must begin with 'miniWxH-'(where W and H is
+        width and height of icon), when one of size is great or equal
+        to 32, but less then 48.
+
+      * icon filename must have no beggining if it's on of its size is
+        greater or equal to 48.
+
+      * icon name(pointer variable name) must be the same as filename,
+        but substitute '-' and '.' with '_'.  For example if icon's
+        filename is "mini-apm.xpm" then variable name must be
+        "mini_apm_xpm".
+
+      * mini icons(W and H < 32) must have no more then 32 colors.
+
+      * 16x16 icons must have no more then 18 colors.
+
+      * After variable name icon must have comment:
+
+	      /* columns rows colors chars-per-pixel */
+
+	And after colors declation icon must have comment:
+
+	      /* pixels */
+
+      * Chars per pixel value must be 1.
+
+      * "};" must be on its own line at the end of file.
+
+      * ' ' must be used for None color.
+      
+      * Do not use ',' character to denote color.
+
+      * No trailing spaces in any line.
+
+
+    Recommended, but not required:
+
+      * Use only 'c' in colors specification.
+
+      * Use 'None' instead of 'none' in colors specifications.
+
+      * Use '#' for black color.
+
+      * Use '.' for white color.
+
+      * Use 'r' for red color.
+
+      * Use 'g' for green color.
+
+      * use 'b' for blue color.

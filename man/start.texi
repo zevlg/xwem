@@ -1,0 +1,184 @@
+@node Getting Started, Primitives, Overview, Top
+@comment  node-name,  next,  previous,  up
+@chapter Getting Started
+@cindex starting
+
+You must provide some effort in way to make XWEM usable. Configuring
+XWEM splits to three tasks:
+
+@menu
+* Configuring X::	How to configure X server.
+* Configuring Emacs::	What you need in ~/.emacs to run XWEM.
+* Configuring XWEM::	How to configure XWEM.
+@end menu
+
+@node Configuring X, Configuring Emacs, Getting Started, Getting Started
+@comment  node-name,  next,  previous,  up
+@section Configuring X
+@cindex configuring
+
+First off all we need to configure keyboard to obtain control over XWEM.
+XWEM expects that there is Hyper key setuped on your keyboard and that
+Hyper key acts as modifier(i.e. in X's modifiers list).  Hyper key for
+XWEM is like Meta key for XEmacs.  All default commands in XWEM uses
+Hyper.  But it is not necessary to use Hyper key, but recommended.  You
+can control which modifier to use by @code{xwem-hyper-modifier} variable
+which default value is @code{hyper}.
+
+There is two ways to configure Hyper key.  One is using XKB X extension
+and the other(easier) is using xmodmap application.  Find a key(keycode)
+to which you want bind Hyper, using @code{xev}@footnote{xev utility
+ships with X distribution and used to report X events and its
+description to user.} utility.  Consider it is value 109.
+
+@example
+$ xmodmap -e "keycode 109 = Hyper_R"
+$ xmodmap -e "add mod3 = Hyper_R"
+@end example
+
+or add following to your @code{~/.Xmodmap}(or whatever):
+
+@example
+keycode 109 = Hyper_R
+add mod3 = Hyper_R
+@end example
+
+after that @code{xev} should report that keycode 109 have corresponded
+Hyper_R keysym.
+
+Now it is time to modify a little your @code{~/.xinitrc}.  Who will be
+your window manager?  Of course your guess about XEmacs is correct.  So
+instead of running for example afterstep or fvwm you need to run XEmacs.
+Part of your @code{~/.xinitrc} should looks like:
+
+@example
+# exec afterstep
+exec xemacs
+@end example
+
+You should run @code{xinit}, or @code{startx} with -tcp-listen option,
+otherwise xlib will not be able to connect to X server.
+
+@node Configuring Emacs, Configuring XWEM, Configuring X, Getting Started
+@comment  node-name,  next,  previous,  up
+@section Configuring Emacs
+@cindex configuring
+
+Now we are almost ready to run XWEM.  Add something like
+@example
+(add-to-list 'load-path (expand-file-name "/path/to/xwem"))
+(require 'xwem-load)
+(xwem-init)
+@end example
+at the end of your @code{~/.emacs}
+
+TODO: write how you need to configure emacs, i.e. what to need to add in
+@code{~/.emacs}.
+
+@node Configuring XWEM, , Configuring Emacs, Getting Started
+@comment  node-name,  next,  previous,  up
+@section Configuring XWEM
+@cindex configuring
+
+You can configure any of XWEM's subroutines using
+@code{~/.xwem/xwemrc.el} file.  It will be evaluated at the top of
+@var{xwem-init} function.
+
+Here is example of what you can do:
+
+@example
+(setq X-use-queryfont t)		; speeds up things
+
+;; We can recreate emacs frame, so there is no problems in deleting
+;; last frame.
+(setq allow-deletion-of-last-visible-frame t)
+
+(setq special-display-frame-plist
+      (plist-put special-display-frame-plist 'height 50))
+
+(defadvice kill-buffer (before delete-dedicated-frame activate)
+  "Work around dedicated frame problem."
+  (let ((frame (buffer-dedicated-frame
+                (get-buffer (or (ad-get-arg 0) (current-buffer))))))
+    (when (framep frame)
+      (delete-frame frame))))
+
+;; Icons
+;(setq xwem-icons-dir "~/prog/emacs/xwem/icons")
+(pushnew '([".*freebsd.*" "xterm" "XTerm"] . "mini-daemon.xpm")
+   xwem-icons-alist)
+(pushnew '([".*xwem.*" "emacs" "Emacs"] . "mini-xwem.xpm")
+   xwem-icons-alist)
+
+;;; Customize XWEM variables
+(setq xwem-minibuffer-active-border-color "cyan2"
+      xwem-default-focus-mode 'follow-mouse
+      xwem-edmacro-can-edit-nonmacro t
+      )
+
+(define-abbrev-table 'xwem-launcher-abbrev-table
+  '(("gterm" "xterm -fg green -hc green4" nil 0)
+    ("gfterm" "xterm -fg green -hc green4 -fn fixed" nil 0)
+    ("aqterm" "xterm -fg aquamarine -hc aquamarine4" nil 0)
+    ("aqfterm" "xterm -fg aqua -hc aqua4 -fn fixed" nil 0)
+    ("gsterm" "xterm -fg darkseagreen1 -hc darkseagreen4" nil 0)
+    ("gsfterm"
+     "xterm -fg darkseagreen1 -hc darkseagreen4 -fn fixed" nil 0)
+    ("oterm" "xterm -fg OliveDrab1 -hc OliveDrab4" nil 0)
+    ("ofterm" "xterm -fg OliveDrab1 -hc OliveDrab4 -fn fixed" nil 0)
+    ("orterm" "xterm -fg orange -hc orange4" nil 0)
+    ("orfterm" "xterm -fg orange -hc orange4 -fn fixed" nil 0)
+    ))
+  
+;; Add sounds, beeping type
+(xwem-sound-load-default t)
+
+;;; Addons
+
+;; Buqis like client switcher
+(xwem-clswi-enable)
+
+;; `display-time' like stuff in system tray
+;(add-hook 'xwem-after-init-hook 'xwem-time)
+
+;; H-6, H-x /, H-x j bindings
+(require 'xwem-register)
+(xwem-register-install-bindings)
+
+;; Nice frame indicator
+(autoload 'xwem-framei-init "xwem-framei")
+(add-hook 'xwem-after-init-hook 'xwem-framei-init)
+
+;; Making holer in frames
+(require 'xwem-holer)
+(define-key xwem-global-map (xwem-kbd "H-x h") 'xwem-holer-prefix)
+
+;; Nice rooter addon
+(require 'xwem-rooter)
+(xwem-rooter-add-client 'xwem-xclock-onroot "^xclock$")
+(xwem-rooter-add-client 'xwem-gkrellm-onroot "^gkrellm$")
+
+;; Worklog
+(require 'xwem-worklog)
+(define-key xwem-global-map (xwem-kbd "H-w") 'xwem-worklog-prefix)
+
+;; Fast frame switcher
+(defun my-xwem-switch-frame (key)
+  "To be used by H-C-<digit> bindings."
+  (interactive (list (event-key xwem-last-event)))
+  (xwem-frame-switch-nth (- (char-to-int key) 48)))
+
+(define-key xwem-global-map (xwem-kbd "H-C-0") 'my-xwem-switch-frame)
+(define-key xwem-global-map (xwem-kbd "H-C-1") 'my-xwem-switch-frame)
+(define-key xwem-global-map (xwem-kbd "H-C-2") 'my-xwem-switch-frame)
+(define-key xwem-global-map (xwem-kbd "H-C-3") 'my-xwem-switch-frame)
+(define-key xwem-global-map (xwem-kbd "H-C-4") 'my-xwem-switch-frame)
+(define-key xwem-global-map (xwem-kbd "H-C-5") 'my-xwem-switch-frame)
+(define-key xwem-global-map (xwem-kbd "H-C-6") 'my-xwem-switch-frame)
+(define-key xwem-global-map (xwem-kbd "H-C-7") 'my-xwem-switch-frame)
+(define-key xwem-global-map (xwem-kbd "H-C-8") 'my-xwem-switch-frame)
+(define-key xwem-global-map (xwem-kbd "H-C-9") 'my-xwem-switch-frame)
+
+@end example
+
+TODO: write me

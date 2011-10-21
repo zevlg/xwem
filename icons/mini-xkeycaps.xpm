@@ -1,0 +1,29 @@
+/* XPM */
+static char *mini_xkeycaps_xpm[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 6 1",
+/* colors */
+" 	c None",
+".	c red",
+"X	c black",
+"o	c white",
+"O	c #C0C0C0",
+"+	c #808080",
+/* pixels */
+"    ...     .   ",
+"     ...   .    ",
+"      ... .     ",
+"       . .      ",
+"      . ...     ",
+"     .   ...    ",
+"    .     ...   ",
+"                ",
+"XXXXXXXXXXXXXXXX",
+"XoOXoOXoOXoOXoOX",
+"XO+XO+XO+XO+XO+X",
+"XXXXXXXXXXXXXXXX",
+"  XoOXoOXoOXoOX ",
+"  XO+XO+XO+XO+X ",
+"  XXXXXXXXXXXXX ",
+"                "
+};

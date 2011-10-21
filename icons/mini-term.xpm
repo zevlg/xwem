@@ -1,0 +1,28 @@
+/* XPM */
+static char *mini_term_xpm[] = {
+/* width height num_colors chars_per_pixel */
+"16 16 6 1",
+" 	c None",
+"#	c black",
+"*	c gray50",
+"a	c blue",
+"c	c gray85",
+".	c white",
+/* pixels */
+"                ",
+"     *********  ",
+"    *cccccccc*# ",
+"   *........**# ",
+"   *.######.**# ",
+"   *.#aaaaa.**# ",
+"   *.#aaaaa.**# ",
+"   *.#aaaaa.**# ",
+"   *........*#**",
+"   *#########*c#",
+"  *.........*c*#",
+"  **#*#*#*#*#**#",
+" *c#c#c#c#c#c## ",
+"*...........c#  ",
+"#############   ",
+"                "
+};

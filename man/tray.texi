@@ -1,0 +1,87 @@
+@node System Tray, Help, Manage Database, Subsystems
+@comment  node-name,  next,  previous,  up
+@section System Tray
+@cindex tray
+@cindex XEMBED
+
+@dfn{System Tray} is some area in your screen, that used to hold some X
+applications called dock applications or dockapps in short.  XWEM's
+system tray uses @ref{XWEM Minibuffer} as that area, so you does not
+lost it.  It is morden to implement system tray using XEMBED protocol,
+which describes how dockapps and tray window should communicate.  XWEM's
+system tray uses extended version of XEMBED protocol, which allow any
+dockapp to run Emacs Lisp!
+
+@defvar xwem-tray-enabled
+Non-@code{nil} mean that System tray will be used by XWEM.
+@end defvar
+
+@defvar xwem-tray-max-docks
+Maximum number of dockapps to be used in system tray.  If value is to
+much, than system tray may eat too much space in XWEM's minibuffer and
+you will not be able to comfortable interact with it. Default value is
+6.
+@end defvar
+
+@defvar xwem-tray-minib-position
+Symbol that may be @code{'right} or @code{'left} specifies position in
+XWEM's minibuffer where first dockapp appears.
+@end defvar
+
+@defvar xwem-tray-minib-posoffset
+Offset in pixels from XWEM's minibuffer edge.
+@end defvar
+
+@defvar xwem-tray-minib-docoffset
+Offset in pixels between two dockapps.
+@end defvar
+
+@defvar xwem-tray-cursor-shape
+Shape of cursor when pointer is over one of dockapp, see @code{X-XC-XXX}
+constants values. Default is value of @code{X-XC-right_ptr}.
+@end defvar
+
+@defvar xwem-tray-cursor-foreground-color
+Specifies foreground color of cursor, when pointer is over one of
+dockapp.
+@end defvar
+
+@defvar xwem-tray-cursor-background-color
+Cursor's background color, when pointer over System tray.
+@end defvar
+
+@defvar xwem-tray-config
+This is a list of vectors and each vector is in form @code{[type
+value]}. Type is one of @code{XWEM-TRAY-DOCK} or
+@code{XWEM-TRAY-DELIM}. If type is @code{XWEM-TRAY-DOCK} than value is
+string and it specifies program and program's arguments you need to
+launch and put in system tray. If type is @code{XWEM-TRAY-DELIM} than
+value is integer, which specifies offset in pixels to be inserted in
+system tray.
+@example
+xwem-tray-config
+@result{}
+([XWEM-TRAY-DOCK "/path/to/xwem-minitime -f 004400 -b bbbbbb"]
+ [XWEM-TRAY-DOCK "/path/to/xwem-miniapm"]
+ [XWEM-TRAY-DELIM 10]
+ [XWEM-TRAY-DOCK "path/to/xwem-minilaunch
+                  -l /path/to/icons/xterm.xpm xterm"]
+ [XWEM-TRAY-DOCK "/path/to/xwem-minilaunch
+                  -l /path/to/icons/xterm_big.xpm
+                  xterm -fn 10x20"]
+ [XWEM-TRAY-DOCK "/path/to/xwem-minilaunch
+                  -e \"(make-frame)\"
+                  /path/to/icons/xemacs.xpm emacs"]
+ [XWEM-TRAY-DOCK "/path/to/xwem-minilaunch
+                  -l /path/to/icons/netscape.xpm
+                  netscape"])
+@end example
+@end defvar
+
+@defun xwem-tray-run-config &optional config
+This function takes @var{config} in format described above, and executes
+it.  See example of its usage.
+@example
+(add-hook 'xwem-after-init-hooks 'xwem-tray-run-config)
+@end example
+@end defun

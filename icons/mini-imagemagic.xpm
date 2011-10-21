@@ -1,0 +1,33 @@
+/* XPM */
+static char *mini_imagemagic_xpm[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 11 1",
+" 	 c None",
+".	 c #130808",
+"$	 c #1D2960",
+"-	 c #5D5F63",
+":	 c #777673",
+">	 c #174589",
+"2	 c #AA6600",
+"3	 c #8F6951",
+"r	 c #FA2F24",
+"9	 c #B7B5B4",
+"w	 c #DDDDDD",
+/* pixels */
+"             :- ",
+"            -2  ",
+"   23     9-:.  ",
+"    23   9>-.   ",
+"     2   ::-:   ",
+"     32  3--:   ",
+"     -3:933-:   ",
+"     .$>-ww-    ",
+"      $$$ww.    ",
+"        $ww9$-  ",
+"r r   r $-ww:.  ",
+"r rr rr :>9 93  ",
+"r r r r w>>...  ",
+"r r   r  $>>>.: ",
+"r r   r  :-.... ",
+"                "
+};

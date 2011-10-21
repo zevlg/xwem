@@ -1,0 +1,71 @@
+@node Addons, Logging, Hooking, Top
+@comment  node-name,  next,  previous,  up
+@chapter Addons
+@cindex Addons
+
+XWEM have some usefull packages in its distribution.
+
+@itemize @bullet
+
+@item
+@code{xwem-clswi.el}
+Buqis like client switching.
+
+@item
+@code{xwem-diagram.el}
+Diagram drawer for XWEM.
+@itemize @minus
+@item
+Bars diagrams.
+@item
+Circle digrams.
+@item
+Plain digrams.
+@item
+3D digrams.
+@end itemize
+
+@item
+@code{xwem-edmacro.el}
+Addon to edit keyboard macros.
+
+@item
+@code{xwem-framei.el}
+Frame indicator.
+
+@item
+@code{xwem-gamma.el}
+Interactive gamma corrector.
+
+@item
+@code{xwem-holer.el}
+Create holes in Frames.
+
+@item
+@code{xwem-osd.el}
+On Screen Display for XWEM.
+
+@item
+@code{xwem-register.el}
+Registers for XWEM.
+
+@item
+@code{xwem-rooter.el}
+Handle Clients on root window.
+
+@item
+@code{xwem-time.el}
+@code{display-time} like dockapp.
+
+@item
+@code{xwem-worklog.el}
+Keep track on what you are doing.
+
+@item
+@code{xwem-xfig.el}
+XFIG format.
+
+@end itemize
+
+
+TODO: more packages description, tutorial on how to write XWEM packages.

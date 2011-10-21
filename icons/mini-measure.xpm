@@ -1,0 +1,32 @@
+/* XPM */
+static char *mini_measure_xpm[] = {
+/* width height num_colors chars_per_pixel */
+"15 16 9 1",	
+/* colors */	
+" 	c None",
+"#	c black",
+"*	c #800000",
+"a	c #008000",
+"b	c #c0c0c0",
+"c	c #808080",
+"d	c #ff0000",
+"e	c #00ff00",
+".	c white",
+/* pixels */	
+"  cccccccccccc#",
+" cbbbbbbbbbbbc#",
+"c...........cc#",
+"c.bbbbbbbbbbcc#",
+"c.baaaaaaabbcc#",
+"c.baeeeee.bbcc#",
+"c.b.......bbcc#",
+"c.bbbbbbbbbbcc#",
+"c.baaaaaaabbcc#",
+"c.baeeeee.bbcc#",
+"c.b.......bbcc#",
+"c.bbbbbbbbbbcc#",
+"c.b*******.bcc#",
+"c.b*dddddd.bcc#",
+"c.b........bc# ",
+"#############  "
+};

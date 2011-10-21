@@ -1,0 +1,28 @@
+/* XPM */
+static char *mini_ftp_xpm[] = {
+/* width height num_colors chars_per_pixel */
+"16 16 5 1",
+/* colors */
+" 	c None",
+"#	c black",
+"*	c #0000ff",
+"o	c #7b7b7b",
+"Q	c #ffffff",
+/* pixels */
+"                ",
+"oooooooooooooooo",
+"################",
+"################",
+"QQQQQQQQQQQQQQQQ",
+"Q****Q****Q****Q",
+"Q****Q****Q****Q",
+"Q**QQQQ**QQ*QQ*Q",
+"Q**QQ Q**QQ*QQ*Q",
+"Q***Q Q**QQ****Q",
+"Q***Q Q**QQ****Q",
+"Q**QQ Q**QQ**QQQ",
+"Q**Q  Q**QQ**Q  ",
+"Q**Q  Q**QQ**Q  ",
+"QQQQ  QQQQQQQQ  ",
+"                ",
+};
