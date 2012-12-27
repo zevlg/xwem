@@ -1,0 +1,25 @@
+/* XPM */
+/* xwem logo by lg */
+static char * xwem_xpm[] = {    
+"34 13 8 1",			     
+" 	s None	c None",	     
+".	c black",		     
+"W	c red",			     
+"E	c green",		     
+"M	c blue",		     
+"o	c yellow",		     
+"c	c cyan",		     
+"a	c magenta",		     
+".....       W .   WEWEacMM     M M",
+" .....     W .   WEWEWccMMM   M M ",
+"  .....   W .   WEWoWccEcMMM M M  ",
+"   ..... W .   WEWoWMMEEEcMMM M   ",
+"    ..... .   WEWEWMM  EEEcM M    ",
+"     ... .   WEWEWcc    EEEEM     ",
+"     W. ... WEWoWccEE    EEM      ",
+"    W. .....EWoWMMEEEE    M       ",
+"   W. W .....EWMM  EEEE  M        ",
+"  W. WWW .....EM    EEEEM         ",
+" W. WWWWWE.....E     EEM          ",
+"W. W  WWWWE.....E     M           ",
+".WW    WWWWE.....E   M            "};
