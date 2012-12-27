@@ -1,0 +1,9 @@
+*.elc
+*~
+
+lisp/auto-autoloads.el
+lisp/custom-load.el
+lisp/xwem-loaddefs.el
+lisp/xwem-version.el
+man/xwem-version.texi
+man/xwem.info
